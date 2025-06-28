@@ -3,18 +3,20 @@ import { socialLinks } from "./lib/config";
 
 export default function Page() {
   return (
-    <section>
-      <a href={socialLinks.twitter} target="_blank">
-        <Image
-          src="./photos/10.jpg"
-          alt="Profile photo"
-          className="rounded-full bg-gray-100 block lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5 grayscale hover:grayscale-0"
-          unoptimized
-          width={160}
-          height={160}
-          priority
-        />
-      </a>
+          <section><a href={socialLinks.twitter} target="_blank">
+        <div className="group w-fit mx-auto sm:float-right sm:ml-5 sm:mb-5 lg:mt-5 mb-10">
+          <Image
+            src="/photos/10.jpg"
+            alt="Profile photo"
+            className="rounded-full bg-gray-100 sm:grayscale sm:group-hover:grayscale-0 sm:group-active:grayscale-0 transition-all duration-300"
+            width={160}
+            height={160}
+            unoptimized
+            priority
+          />
+        </div>
+
+            </a>
       <h1 className="mb-4 text-2xl font-semibold">Hey👋🏼! I'm Aarushi</h1>
       <h2 className="mb-6 text-xl font-medium">A Full Stack Developer</h2>
       <div className="prose prose-neutral dark:prose-invert">
@@ -27,6 +29,7 @@ export default function Page() {
         <p>
           I enjoy transforming ideas into code, optimizing user experiences, and solving problems through elegant, scalable solutions. Whether it's building frontend interfaces or working on backend APIs, I strive for clean and maintainable code.
         </p>
+        <br></br>
         <p>
           I’m always open to collaborating on exciting tech projects, contributing to teams, and learning from industry professionals.
         </p>

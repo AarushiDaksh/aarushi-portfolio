@@ -19,15 +19,15 @@ export default function Projects() {
             key={index}
             className="flex flex-col md:flex-row items-center gap-6 group border-b pb-8 border-neutral-200 dark:border-neutral-700"
           >
-            <div className="w-full md:w-1/2 h-56 relative rounded-lg overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover grayscale group-hover:grayscale-0 transition duration-300 ease-in-out"
-                priority
-              />
-            </div>
+         <div className="w-full md:w-1/2 h-56 relative rounded-lg overflow-hidden">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover sm:grayscale sm:group-hover:grayscale-0 transition duration-300 ease-in-out"
+              priority
+            />
+          </div>
             <div className="w-full md:w-1/2">
               <h2 className="text-xl font-semibold text-black dark:text-white mb-2 group-hover:text-orange-500 transition">
                 {project.title}

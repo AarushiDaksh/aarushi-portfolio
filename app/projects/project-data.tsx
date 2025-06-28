@@ -21,7 +21,7 @@ export const projects: Project[] = [
     description:
       "Peer to Peer skill exchange platform where users can exchange skills with other users.",
     url: "https://skill-swap-fawn.vercel.app/",
-    image: "/photos/skillSwap.png",
+    image: "/photos/SkillSwap.png",
   },
   {
     title: "LinkPilot",

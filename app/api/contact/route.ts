@@ -2,10 +2,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const formData = await req.formData();
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
+    const { name, email, message } = await req.json();
 
     if (!name || !email || !message) {
       return Response.json({ success: false, error: "Missing fields" });
@@ -23,7 +20,7 @@ export async function POST(req: Request) {
       from: `"${name}" <${email}>`,
       to: process.env.EMAIL_USER,
       subject: "New message from portfolio",
-      text: message.toString(),
+      text: message,
     };
 
     const info = await transporter.sendMail(mailOptions);
