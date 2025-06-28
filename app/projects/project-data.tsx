@@ -35,7 +35,7 @@ export const projects: Project[] = [
     title: "Flare",
     year: 2025,
     description: "Dating App - Backend Application with Express and MongoDB.",
-    url: "https://github.com/AarushiDaksh/LinkPilot.git",
+    url: "https://github.com/AarushiDaksh/DatingApp.git",
     image: "/photos/Flare.jpeg",
   },
   {
