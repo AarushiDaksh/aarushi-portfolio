@@ -96,7 +96,7 @@ export default function ContactForm() {
         )}
 
         <textarea
-          placeholder="Your Message"
+          placeholder="Your Message - lets connect and  work together"
           rows={4}
           {...register("message")}
           className="w-full px-4 py-2 text-sm border rounded bg-white dark:bg-zinc-900 text-black dark:text-white"
