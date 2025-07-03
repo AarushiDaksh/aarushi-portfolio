@@ -116,7 +116,7 @@ export default function BlogPosts() {
     
       <div className="mt-10 flex justify-center gap-4">
         <a
-          href="https://drive.google.com/file/d/1XFaOmie7BP9pAcDzyfRUOqDzb6R9aYTA/view?usp=sharing" 
+          href="https://drive.google.com/file/d/1gNdy2ihTYUGhLRC6K5ObIXXhrp25zFdJ/view?usp=sharing" 
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block text-sm font-medium px-4 py-2 border border-black dark:border-white rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
