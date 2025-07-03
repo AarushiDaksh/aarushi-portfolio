@@ -27,7 +27,7 @@ export const projects: Project[] = [
     title: "LinkPilot",
     year: 2025,
     description:
-      "LinkedIn-like platform for students to connect and find job opportunities - Backend Application with Express and MongoDB.",
+      "LinkedIn automation bot for students to connect and find job opportunities - Backend Application with Express and MongoDB.",
     url: "https://github.com/AarushiDaksh/LinkPilot.git",
     image: "/photos/LinkPilot.jpeg",
   },
