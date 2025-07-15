@@ -1,8 +1,3 @@
 
 # aarushi-portfolio
-=======
-
-# aarushi
-=======
-# Nextfolio
 
