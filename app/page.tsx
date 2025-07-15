@@ -17,8 +17,8 @@ export default function Page() {
         </div>
 
             </a>
-      <h1 className="mb-4 text-2xl font-semibold">Hey👋🏼! I'm Aarushi</h1>
-      <h2 className="mb-6 text-xl font-medium">A Full Stack Developer</h2>
+    
+      <h2 className="mb-6 text-xl font-medium">A Full Stack Engineer</h2>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
           I'm a passionate Developer with a strong foundation in building responsive, user-friendly web applications. My tech stack includes React, Next.js, Node.js, MongoDB, and more.
