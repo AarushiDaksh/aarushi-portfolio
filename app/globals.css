@@ -19,6 +19,66 @@
   --sh-jsxliterals: #6266d1;
   --sh-property: #e25a1c;
   --sh-entity: #e25a1c;
+  --primary-green: #3C9A5F;
+  --medium-dark-green: #2F7748;
+  --dark-green: #204d31;
+  --light-green: #4EC987;
+  --text-color: #ffffff;
+  --border-color: #133820;
+  --primary-hover: #51b77d;
+  --minecraft-font: 'Press Start 2P', cursive;
+}
+
+
+
+.minecraft-button {
+  font-family: 'Minecraft', sans-serif;
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: var(--dark-green) 0 .1em 0;
+  color: var(--text-color);
+  background-color: var(--primary-green);
+  position: relative;
+  width: 10em;
+  padding: 0.5em 1em;
+  border-radius: 0.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: inline-block;
+}
+
+.minecraft-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -.175em;
+  width: 105%;
+  height: 100%;
+  background-color: var(--medium-dark-green);
+  z-index: -1;
+  border: 0.07em solid var(--border-color);
+  border-radius: 0.1rem;
+}
+
+.minecraft-button::after {
+  content: '';
+  position: absolute;
+  top: -0.175em;
+  left: 0;
+  width: 100%;
+  height: 125%;
+  background-image: linear-gradient(
+    var(--light-green) 50%,
+    var(--dark-green)
+  );
+  z-index: -2;
+  border: 0.07em solid var(--border-color);
+  border-radius: 0.1rem;
+}
+
+.minecraft-button:hover {
+  background-color: var(--primary-hover);
 }
 
 /* Dark theme colors */

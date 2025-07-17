@@ -26,7 +26,7 @@ const experiences = [
 
 const certificates = [
   {
-    title: "Developer Solutions for Microsoft Azure(AZ-204)",
+    title: "Developer Solutions for Microsoft Azure (AZ-204)",
     year: 2025,
     link: "https://learn.microsoft.com/api/achievements/share/en-us/AarushiDaksh-3115/W24BWLZN?sharingId=5832313FE374D7BA",
   },
@@ -36,19 +36,41 @@ const certificates = [
     link: "https://learn.microsoft.com/api/achievements/share/en-us/AarushiDaksh-3115/8ZBG46GW?sharingId=5832313FE374D7BA",
   },
   {
-    title: "Developer AI solutions for Microsoft Azure",
+    title: "Developer AI Solutions for Microsoft Azure",
     year: 2025,
-    link:"https://learn.microsoft.com/api/achievements/share/en-us/AarushiDaksh-3115/NVJXYCZF?sharingId=5832313FE374D7BA",
+    link: "https://learn.microsoft.com/api/achievements/share/en-us/AarushiDaksh-3115/NVJXYCZF?sharingId=5832313FE374D7BA",
   },
- {
-  title: "ICPCT-2025 IEEE Certificate of Presentation – A Multi-Criteria Decision-Making Approach for E-Commerce: An Evolutionary Study on Spring Boot Implementation",
-  year: 2025,
-},
-{
-  title: "Google Cloud Arcade Facilitator",
-  year: 2025,
-}
+  {
+    title: "ICPCT-2025 IEEE Paper Presentation – A Multi-Criteria Decision-Making Approach for E-Commerce",
+    year: 2025,
+  },
+  {
+    title: "Google Cloud Arcade Facilitator",
+    year: 2025,
+  },
+    {
+    title: "Hackathon – Delhi/NCR Hackfest (GeeksforGeeks, GGSIPU)",
+    year: 2025,
+  },
+  {
+    title: "Hackathon – Myntra HackerRamp: WeForShe 2024",
+    year: 2024,
+  },
+  {
+    title: "Hackathon – CodeClash 2.0",
+    year: 2025,
+  },
+  {
+    title: "Hackathon – Women Code to Win 2025 (Powered by ServiceNow)",
+    year: 2025,
+  },
+
+  {
+    title: "Member – Women in Tech (HerKey)",
+    year: 2025,
+  },
 ];
+
 
 
 
@@ -116,7 +138,7 @@ export default function BlogPosts() {
     
       <div className="mt-10 flex justify-center gap-4">
         <a
-          href="https://drive.google.com/file/d/1QbwSSvASY4Z-rIJHY3TIDpziEBayYWjA/view?usp=sharing" 
+          href="https://drive.google.com/file/d/1r9ZHXJ0JyyWvBx8VTCFRUyn2i2Aser8G/view?usp=sharing" 
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block text-sm font-medium px-4 py-2 border border-black dark:border-white rounded hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"

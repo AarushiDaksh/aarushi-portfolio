@@ -7,6 +7,13 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
 import { ThemeProvider } from "./components/theme-switch";
 import { metaData } from "./lib/config";
+import { Press_Start_2P } from "next/font/google";
+
+const pressStart = Press_Start_2P({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-minecraft",
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
