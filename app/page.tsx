@@ -1,23 +1,28 @@
 import Image from "next/image";
 import { socialLinks } from "./lib/config";
+import "./globals.css";
+import PlasmaWave from "./components/PlasmaWave";
+import RetroGrid from "./components/RetroGrid"; // ⬅️ NEW
 
 export default function Page() {
   return (
     <>
+     
+     
       <section>
-      <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer">
-        <div className="group w-fit mx-auto sm:float-right sm:ml-6 sm:mb-6 lg:mt-4 mb-10 transition-transform duration-300 hover:scale-105">
-          <Image
-            src="/photos/10.jpg"
-            alt="Profile photo"
-            className="rounded-full bg-gray-100 sm:grayscale sm:group-hover:grayscale-0 transition-all duration-300"
-            width={160}
-            height={160}
-            unoptimized
-            priority
-          />
-        </div>
-      </a>
+        <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer">
+          <div className="group w-fit mx-auto sm:float-right sm:ml-6 sm:mb-6 lg:mt-4 mb-10 transition-transform duration-300 hover:scale-105">
+            <Image
+              src="/photos/10.jpg"
+              alt="Profile photo"
+              className="rounded-full bg-gray-100 sm:grayscale sm:group-hover:grayscale-0 transition-all duration-300"
+              width={160}
+              height={160}
+              unoptimized
+              priority
+            />
+          </div>
+        </a>
 
         <h2 className="mb-6 text-xl font-medium">A Full Stack Engineer</h2>
         <div className="prose prose-neutral dark:prose-invert">
@@ -41,14 +46,14 @@ export default function Page() {
       </section>
 
       <a
-              href="https://maniac-ten.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="fixed top-1/2 right-5 -translate-y-1/2 z-50 bg-black text-white p-3 text-xl rounded-full shadow-md hover:bg-pink-600 hover:scale-110 transition duration-300"
-              title="Go to Maniac App"
-            >
-              🐞
-            </a>
-          </>
+        href="https://maniac-ten.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed top-1/2 right-5 -translate-y-1/2 z-50 bg-black text-white p-3 text-xl rounded-full shadow-md hover:bg-pink-600 hover:scale-110 transition duration-300"
+        title="Go to Maniac App"
+      >
+        🐞
+      </a>
+    </>
   );
 }

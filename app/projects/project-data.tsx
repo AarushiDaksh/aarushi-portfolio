@@ -1,6 +1,6 @@
 export interface Project {
   title: string;
-  year: number;
+  year?: number;
   description: string;
   url: string;
   image: string;
@@ -8,20 +8,28 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "StuGig - currently working on",
+    title: "SkillSlack – Developers Collaboration Platform",
     year: 2025,
     description:
-      "Freelance Market Place for students, where they find freelance gigs, post projects, and get AI-matched to the perfect opportunity in their campus economy.",
-    url: "https://stu-gig.vercel.app/",
-    image: "/photos/StuGig.png",
+      "Real-time Slack-style workspace for developers featuring channel-based chat, GitHub PR sync, voice rooms, and an AI chatbot. Built with Clerk auth, Socket.IO, GitHub API, and LiveKit.",
+    image: "/photos/slack.png",
+    url: "https://skillslack.vercel.app",
   },
   {
-    title: "Skill-Swap",
+    title: "StuGig – Marketplace for Students",
     year: 2025,
     description:
-      "Peer to Peer skill exchange platform where users can exchange skills with other users.",
-    url: "https://skill-swap-fawn.vercel.app/",
-    image: "/photos/SkillSwap.png",
+      "A freelance gig platform built for students. Includes role-based dashboards, Stripe payments, SkillSwap matching, real-time chat, and admin tools.",
+    image: "/photos/StuGig.png",
+    url: "https://stugig.vercel.app",
+  },
+  {
+    title: "Maniac – AI Productivity Agent",
+    year: 2025,
+    description:
+      "AI agent to manage tasks, notes, and reminders with a retro-style animated timer and motivational feedback. Supports session logs, alerts, and smooth UX.",
+    image: "/photos/maniac.png",
+    url: "https://maniac-ten.vercel.app",
   },
   {
     title: "LinkPilot",
@@ -71,4 +79,3 @@ export const projects: Project[] = [
     image: "/photos/3Js.png",
   },
 ];
-// export projects array
