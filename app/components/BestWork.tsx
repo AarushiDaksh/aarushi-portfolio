@@ -1,43 +1,23 @@
 "use client";
 
-import Link from "next/link";
-import type { Metadata } from "next";
 import Image from "next/image";
-import { projects } from "./project-data";
+import Link from "next/link";
+import { projects } from "../projects/project-data";
 
+const featured = projects.filter((p) =>
+  ["SkillSlack – Developers Collaboration Platform", "StuGig – Marketplace for Students", "Maniac – AI Productivity Agent"].includes(p.title)
+);
 
-
-// Exclude featured projects
-const skipTitles = [
-  "SkillSlack – Developers Collaboration Platform",
-  "StuGig – Marketplace for Students",
-  "Maniac – AI Productivity Agent",
-];
-
-export default function Projects() {
-  const filteredProjects = projects.filter(
-    (project) => !skipTitles.includes(project.title)
-  );
-
+export default function BestWorks() {
   return (
-    <section>
-      <h1 className="mb-6 text-xl font-medium">All Projects</h1>
+    <section >
+      <h2 className="mb-6 text-xl font-medium">Best Works</h2>
 
       <div className="space-y-16">
-        {filteredProjects.map((project, index) => (
-          <div
-            key={index}
-            className="relative rounded-[20px] p-[3px]"
-            style={{
-              background:
-                "linear-gradient(to right bottom, rgba(255,255,255,0.05), rgba(255,255,255,0.01))",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-            }}
-          >
+        {featured.map((project, index) => (
+ <div key={index} className="p-[3px] rounded-[20px]">
             <div className="bg-[#111] rounded-[18px] overflow-hidden">
-              {/* Fake browser bar */}
+              {/* Fake browser tab bar */}
               <div className="flex justify-between items-center px-4 py-2 border-b border-neutral-800 bg-[#1a1a1a] text-sm">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 bg-pink-500 rounded-full" />
@@ -52,24 +32,23 @@ export default function Projects() {
                   target="_blank"
                   className="text-xs text-pink-500 font-semibold hover:underline hover:text-pink-400 transition"
                 >
-                  View Project
+                  Live Preview
                 </Link>
               </div>
 
-              {/* Project Image */}
+              {/* Screenshot section */}
               <Link href={project.url} target="_blank">
-                        <div className="relative w-full h-[300px] sm:h-[340px] overflow-hidden group">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.015] transition duration-300 ease-in-out"
-        />
-
+                <div className="relative w-full h-[300px] sm:h-[340px] overflow-hidden group">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-[1.015] transition duration-300 ease-in-out"
+                  />
                 </div>
               </Link>
 
-              {/* Footer */}
+              {/* Footer info */}
               <div className="flex justify-between items-center px-4 py-2 border-t border-neutral-800 text-sm text-neutral-400">
                 <span className="text-xs opacity-60">{project.title}</span>
                 <span className="text-xs font-medium text-white/80">↗ {project.year}</span>

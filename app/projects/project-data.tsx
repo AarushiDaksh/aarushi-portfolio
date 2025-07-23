@@ -13,7 +13,7 @@ export const projects: Project[] = [
     description:
       "Real-time Slack-style workspace for developers featuring channel-based chat, GitHub PR sync, voice rooms, and an AI chatbot. Built with Clerk auth, Socket.IO, GitHub API, and LiveKit.",
     image: "/photos/slack.png",
-    url: "https://skillslack.vercel.app",
+    url: "https://skill-slack.vercel.app",
   },
   {
     title: "StuGig – Marketplace for Students",
@@ -21,7 +21,7 @@ export const projects: Project[] = [
     description:
       "A freelance gig platform built for students. Includes role-based dashboards, Stripe payments, SkillSwap matching, real-time chat, and admin tools.",
     image: "/photos/StuGig.png",
-    url: "https://stugig.vercel.app",
+    url: "https://stu-gig.vercel.app",
   },
   {
     title: "Maniac – AI Productivity Agent",

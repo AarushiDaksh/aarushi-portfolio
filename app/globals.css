@@ -10,6 +10,9 @@
 
 /* Light theme colors */
 :root {
+    --angle: 90deg;
+  --c1: #ff68a3;
+  --c2: #7f59e4;
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
@@ -216,3 +219,58 @@ table {
   text-wrap: balance;
 }
 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+.animated-border {
+  border: 4px solid transparent;
+  border-radius: 20px;
+  background: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) border-box;
+  -webkit-mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0) border-box;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-rotate 6s linear infinite;
+}
+
+@keyframes border-rotate {
+  100% {
+    --angle: 420deg;
+  }
+}
+
+
+
+
+.bug-wave::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%) scale(1);
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 105, 180, 0.4);
+  animation: pulse-wave 2s ease-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulse-wave {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+  }
+}

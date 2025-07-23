@@ -41,30 +41,13 @@ const certificates = [
     link: "https://learn.microsoft.com/api/achievements/share/en-us/AarushiDaksh-3115/NVJXYCZF?sharingId=5832313FE374D7BA",
   },
   {
-    title: "ICPCT-2025 IEEE Paper Presentation – A Multi-Criteria Decision-Making Approach for E-Commerce",
+    title: "ICPCT-2025 IEEE Paper Presentation – A MCDM Approach for E-Commerce",
     year: 2025,
   },
   {
     title: "Google Cloud Arcade Facilitator",
     year: 2025,
   },
-    {
-    title: "Hackathon – Delhi/NCR Hackfest (GeeksforGeeks, GGSIPU)",
-    year: 2025,
-  },
-  {
-    title: "Hackathon – Myntra HackerRamp: WeForShe 2024",
-    year: 2024,
-  },
-  {
-    title: "Hackathon – CodeClash 2.0",
-    year: 2025,
-  },
-  {
-    title: "Hackathon – Women Code to Win 2025 (Powered by ServiceNow)",
-    year: 2025,
-  },
-
   {
     title: "Member – Women in Tech (HerKey)",
     year: 2025,
