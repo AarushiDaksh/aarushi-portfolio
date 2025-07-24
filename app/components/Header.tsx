@@ -66,7 +66,7 @@ export default function Header() {
 
       {/* Resume Button */}
       <Link
-        href="https://drive.google.com/file/d/1a3S8XO-hWdEBGD8Lo8gv_kPRd8XYdshT/view?usp=sharing"
+        href="https://drive.google.com/file/d/141tXeSgeU4wbbf4m5AYPvArnpgK4WgBH/view?usp=sharing"
         target="_blank"
         className="flex items-center gap-2 text-base font-semibold px-4 py-2 rounded-md border border-neutral-400 dark:border-neutral-700 bg-white dark:bg-black hover:bg-pink-600 hover:text-white transition"
       >
