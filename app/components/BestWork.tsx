@@ -10,13 +10,16 @@ const featured = projects.filter((p) =>
 
 export default function BestWorks() {
   return (
-    <section >
+    <section>
       <h2 className="mb-6 text-xl font-medium">Best Works</h2>
 
       <div className="space-y-16">
         {featured.map((project, index) => (
- <div key={index} className="p-[3px] rounded-[20px]">
-            <div className="bg-[#111] rounded-[18px] overflow-hidden">
+          <div
+            key={index}
+            className="relative rounded-[20px] p-[3px] bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-500 animate-border transition-transform hover:scale-[1.01]"
+          >
+            <div className="bg-[#111] rounded-[18px] overflow-hidden shadow-xl">
               {/* Fake browser tab bar */}
               <div className="flex justify-between items-center px-4 py-2 border-b border-neutral-800 bg-[#1a1a1a] text-sm">
                 <div className="flex items-center gap-2">

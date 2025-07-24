@@ -12,8 +12,7 @@ export default function Page() {
     <>
      
      
-      <section>
-       
+      <section> 
         <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer">
           {/* <div className="group w-fit mx-auto sm:float-right sm:ml-6 sm:mb-6 lg:mt-4 mb-10 transition-transform duration-300 hover:scale-105">
             <Image
@@ -27,7 +26,6 @@ export default function Page() {
             />
           </div> */}
         </a>
-
         <h2 className="mb-6 text-xl font-medium">About</h2>
         <div className="prose prose-neutral dark:prose-invert">
                 <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
@@ -37,6 +35,7 @@ export default function Page() {
       
         </div>
         <BestWorks />
+        <Navbar />
       </section>
 
 <a
