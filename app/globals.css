@@ -242,13 +242,34 @@ table {
     --angle: 420deg;
   }
 } */
+.animated-border {
+  position: relative;
+  border-radius: 20px;
+  padding: 7px;
+  background: linear-gradient(90deg, #b16cea, #ff5e69, #ff8a56, #ffa84b);
+  background-size: 300% 300%;
+  animation: borderGradient 6s ease infinite;
+  overflow: hidden;
+}
 
-@layer utilities {
-  .animate-border {
-    background-size: 300% 300%;
-    animation: gradient-border 5s ease infinite;
+@keyframes borderGradient {
+  0% {
+    background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
+/* @layer utilities {
+  .animate-border {
+    background-size: 600% 600%;
+    animation: gradient-border 5s ease infinite;
+  } */
+/* 
   @keyframes gradient-border {
     0% {
       background-position: 0% 50%;
@@ -260,7 +281,7 @@ table {
       background-position: 0% 50%;
     }
   }
-}
+} */
 
 
 
