@@ -2,8 +2,8 @@ import Image from "next/image";
 import { socialLinks } from "./lib/config";
 import "./globals.css";
 import PlasmaWave from "./components/PlasmaWave";
-import RetroGrid from "./components/RetroGrid"; // ⬅️ NEW
-import Header from "./components/Header"; // Adjust path if needed
+import RetroGrid from "./components/RetroGrid"; 
+import Header from "./components/Header"; 
 import { Navbar } from "./components/nav";
 import BestWorks from "./components/BestWork";
 import RockCard from "./components/RockCard";
@@ -27,7 +27,7 @@ export default function Page() {
             />
           </div> */}
         </a>
-       <div className= "p-4">
+       <div className= "">
         <h2 className="mb-6 text-xl font-medium">About</h2>
         <div className="prose prose-neutral dark:prose-invert">
                 <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">

@@ -30,9 +30,10 @@ export default function Photos() {
         images={[
           { src: "/photos/19.jpg", alt: "B" },
            { src: "/photos/6.jpg", alt: "B" },
+           { src: "/photos/Xebia.png", alt: "B" },
         ]}
       />
-
+      
       <ImageGrid
         columns={4}
         images={[
