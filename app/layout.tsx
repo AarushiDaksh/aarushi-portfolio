@@ -1,8 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Press_Start_2P } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "./components/theme-switch";
 import Footer from "./components/footer";
 import Header from "./components/Header";
@@ -21,7 +19,7 @@ export const metadata: Metadata = {
   title: { default: metaData.title, template: `%s | ${metaData.title}` },
   description: metaData.description,
   openGraph: {
-    images: metaData.ogImage,
+    images: metaData.ogImage ?? "/photos/aa.png",
     title: metaData.title,
     description: metaData.description,
     url: metaData.baseUrl,
@@ -29,61 +27,33 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+  twitter: {
+    title: metaData.name,
+    card: "summary_large_image",
+    images: ["/photos/aa.png"], // optional but nice for consistency
   },
-  twitter: { title: metaData.name, card: "summary_large_image" },
-  icons: { icon: "/favicon.ico" },
+  // Files must live in /public; reference them with a leading slash
+  icons: {
+    icon: [
+      { url: "/photos/aa.png", type: "image/png", sizes: "1000x1000" },
+      // keep a classic favicon too if you have it:
+      // { url: "/favicon.ico" }
+    ],
+    // optional Apple touch icon (ideally 180x180)
+    apple: "/photos/aa.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          href="/rss.xml"
-          title="RSS Feed"
-        />
-        <link
-          rel="alternate"
-          type="application/atom+xml"
-          href="/atom.xml"
-          title="Atom Feed"
-        />
-        <link
-          rel="alternate"
-          type="application/feed+json"
-          href="/feed.json"
-          title="JSON Feed"
-        />
-      </head>
-
-      <body
-        className={`${inter.className} ${pressStart.variable} antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className={`${inter.className} ${pressStart.variable} antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[800px] w-full">
             <Header />
             {children}
             <Navbar />
             <Footer />
-            <Analytics />
-            <SpeedInsights />
           </main>
         </ThemeProvider>
       </body>

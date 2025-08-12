@@ -9,6 +9,7 @@ import {
   LuExternalLink as ExternalLink,
 } from "react-icons/lu";
 import  RockContactForm from "../components/RockContactForm";
+import RockCard from "../components/RockCard";
 
 
 const experiences = [
@@ -143,6 +144,8 @@ export default function ExperiencePage() {
       <div className="mt-14">
         <RockContactForm />
       </div>
+
+      
     </section>
   );
 }
