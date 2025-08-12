@@ -245,24 +245,62 @@ table {
 .animated-border {
   position: relative;
   border-radius: 20px;
-  padding: 7px;
-  background: linear-gradient(90deg, #b16cea, #ff5e69, #ff8a56, #ffa84b);
+  padding: 15px;
+  background: linear-gradient(90deg, #b16cea, #d275ab, #b13e37, #d24698);
   background-size: 300% 300%;
-  animation: borderGradient 6s ease infinite;
+  animation: borderGradient 3s linear infinite; /* faster for rock vibe */
   overflow: hidden;
+  box-shadow: 0 0 15px rgba(209, 70, 152, 0.7), 
+              0 0 30px rgba(177, 62, 55, 0.6); /* glow */
 }
 
+/* Gradient animation */
 @keyframes borderGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shimmer light effect */
+.animated-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, 
+              rgba(255, 255, 255, 0.3) 0%, 
+              rgba(255, 255, 255, 0.05) 100%);
+  transform: skewX(-20deg);
+  animation: shimmer 3.5s infinite;
+}
+
+/* Shimmer keyframes */
+@keyframes shimmer {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+/* Optional gritty rock texture overlay */
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+  opacity: 0.15;
+  pointer-events: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --rock-border: linear-gradient(90deg, #6d5299, #8a5b76, #6a2e29, #7a3c5d);
+    --rock-bg: #0f0f10;
+    --rock-text: #f2f2f2;
+    --rock-shadowA: 0 0 12px rgba(161, 75, 119, 0.18);
+    --rock-shadowB: 0 0 26px rgba(154, 107, 199, 0.12);
   }
 }
+
 
 /* @layer utilities {
   .animate-border {
@@ -312,4 +350,176 @@ table {
     transform: translate(-50%, -50%) scale(2.4);
     opacity: 0;
   }
+
+  
+}
+
+
+/* ---------- THEME TOKENS ---------- */
+:root {
+  /* light theme */
+  --rock-base-start: #f8fafc;         /* page top */
+  --rock-base-end:   #f3f4f6;         /* page bottom */
+  --rock-spot-1:     rgba(59,130,246,0.12);
+  --rock-spot-2:     rgba(236,72,153,0.12);
+  --rock-vignette:   rgba(0,0,0,0.03);
+  --rock-grain:      0.08;
+
+  --rock-surface:    rgba(255,255,255,0.85);
+  --rock-border:     rgba(0,0,0,0.06);
+  --rock-shadow:     0 8px 30px rgba(0,0,0,.08);
+
+  --neon-color:      #0a0a0a;         /* headings in light */
+  --neon-shadow:     0 0 8px rgba(99,102,241,.25);
+}
+
+.dark {
+  /* dark theme */
+  --rock-base-start: #0a0a0a;
+  --rock-base-end:   #0b0b0b;
+  --rock-spot-1:     rgba(59,130,246,0.45);
+  --rock-spot-2:     rgba(236,72,153,0.45);
+  --rock-vignette:   rgba(255,255,255,0.02);
+  --rock-grain:      0.12;
+
+  --rock-surface:    rgba(17,17,17,0.70);
+  --rock-border:     rgba(255,255,255,0.10);
+  --rock-shadow:     0 12px 30px rgba(0,0,0,.35);
+
+  --neon-color:      #fafafa;         /* headings in dark */
+  --neon-shadow:
+    0 0 6px rgba(255,255,255,0.35),
+    0 0 18px rgba(168,85,247,0.55),
+    0 0 36px rgba(59,130,246,0.45);
+}
+
+/* ---------- ROCK BACKDROP ---------- */
+.rock-stage {
+  background:
+    radial-gradient(1400px 600px at 50% -10%, var(--rock-spot-2), transparent 60%),
+    radial-gradient(900px 400px at 0% 0%,    var(--rock-spot-1), transparent 55%),
+    radial-gradient(900px 400px at 100% 0%,  var(--rock-spot-2), transparent 55%),
+    linear-gradient(180deg, var(--rock-base-start), var(--rock-base-end));
+  position: relative;
+  isolation: isolate;
+}
+.rock-stage::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: var(--rock-grain);
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+}
+
+/* ceiling wash lights layer */
+.rock-spotlights {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(60% 35% at 20% -10%, var(--rock-spot-1), transparent 70%),
+    radial-gradient(60% 35% at 80% -10%, var(--rock-spot-2), transparent 70%);
+  filter: blur(40px) saturate(120%);
+  opacity: .55;
+  z-index: 0;
+}
+
+/* theme-adaptive heading glow */
+.neon {
+  color: var(--neon-color);
+  text-shadow: var(--neon-shadow);
+  letter-spacing: 0.02em;
+}
+
+/* stage surface box (cards/sections) */
+.rock-surface {
+  background: var(--rock-surface);
+  border: 1px solid var(--rock-border);
+  border-radius: 1rem;
+  box-shadow: var(--rock-shadow);
+ 
+}
+
+/* shared container */
+.container-rock { position: relative; z-index: 10; max-width: 80rem; margin-inline: auto; padding-inline: 1rem; }
+@media (min-width: 768px) { .container-rock { padding-inline: 1.5rem; } }
+
+/* themed FAB */
+.rock-fab {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 50; border-radius: 9999px; padding: .75rem; font-size: 1.5rem;
+  color: #fff; border: 1px solid var(--rock-border);
+  background: radial-gradient(120px 120px at 30% 30%, var(--rock-spot-2), var(--rock-spot-1) 40%, var(--rock-base-end) 60%);
+  box-shadow: var(--rock-shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.rock-fab:hover { transform: translateY(-50%) scale(1.08); }
+
+
+/* Rock album jewel case style */
+.rock-border-rock {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #111; /* fallback */
+}
+
+/* Metallic outer rim */
+.rock-border-rock::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 3px; /* border thickness */
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.9) 0%,
+    rgba(180,180,180,0.35) 20%,
+    rgba(60,60,60,0.5) 50%,
+    rgba(180,180,180,0.35) 80%,
+    rgba(255,255,255,0.9) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dark .rock-border-rock::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.4) 0%,
+    rgba(180,180,180,0.15) 20%,
+    rgba(0,0,0,0.6) 50%,
+    rgba(180,180,180,0.15) 80%,
+    rgba(255,255,255,0.4) 100%
+  );
+}
+
+/* Neon stage glow from inside */
+.rock-border-rock::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  /* background: radial-gradient(circle at top left, rgba(236,72,153,0.3), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(59,130,246,0.3), transparent 60%); */
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Cracked glass / grunge texture overlay */
+.rock-border-rock .grunge-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("/textures/grunge-texture.png"); /* Add your texture PNG here */
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 3;
 }

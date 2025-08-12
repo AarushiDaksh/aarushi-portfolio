@@ -1,31 +1,37 @@
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
-import { metaData } from "../lib/config";
+import { FaBookOpen, FaFolderOpen, FaStar } from "react-icons/fa";
 
 const navItems = {
-  // "/medium": { name: "Medium" },
-  // "/projects": { name: "Projects" },
-  "/highlights": { name: "Highlights 👽" },
+  "/medium": { name: "", icon: FaBookOpen },
+  "/projects": { name: "", icon: FaFolderOpen },
+  "/highlights": { name: "", icon: FaStar },
 };
 
 export function Navbar() {
   return (
-    <nav className="lg:mb-16 mb-12 py-5">
-      <div className="flex flex-col md:flex-row md:items-center justify-between">
-        <div className="flex items-center">
-          {/* Add logo or title here if needed */}
-        </div>
-        <div className="flex flex-row gap-4 mt-6 md:mt-0 md:ml-auto items-center">
-          {Object.entries(navItems).map(([path, { name }]) => (
-            <Link
-              key={path}
-              href={path}
-              className="transition-all duration-300 text-neutral-500 hover:text-pink-600 dark:text-neutral-400 dark:hover:text-lime-400"
-            >
-              {name}
-            </Link>
-          ))}
-        </div>
+    <nav
+      className="fixed bottom-7 left-1/2 -translate-x-1/2 z-50
+                 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md
+                 border border-black/5 dark:border-white/10
+                 rounded-full shadow-lg px-6 py-3"
+    >
+      <div className="flex items-center gap-6">
+        {Object.entries(navItems).map(([path, { name, icon: Icon }]) => (
+          <Link
+            key={path}
+            href={path}
+            className="flex flex-col items-center gap-1 text-xs font-medium
+                       transition-all duration-300 text-neutral-700 hover:text-pink-600 
+                       dark:text-neutral-300 dark:hover:text-lime-400"
+          >
+            <Icon size={20} />
+            <span>{name}</span>
+          </Link>
+        ))}
+
+        {/* Theme Switch */}
+        <ThemeSwitch />
       </div>
     </nav>
   );

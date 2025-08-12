@@ -119,7 +119,7 @@ export default function BlogPosts() {
 
        <ContactForm />
     
-      <div className="mt-10 flex justify-center gap-4">
+      {/* <div className="mt-10 flex justify-center gap-4">
         <a
           href="https://drive.google.com/file/d/1a3S8XO-hWdEBGD8Lo8gv_kPRd8XYdshT/view?usp=sharing" 
           target="_blank"
@@ -136,7 +136,7 @@ export default function BlogPosts() {
         >
           🧠 LeetCode Profile
         </a>
-      </div>
+      </div> */}
 
 
     </section>

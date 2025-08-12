@@ -77,5 +77,16 @@ export const projects: Project[] = [
       "Excited to learn more in Three.js, so I started by building my own personal 3D portfolio room.",
     url: "https://3-js-portfolio-aarushi-dakshs-projects.vercel.app/",
     image: "/photos/3Js.png",
+
   },
+  {
+  title: "Album",
+  year: 2025,
+  description:
+    "",
+  url: "",
+  image: "/photos/music.jpeg",
+},
+
+
 ];

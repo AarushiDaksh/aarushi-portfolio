@@ -6,6 +6,7 @@ import RetroGrid from "./components/RetroGrid"; // ⬅️ NEW
 import Header from "./components/Header"; // Adjust path if needed
 import { Navbar } from "./components/nav";
 import BestWorks from "./components/BestWork";
+import RockCard from "./components/RockCard";
 
 export default function Page() {
   return (
@@ -26,16 +27,18 @@ export default function Page() {
             />
           </div> */}
         </a>
+       <div className= "p-4">
         <h2 className="mb-6 text-xl font-medium">About</h2>
         <div className="prose prose-neutral dark:prose-invert">
                 <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
           I develop interactive web applications using <strong>React</strong>, <strong>Next.js</strong>, and <strong>Tailwind CSS</strong>, while creating powerful mobile apps with <strong>React Native</strong>.
         </p>
 
-      
+  
         </div>
         <BestWorks />
         <Navbar />
+        </div>
       </section>
 
 <a

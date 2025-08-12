@@ -6,9 +6,12 @@ import { projects } from "../projects/project-data";
 
 const featured = projects.filter((p) =>
   [
+    
     "SkillSlack – Developers Collaboration Platform",
+    "Album",
     "StuGig – Marketplace for Students",
     "Maniac – AI Productivity Agent",
+    
   ].includes(p.title)
 );
 
@@ -17,12 +20,14 @@ export default function BestWorks() {
     <section>
       <h2 className="mb-6 text-xl font-medium">Best Works</h2>
 
-      <div className="space-y-16">
+      <div className="space-y-16 ">
         {featured.map((project, index) => (
-          <div
-            key={index}
-            className="animated-border hover:scale-[1.01] transition-transform"
-          >
+         <div
+  key={index}
+  className="rock-border-rock hover:scale-[1.02] transition-transform duration-300"
+>
+
+
             <div className="bg-[#111] rounded-[18px] overflow-hidden shadow-xl">
               {/* Fake browser tab bar */}
               <div className="flex justify-between items-center px-4 py-2 border-b border-neutral-800 bg-[#1a1a1a] text-sm">

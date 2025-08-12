@@ -57,11 +57,7 @@ export default function Header() {
         </Link>
 
         {/* Theme Switch */}
-        <div className="w-11 h-11 p-2.5 flex items-center justify-center rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-700 transition">
-          <div className="ml-1 mt-2 w-[22px] h-[22px]">
-            <ThemeSwitch />
-          </div>
-        </div>
+       
       </div>
 
       {/* Resume Button */}
