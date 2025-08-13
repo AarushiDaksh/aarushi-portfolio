@@ -1,12 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  FaXTwitter,
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
 import { metaData, socialLinks } from "app/lib/config";
 
@@ -14,7 +9,12 @@ const YEAR = new Date().getFullYear();
 
 function SocialLink({ href, icon: Icon }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="transition-colors duration-200 hover:text-primary"
+    >
       <Icon />
     </a>
   );
@@ -31,10 +31,12 @@ function SocialLinks() {
 
 export default function Footer() {
   return (
-    <small className="block lg:mt-24 mt-16 text-[#1C1C1C] dark:text-[#D4D4D4]">
+    <small
+      className={"block lg:mt-24 mt-16 light:text-neutral-800 dark:text-neutral-200 dracula:text-neutral-200"}
+    >
       <time>© {YEAR}</time>{" "}
       <a
-        className="no-underline"
+        className="no-underline hover:underline"
         href={socialLinks.twitter}
         target="_blank"
         rel="noopener noreferrer"

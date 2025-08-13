@@ -30,7 +30,7 @@ export default function Page() {
        <div className= "">
         <h2 className="mb-6 text-xl font-medium">About</h2>
         <div className="prose prose-neutral dark:prose-invert">
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                <p className="text-sm light:text-neutral-700 dark:text-neutral-300 leading-relaxed dracula:text-neutral-300">
           I develop interactive web applications using <strong>React</strong>, <strong>Next.js</strong>, and <strong>Tailwind CSS</strong>, while creating powerful mobile apps with <strong>React Native</strong>.
         </p>
 
