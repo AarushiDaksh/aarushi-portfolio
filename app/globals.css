@@ -666,7 +666,7 @@ table {
   background-color: #282a36;
 
   /* base text vs header glow (decoupled) */
-  --fg: #56afb5;                        /* body text */
+  --fg: #0bb1b1;                        /* body text */
   --neon-color: #b10f79;                /* header name */
   --neon-shadow:
     0 0 6px rgba(248,248,242,.35),
