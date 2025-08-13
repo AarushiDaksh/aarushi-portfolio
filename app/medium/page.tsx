@@ -78,7 +78,7 @@ export default function ExperiencePage() {
       </div>
 
       {/* Work Experience */}
-      <h1 className="mb-6 text-3xl font-semibold tracking-tight text-black dark:text-white">
+      <h1 className="mb-6 text-xl font-medium">
         Work Experience
       </h1>
 
@@ -111,7 +111,7 @@ export default function ExperiencePage() {
       </ol>
 
       {/* Certificates */}
-      <h2 className="mt-10 mb-4 text-2xl font-semibold text-black dark:text-white">
+      <h2 className="mb-6 mt-6 text-xl font-medium">
         Certificates & Learnings
       </h2>
 
