@@ -22,7 +22,7 @@ export function Navbar() {
             key={path}
             href={path}
             className="flex flex-col items-center gap-1 text-xs font-medium
-                       transition-all duration-300 text-neutral-700 hover:text-pink-600 
+                       transition-all duration-300 text-[#d6549d] hover:text-pink-600 
                        dark:text-neutral-300 dark:hover:text-lime-400"
           >
             <Icon size={20} />

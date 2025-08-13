@@ -5,7 +5,14 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ThemeProviderProps } from "next-themes";
 import { FaCircleHalfStroke } from "react-icons/fa6";
 
-const storageKey = "theme-preference";
+const themes = ["light", "dark", "dracula"] as const;
+type ThemeName = (typeof themes)[number];
+
+const LABELS: Record<ThemeName, string> = {
+  light: "Light",
+  dark: "Dark",
+  dracula: "Dracula",
+}
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
@@ -13,6 +20,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
       attribute="class"
       defaultTheme="system"
       enableSystem
+      themes={themes as unknown as string[]} // next-themes expects string[]
       {...props}
     >
       {children}
@@ -21,76 +29,32 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 }
 
 export const ThemeSwitch: React.FC = () => {
-  const { setTheme } = useTheme();
+  const { setTheme, theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
-  const [currentTheme, setCurrentTheme] = React.useState<"light" | "dark">(
-    "light"
-  );
 
-  const getColorPreference = (): "light" | "dark" => {
-    if (typeof window !== "undefined") {
-      const storedPreference = localStorage.getItem(storageKey);
-      if (storedPreference) {
-        return storedPreference as "light" | "dark";
-      }
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    }
-    return "light";
-  };
+  React.useEffect(() => setMounted(true), []);
 
-  const reflectPreference = (theme: "light" | "dark") => {
-    document.documentElement.classList.remove("bg-light", "bg-dark");
-    document.documentElement.classList.add(`bg-${theme}`);
-    setCurrentTheme(theme);
-    setTheme(theme);
-  };
-
-  React.useEffect(() => {
-    setMounted(true);
-    const initTheme = getColorPreference();
-    reflectPreference(initTheme);
-
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = () => {
-      const newTheme = mediaQuery.matches ? "dark" : "light";
-      localStorage.setItem(storageKey, newTheme);
-      reflectPreference(newTheme);
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [setTheme]);
-
-  const toggleTheme = () => {
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-    localStorage.setItem(storageKey, newTheme);
-    reflectPreference(newTheme);
+  const currentTheme = (theme ?? resolvedTheme ?? "light") as ThemeName;
+  const safeIndex = Math.max(0, themes.indexOf(currentTheme));
+  const cycleTheme = () => {
+    const nextTheme = themes[(safeIndex + 1) % themes.length];
+    setTheme(nextTheme);
   };
 
   if (!mounted) {
-    return (
-      <FaCircleHalfStroke
-        className="h-[14px] w-[14px] text-[#1c1c1c]"
-        aria-hidden="true"
-      />
-    );
+    return <FaCircleHalfStroke className="h-[14px] w-[14px]" aria-hidden="true" />;
   }
 
   return (
     <button
       id="theme-toggle"
-      aria-label={`${currentTheme} mode`}
-      onClick={toggleTheme}
-      className="flex items-center justify-center transition-opacity duration-300 hover:opacity-90 cursor-pointer"
+      aria-label={`Switch theme (current: ${LABELS[currentTheme]})`}
+      onClick={cycleTheme}
+      className="flex items-center justify-center px-2 py-1 rounded hover:opacity-80 transition"
+      type="button"
     >
-      <FaCircleHalfStroke
-        className={`h-[14px] w-[14px] ${
-          currentTheme === "dark" ? "text-[#D4D4D4]" : "text-[#1c1c1c]"
-        }`}
-      />
+      <FaCircleHalfStroke className="h-[14px] w-[14px]" />
+      <span className="ml-2">{LABELS[currentTheme]}</span>
     </button>
   );
 };
