@@ -1,8 +1,8 @@
 export const metaData = {
-  baseUrl: "https://aarushi-portfolio-rouge.vercel.app/",
+  baseUrl: "https://www.aarushi.cloud/",
   title: "𝘈𝘢𝘳𝘶𝘴𝘩𝘪",
-  name: "Sirius",
-  ogImage: "../photos/10.jpg",
+  name: "aarushi.7cloud",
+  ogImage: "../photos/music.jpeg",
   description:
     "Hey!",
 };

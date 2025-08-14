@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import Header from "./components/Header";
 import { metaData } from "./lib/config";
 import { Navbar } from "./components/nav";
+import DraculaOverlay from "./components/Dracula";
 
 const pressStart = Press_Start_2P({
   subsets: ["latin"],
@@ -30,17 +31,16 @@ export const metadata: Metadata = {
   twitter: {
     title: metaData.name,
     card: "summary_large_image",
-    images: ["/photos/aa.png"], // optional but nice for consistency
+    images: ["/photos/d.png"], 
   },
-  // Files must live in /public; reference them with a leading slash
+
   icons: {
     icon: [
-      { url: "/photos/aa.png", type: "image/png", sizes: "1000x1000" },
-      // keep a classic favicon too if you have it:
-      // { url: "/favicon.ico" }
+      { url: "/photos/d.png", type: "image/png", sizes: "1000x1000" },
+      
     ],
-    // optional Apple touch icon (ideally 180x180)
-    apple: "/photos/aa.png",
+   
+    apple: "/photos/d.png",
   },
 };
 
@@ -52,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[800px] w-full">
             <Header />
             {children}
+            <DraculaOverlay />
             <Navbar />
             <Footer />
           </main>

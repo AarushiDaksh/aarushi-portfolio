@@ -802,3 +802,17 @@ table {
   border-radius: .5rem;
   padding: .1rem .35rem;
 }
+
+
+
+@keyframes dracula-float {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-10px) }
+  100% { transform: translateY(0) }
+}
+@keyframes dracula-fade-in {
+  from { opacity: 0; transform: translateY(8px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+.animate-dracula-float { animation: dracula-float 3.5s ease-in-out infinite; }
+.animate-dracula-fade-in { animation: dracula-fade-in 220ms ease-out 1; }
