@@ -1,6 +1,6 @@
 export const metaData = {
   baseUrl: "https://www.aarushi.cloud/",
-  title: "𝘈𝘢𝘳𝘶𝘴𝘩𝘪",
+  title: "𝘈𝘢𝘳𝘶𝘴𝘩𝘪.7𝘤𝘭𝘰𝘶𝘥",
   name: "aarushi.7cloud",
   ogImage: "../photos/music.jpeg",
   description:
