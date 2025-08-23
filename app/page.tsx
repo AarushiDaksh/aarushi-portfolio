@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import { Navbar } from "./components/nav";
 import BestWorks from "./components/BestWork";
 import RockCard from "./components/RockCard";
+import ProfileViews from "./components/ProfileViews";
 
 export default function Page() {
   return (
@@ -32,6 +33,8 @@ export default function Page() {
         <div className="prose prose-neutral dark:prose-invert">
                 <p className="text-sm light:text-neutral-700 dark:text-neutral-300 leading-relaxed dracula:text-neutral-300">
           I develop interactive web applications using <strong>React</strong>, <strong>Next.js</strong>, and <strong>Tailwind CSS</strong>, while creating powerful mobile apps with <strong>React Native</strong>.
+         <br></br>
+        {/* <ProfileViews />  */}
         </p>
 
   
