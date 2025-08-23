@@ -51,6 +51,7 @@ const certificates = [
   { title: "ICPCT-2025 IEEE Paper Presentation – A MCDM Approach for E-Commerce", year: 2025 },
   { title: "Google Cloud Arcade Facilitator", year: 2025 },
   { title: "Member – Women in Tech (HerKey)", year: 2025 },
+  {title: "Contributor and Mentor - GSSoC'25 (GirlScript Summer Of Code)", year: 2025 },
 ];
 
 export default function ExperiencePage() {

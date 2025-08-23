@@ -19,6 +19,7 @@ export default function Photos() {
             alt: "R",
             href: "",
           },
+          
 
 
           
@@ -31,6 +32,7 @@ export default function Photos() {
           { src: "/photos/19.jpg", alt: "B" },
            { src: "/photos/6.jpg", alt: "B" },
            { src: "/photos/Xebia.png", alt: "B" },
+           
         ]}
       />
       
@@ -38,6 +40,8 @@ export default function Photos() {
         columns={4}
         images={[
           { src: "/photos/8.jpg", alt: "T" },
+  
+          
         ]}
       />
     </section>
