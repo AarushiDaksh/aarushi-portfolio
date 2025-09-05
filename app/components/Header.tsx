@@ -89,7 +89,7 @@ export default function Header() {
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
         viewBox="0 0 50 50"
-        className="h-[12px] w-[12px]"
+        className="h-[20px] w-[20px]"
         style={{ color: "var(--c2)" }}
         aria-hidden="true"
       >
