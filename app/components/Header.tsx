@@ -54,16 +54,14 @@ export default function Header() {
         />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-6">
-          {/* Mobile: column w/ avatar on its own line, then name+actions
-              Desktop: single centered row (same as your original) */}
+    
           <div
             className={[
               "flex flex-col items-center justify-center text-center gap-3 sm:gap-6",
               scrolled ? "sm:h-16" : "sm:h-20",
               "sm:flex-row", // desktop row
             ].join(" ")}
-          >
-            {/* --- Row 1 (MOBILE): Avatar centered alone --- */}
+     >
             <Link href="/" className="sm:hidden block">
               <div
                 aria-hidden
@@ -119,23 +117,23 @@ export default function Header() {
                   </div>
                 </div>
 
-                <div className="min-w-0 leading-none">
-                  <h1
-                    className="flex items-center justify-center sm:justify-start gap-2 text-2xl font-semibold"
-                    style={{ color: "var(--text)" }}
-                  >
-                    <span className="truncate">Aarushi Daksh</span>
-                    <span className="leading-none" style={{ color: "var(--c1)" }}>
-                      ▶
-                    </span>
-                  </h1>
-                  <p
-                    className="hidden sm:block text-sm"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    Turning caffeine into code.
-                  </p>
-                </div>
+<div className="min-w-0 leading-none">
+                <h1
+                  className="flex items-center justify-center gap-2 text-2xl font-semibold"
+                  style={{ color: "var(--text)" }}
+                >
+                  <span className="truncate">Aarushi Daksh</span>
+                  <span className="leading-none" style={{ color: "var(--c1)" }}>
+                    ▶
+                  </span>
+                </h1>
+                <p
+                  className="hidden sm:block text-sm"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  Turning caffeine into code.
+                </p>
+              </div>
               </Link>
 
               {/* Brand (MOBILE: name only, avatar is above) */}
@@ -144,7 +142,7 @@ export default function Header() {
                 className="flex sm:hidden items-center min-w-0 gap-1.5"
               >
                 <h1
-                  className="flex items-center justify-center gap-1.5 text-[17px] font-semibold"
+                  className="flex items-center justify-center gap-1.5 text-[20px] font-semibold"
                   style={{ color: "var(--text)" }}
                 >
                   <span className="truncate">Aarushi Daksh</span>
@@ -163,7 +161,7 @@ export default function Header() {
                   aria-label="GitHub"
                   className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98]"
                   style={{
-                    background: "var(--control)",
+                    background: "conic-gradient(var(--c1), var(--c2), var(--c3), var(--c1))",
                     color: "var(--text)",
                     borderColor: "var(--ring)",
                   }}
@@ -216,7 +214,7 @@ export default function Header() {
                   style={{
                     background: "var(--control)",
                     color: "var(--text)",
-                    borderColor: "var(--ring)",
+                    borderColor:"conic-gradient(var(--c1), var(--c2), var(--c3), var(--c1))",
                   }}
                 >
                   <FaFile className="h-4 w-4" /> Resume
