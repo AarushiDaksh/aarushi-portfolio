@@ -96,25 +96,28 @@ export default function Page() {
               </p>
 
               {/* Scroll button */}
-              <div className="mt-8">
-                <a
-                  href="#works"
-                  className="group inline-flex items-center gap-3 rounded-full ring-1 px-4 py-2 text-sm font-medium transition-all hover:scale-[1.02]"
-                  style={{
-                    borderColor: "var(--ring)",
-                    color: "var(--text)",
-                    background: "var(--control, transparent)",
-                  }}
-                >
-                  <span
-                    className="relative flex h-8 w-8 items-center justify-center rounded-full ring-1"
-                    style={{ borderColor: "var(--ring)", background: "var(--control)" }}
-                  >
-                    <FaMousePointer className="h-4 w-4 animate-pulse" />
-                  </span>
-                  <span>Scroll to Best Works</span>
-                </a>
-              </div>
+<div className="mt-8">
+  <a
+    href="#works"
+    className="group inline-flex items-center gap-2 sm:gap-3 rounded-full ring-1 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium transition-all hover:scale-[1.02]"
+    style={{
+      borderColor: "var(--ring)",
+      color: "var(--text)",
+      background: "var(--control, transparent)",
+    }}
+  >
+    <span
+      className="relative flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full ring-1"
+      style={{ borderColor: "var(--ring)", background: "var(--control)" }}
+    >
+      <FaMousePointer className="h-3 w-3 sm:h-4 sm:w-4 animate-pulse" />
+    </span>
+    <span>Scroll to Best Works</span>
+  </a>
+</div>
+
+
+
             </div>
 
             {/* Decorative spiral card (no image) */}

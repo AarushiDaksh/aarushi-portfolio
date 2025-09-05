@@ -47,7 +47,7 @@ export default function Header() {
                 aria-hidden
                 className={[
                   "relative rounded-xl p-[1px] mx-auto shadow-sm",
-                  scrolled ? "w-12 h-12" : "w-14 h-14",
+                  scrolled ? "w-14 h-14" : "w-16 h-16",
                 ].join(" ")}
                               >
                 <div className="relative h-full w-full overflow-hidden rounded-[10px] bg-black/90">
@@ -74,55 +74,54 @@ export default function Header() {
               </h1>
             </Link>
 
-            {/* Line 3: Buttons — equal width, icons + labels */}
-            <div className="w-full flex justify-center">
-              <div className="grid grid-cols-3 gap-2 w-full max-w-xs">
-                {/* LeetCode */}
-                <Link
-                  href="https://leetcode.com/u/aarushidaksh05/"
-                  target="_blank"
-                  aria-label="LeetCode"
-                  className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-medium transition-all active:scale-[0.98]"
-                  style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 50 50"
-                    className="h-[16px] w-[16px]"
-                    style={{ color: "var(--c2)" }}
-                    aria-hidden="true"
-                  >
-                    <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
-                  </svg>
-                  
-                </Link>
+          {/* Line 3: Buttons — equal width, icons + labels */}
+<div className="w-full flex justify-center">
+  <div className="grid grid-cols-3 gap-2 w-full max-w-xs">
+    {/* LeetCode */}
+    <Link
+      href="https://leetcode.com/u/aarushidaksh05/"
+      target="_blank"
+      aria-label="LeetCode"
+      className="flex h-10 items-center justify-center rounded-lg ring-1 transition-all active:scale-[0.98]"
+      style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 50 50"
+        className="h-[18px] w-[18px]"
+        style={{ color: "var(--c2)" }}
+        aria-hidden="true"
+      >
+        <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
+      </svg>
+    </Link>
 
-                {/* GitHub */}
-                <Link
-                  href="https://github.com/AarushiDaksh"
-                  target="_blank"
-                  aria-label="GitHub"
-                  className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-medium transition-all active:scale-[0.98]"
-                  style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
-                >
-                  <FaGithub className="h-[16px] w-[16px]" aria-hidden="true" />
-                  
-                </Link>
+    {/* GitHub */}
+    <Link
+      href="https://github.com/AarushiDaksh"
+      target="_blank"
+      aria-label="GitHub"
+      className="flex h-10 items-center justify-center rounded-lg ring-1 transition-all active:scale-[0.98]"
+      style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
+    >
+      <FaGithub className="h-[18px] w-[18px]" aria-hidden="true" />
+    </Link>
 
-                {/* Resume */}
-                <Link
-                  href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
-                  target="_blank"
-                  aria-label="Resume"
-                  className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-semibold transition-all active:scale-[0.98] pb-[2px]"
-                  style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
-                >
-                  <FaFile className="h-[16px] w-[16px]" aria-hidden="true" />
-                  Resume
-                </Link>
-              </div>
-            </div>
+    {/* Resume */}
+    <Link
+      href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
+      target="_blank"
+      aria-label="Resume"
+      className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-semibold transition-all active:scale-[0.98] pb-[2px]"
+      style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
+    >
+      <FaFile className="h-[16px] w-[16px]" aria-hidden="true" />
+      Resume
+    </Link>
+  </div>
+</div>
+
           </div>
 
           {/* ===== DESKTOP (centered row) ===== */}
@@ -131,7 +130,7 @@ export default function Header() {
             <Link href="/" className="flex items-center min-w-0 gap-3">
               <div
                 aria-hidden
-                className={["relative rounded-xl ring-1  p-[2px] shrink-0", scrolled ? "w-12 h-12" : "w-[84px] h-[84px]"].join(" ")}
+                className={["relative rounded-xl ring-2  p-[2px] shrink-0", scrolled ? "w-16 h-16" : "w-[84px] h-[84px]"].join(" ")}
                               >
                 <div className="relative h-full w-full overflow-hidden rounded-[10px] bg-black/90">
                   <Image
@@ -200,7 +199,7 @@ export default function Header() {
         :root {
           --c1: #ff52bf;
           --c2: #ffb900;
-          --c3: #38bdf8;
+          --c3: #8538f8
 
           --header-bg: rgba(255, 255, 255, 0.85);
           --control: #f7f7f8;
@@ -212,7 +211,7 @@ export default function Header() {
         .dark {
           --c1: #ff52bf;
           --c2: #ffb900;
-          --c3: #38bdf8;
+          --c3: #8538f8
 
           --header-bg: rgba(18, 18, 18, 0.6);
           --control: rgba(255, 255, 255, 0.06);
@@ -224,7 +223,7 @@ export default function Header() {
         .dracula {
           --c1: #ff79c6;
           --c2: #bd93f9;
-          --c3: #8be9fd;
+          --c3: #8538f8
 
           --header-bg: rgba(40, 42, 54, 0.75);
           --control: rgba(68, 71, 90, 0.6);
