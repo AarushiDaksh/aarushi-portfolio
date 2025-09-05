@@ -16,12 +16,12 @@ const featured = projects.filter((p) =>
 export default function BestWorks() {
   return (
     <section>
-        <h1
+        <h2
               className="mb-6 text-xl font-medium"
               style={{ color: "var(--text)" }}
             >
               Best Works
-            </h1>
+            </h2>
       {/* tighter vertical rhythm on mobile */}
       <div className="space-y-10 sm:space-y-16">
         {featured.map((project, index) => (

@@ -15,12 +15,12 @@ export default function Page() {
       <main className="relative z-10">
         <section className="container mx-auto px-6 pt-12">
           <div>
-            <h1
+            <h2
               className="mb-6 text-xl font-medium"
               style={{ color: "var(--text)" }}
             >
               About
-            </h1>
+            </h2>
 
            <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
   From prototype to production: I build fast, elegant apps with

@@ -53,7 +53,7 @@ const certificates = [
 
 export default function ExperiencePage() {
   return (
-    <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+    <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-16 mt-3">
       {/* Page heading */}
       <header className="mb-10 text-center">
         <div className="mx-auto mb-4 h-px w-28 bg-gradient-to-r from-pink-500 via-amber-400 to-sky-400" />
