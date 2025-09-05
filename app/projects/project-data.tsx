@@ -1,15 +1,18 @@
+// app/projects/project-data.ts (or .tsx)
+
+export type Url = string;
+
 export interface Project {
-  tags: any;
-  repo: Url;
-  repo: any;
   title: string;
+  image: string;     // path or remote URL to screenshot
+  url: Url;          // live site or repo link
   year?: number;
-  description: string;
-  url: string;
-  image: string;
+  repo?: Url;        // optional GitHub/VCS link
+  tags?: string[];   // optional tags
+  description?: string;
 }
 
-export const projects: Project[] = [
+export const projects = [
   {
     title: "SkillSlack – Developers Collaboration Platform",
     year: 2025,
@@ -80,16 +83,12 @@ export const projects: Project[] = [
       "Excited to learn more in Three.js, so I started by building my own personal 3D portfolio room.",
     url: "https://3-js-portfolio-aarushi-dakshs-projects.vercel.app/",
     image: "/photos/3Js.png",
-
   },
   {
-  title: "Album",
-  year: 2025,
-  description:
-    "",
-  url: "",
-  image: "/photos/music.jpeg",
-},
-
-
-];
+    title: "Album",
+    year: 2025,
+    description: "",
+    url: "",
+    image: "/photos/music.jpeg",
+  },
+] satisfies Project[];
