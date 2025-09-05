@@ -298,10 +298,9 @@ export default function DigitalTwinPage() {
 
   return (
   <main
-  className="relative mx-auto max-w-4xl md:max-w-5xl px-3 sm:px-4 pt-6 sm:pt-8 pb-10 md:pb-12"
-  style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
->
-
+    className="relative mx-auto max-w-4xl md:max-w-5xl px-3 sm:px-4 pt-6 sm:pt-8 pb-28 md:pb-12"
+    style={{ paddingBottom: "max(env(safe-area-inset-bottom), 6rem)" }}
+  >
     {/* accent line (global helper if you added it) */}
     <span className="accent-line" aria-hidden />
 
@@ -463,53 +462,40 @@ export default function DigitalTwinPage() {
         )}
       </div>
     </div>
-{/* Composer: fixed on mobile, static on ≥sm; single ring, sleek */}
-<div
-  className="
-    fixed inset-x-0 bottom-0 z-50 sm:static sm:z-auto
-    bg-white/75 dark:bg-black/50 backdrop-blur-md
-    border-t sm:border-0
-  "
-  style={{ borderColor: "var(--ring)" }}
->
-  <div className="mx-auto w-full max-w-2xl px-3 py-3 sm:px-0 sm:py-0">
-    <form onSubmit={onSend} className="flex items-center gap-2">
-      <div
-        className="
-          flex-1 rounded-full border pl-4 pr-2 bg-[var(--card)] shadow-sm
-          transition
-          focus-within:border-transparent
-          focus-within:ring-2 focus-within:ring-inset
-          focus-within:ring-[rgba(130,90,231,1)] focus-within:ring-offset-0
-        "
-        style={{ borderColor: "var(--ring)" }}
-      >
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask me anything…"
-          className="w-full rounded-full bg-transparent py-3 px-3 text-sm outline-none focus:outline-none focus-visible:outline-none placeholder:opacity-60"
-          style={{ color: "var(--text)" }}
-          aria-label="Chat input"
-        />
-      </div>
+{/* Sticky input — single inset ring, no doubles */}
+<div className="mx-auto mt-3 w-full max-w-2xl sticky bottom-4 sm:static z-40">
+  <form onSubmit={onSend} className="flex items-center gap-2">
+    <div
+      className="
+        flex-1 rounded-full border pl-4 pr-2 bg-[var(--card)] shadow-sm
+        transition
+        focus-within:border-transparent
+        focus-within:ring-2 focus-within:ring-inset
+        focus-within:ring-[rgba(130,90,231,1)] focus-within:ring-offset-0
+      "
+      style={{ borderColor: "var(--ring)" }}
+    >
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Ask me anything…"
+        className="w-full rounded-full bg-transparent py-3  text-sm outline-none focus:outline-none focus-visible:outline-none placeholder:opacity-60"
+        style={{ color: "var(--text)", borderColor: "var(--ring)" }}
+        aria-label="Chat input"
+      />
+    </div>
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="inline-flex items-center justify-center rounded-full border p-2.5 shadow-sm transition hover:-translate-y-0.5 disabled:opacity-60"
-        style={{ borderColor: "var(--ring)", color: "var(--text)", background: "var(--card)" }}
-        aria-label="Send message"
-      >
-        <LuSend className="h-5 w-5" />
-      </button>
-    </form>
-
-    {/* safe-area shim for iOS home bar */}
-    <div className="h-[env(safe-area-inset-bottom)] sm:hidden" />
-  </div>
+    <button
+      type="submit"
+      disabled={loading}
+      className="inline-flex items-center justify-center rounded-full border p-2.5 shadow-sm transition hover:-translate-y-0.5 disabled:opacity-60"
+      style={{ borderColor: "var(--ring)", color: "var(--text)", background: "var(--card)" }}
+      aria-label="Send message"
+    >
+      <LuSend className="h-5 w-5" />
+    </button>
+  </form>
 </div>
-
 
     {/* Footer helper */}
     <div
