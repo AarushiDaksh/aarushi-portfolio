@@ -44,7 +44,7 @@ export default function Header() {
           borderColor: "var(--ring)",
         }}
       >
-        {/* thin accent line (kept subtle) */}
+        {/* thin accent line */}
         <div
           className="absolute inset-x-0 top-0 h-px"
           style={{
@@ -53,42 +53,98 @@ export default function Header() {
           }}
         />
 
-        {/* centered row, like before */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-6">
+          {/* Mobile: column w/ avatar on its own line, then name+actions
+              Desktop: single centered row (same as your original) */}
           <div
             className={[
-              "flex items-center justify-center text-center gap-3 sm:gap-6",
-              scrolled ? "h-16 sm:h-16" : "h-20 sm:h-20",
+              "flex flex-col items-center justify-center text-center gap-3 sm:gap-6",
+              scrolled ? "sm:h-16" : "sm:h-20",
+              "sm:flex-row", // desktop row
             ].join(" ")}
           >
-            {/* Brand */}
-            <Link href="/" className="flex items-center min-w-0 gap-2 sm:gap-3">
+            {/* --- Row 1 (MOBILE): Avatar centered alone --- */}
+            <Link href="/" className="sm:hidden block">
               <div
                 aria-hidden
                 className={[
-                  "relative rounded-lg p-[1px] sm:p-[2px] shrink-0",
-                  scrolled ? "w-9 h-9 sm:w-12 sm:h-12" : "w-11 h-11 sm:w-[84px] sm:h-[84px]",
+                  "relative rounded-lg p-[1px] shrink-0 mx-auto",
+                  scrolled ? "w-12 h-12" : "w-14 h-14",
                 ].join(" ")}
                 style={{
                   background:
                     "conic-gradient(var(--c1), var(--c2), var(--c3), var(--c1))",
                 }}
               >
-                <div className="relative h-full w-full overflow-hidden rounded-[7px] sm:rounded-[10px] bg-black/90">
+                <div className="relative h-full w-full overflow-hidden rounded-[10px] bg-black/90">
                   <Image
                     src="/photos/13.jpg"
                     alt="Aarushi Daksh"
                     fill
                     className="object-cover select-none"
-                    sizes="(max-width: 640px) 44px, 84px"
+                    sizes="56px"
                     priority
                   />
                 </div>
               </div>
+            </Link>
 
-              <div className="min-w-0 leading-none">
+            {/* --- Single row on desktop; second row on mobile --- */}
+            <div className="flex items-center justify-center gap-3 sm:gap-6 flex-wrap">
+              {/* Brand (DESKTOP: avatar + name) */}
+              <Link
+                href="/"
+                className="hidden sm:flex items-center min-w-0 gap-2 sm:gap-3"
+              >
+                <div
+                  aria-hidden
+                  className={[
+                    "relative rounded-lg p-[2px] shrink-0",
+                    scrolled ? "w-12 h-12" : "w-[84px] h-[84px]",
+                  ].join(" ")}
+                  style={{
+                    background:
+                      "conic-gradient(var(--c1), var(--c2), var(--c3), var(--c1))",
+                  }}
+                >
+                  <div className="relative h-full w-full overflow-hidden rounded-[10px] bg-black/90">
+                    <Image
+                      src="/photos/13.jpg"
+                      alt="Aarushi Daksh"
+                      fill
+                      className="object-cover select-none"
+                      sizes="84px"
+                      priority
+                    />
+                  </div>
+                </div>
+
+                <div className="min-w-0 leading-none">
+                  <h1
+                    className="flex items-center justify-center sm:justify-start gap-2 text-2xl font-semibold"
+                    style={{ color: "var(--text)" }}
+                  >
+                    <span className="truncate">Aarushi Daksh</span>
+                    <span className="leading-none" style={{ color: "var(--c1)" }}>
+                      ▶
+                    </span>
+                  </h1>
+                  <p
+                    className="hidden sm:block text-sm"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    Turning caffeine into code.
+                  </p>
+                </div>
+              </Link>
+
+              {/* Brand (MOBILE: name only, avatar is above) */}
+              <Link
+                href="/"
+                className="flex sm:hidden items-center min-w-0 gap-1.5"
+              >
                 <h1
-                  className="flex items-center justify-center gap-1.5 sm:gap-2 text-[17px] sm:text-2xl font-semibold"
+                  className="flex items-center justify-center gap-1.5 text-[17px] font-semibold"
                   style={{ color: "var(--text)" }}
                 >
                   <span className="truncate">Aarushi Daksh</span>
@@ -96,80 +152,76 @@ export default function Header() {
                     ▶
                   </span>
                 </h1>
-                <p className="hidden sm:block text-sm" style={{ color: "var(--text-muted)" }}>
-                  Turning caffeine into code.
-                </p>
-              </div>
-            </Link>
-
-            {/* Actions — simple, no gradients */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* GitHub */}
-              <Link
-                href="https://github.com/AarushiDaksh"
-                target="_blank"
-                aria-label="GitHub"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98]"
-                style={{
-                  background: "var(--control)",
-                  color: "var(--text)",
-                  borderColor: "var(--ring)",
-                }}
-              >
-                <FaGithub className="h-[20px] w-[20px]" />
               </Link>
 
-              {/* LeetCode */}
-              <Link
-                href="https://leetcode.com/u/aarushidaksh05/"
-                target="_blank"
-                aria-label="LeetCode"
-                title="LeetCode"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98]"
-                style={{
-                  background: "var(--control)",
-                  borderColor: "var(--ring)",
-                }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 50 50"
-                  className="h-[20px] w-[20px]"
-                  style={{ color: "var(--c2)" }}
+              {/* Actions */}
+              <div className="flex items-center justify-center gap-2 sm:gap-3">
+                {/* GitHub */}
+                <Link
+                  href="https://github.com/AarushiDaksh"
+                  target="_blank"
+                  aria-label="GitHub"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98]"
+                  style={{
+                    background: "var(--control)",
+                    color: "var(--text)",
+                    borderColor: "var(--ring)",
+                  }}
                 >
-                  <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
-                </svg> 
-              </Link>
+                  <FaGithub className="h-[20px] w-[20px]" />
+                </Link>
 
-              {/* Mobile Resume icon */}
-              <Link
-                href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
-                target="_blank"
-                aria-label="Resume"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98] sm:hidden"
-                style={{
-                  background: "var(--control)",
-                  color: "var(--text)",
-                  borderColor: "var(--ring)",
-                }}
-              >
-                <FaFile className="h-[20px] w-[20px]" />
-              </Link>
+                {/* LeetCode */}
+                <Link
+                  href="https://leetcode.com/u/aarushidaksh05/"
+                  target="_blank"
+                  aria-label="LeetCode"
+                  title="LeetCode"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98]"
+                  style={{
+                    background: "var(--control)",
+                    borderColor: "var(--ring)",
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 50 50"
+                    className="h-[20px] w-[20px]"
+                    style={{ color: "var(--c2)" }}
+                  >
+                    <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
+                  </svg>
+                </Link>
 
-              {/* Desktop Resume button (plain, no gradient) */}
-              <Link
-                href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
-                target="_blank"
-                className="hidden sm:inline-flex items-center gap-2 rounded-lg ring-1 px-3.5 py-2 text-sm font-semibold transition-colors duration-200"
-                style={{
-                  background: "var(--control)",
-                  color: "var(--text)",
-                  borderColor: "var(--ring)",
-                }}
-              >
-                <FaFile className="h-4 w-4" /> Resume
-              </Link>
+                {/* Resume (mobile = icon, desktop = button) */}
+                <Link
+                  href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
+                  target="_blank"
+                  aria-label="Resume"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98] sm:hidden"
+                  style={{
+                    background: "var(--control)",
+                    color: "var(--text)",
+                    borderColor: "var(--ring)",
+                  }}
+                >
+                  <FaFile className="h-[20px] w-[20px]" />
+                </Link>
+
+                <Link
+                  href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
+                  target="_blank"
+                  className="hidden sm:inline-flex items-center gap-2 rounded-lg ring-1 px-3.5 py-2 text-sm font-semibold transition-colors duration-200"
+                  style={{
+                    background: "var(--control)",
+                    color: "var(--text)",
+                    borderColor: "var(--ring)",
+                  }}
+                >
+                  <FaFile className="h-4 w-4" /> Resume
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -216,7 +268,6 @@ export default function Header() {
           --ring: rgba(189, 147, 249, 0.45);
         }
 
-        /* unified hover for all buttons without gradients */
         a[aria-label="GitHub"],
         a[aria-label="LeetCode"],
         a[aria-label="Resume"] {
@@ -228,7 +279,6 @@ export default function Header() {
           background: var(--control-hover);
         }
 
-        /* ensure page content starts below header */
         :root {
           --header-h: 64px; /* fallback */
         }
