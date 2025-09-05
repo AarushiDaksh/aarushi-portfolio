@@ -36,7 +36,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="px-3 sm:px-0 mt-24">
+    <section className="px-3 sm:px-0 mt-7">
       <h1 className="mb-4 sm:mb-6 text-lg sm:text-xl font-medium">All Projects</h1>
 
       {/* Explorer shell */}

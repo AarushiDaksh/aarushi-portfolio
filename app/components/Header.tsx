@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaFile } from "react-icons/fa6";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -15,135 +16,226 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // keep content below fixed header
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const setVar = () =>
+      document.documentElement.style.setProperty("--header-h", `${el.offsetHeight}px`);
+    setVar();
+    const ro = new ResizeObserver(setVar);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   return (
-    <header
-      role="banner"
-      className={[
-        "fixed inset-x-0 top-0 z-50 transition-all",
-        scrolled
-          ? "bg-white/80 dark:bg-neutral-900/60 supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-900/40 backdrop-blur-md ring-1 ring-black/10 dark:ring-white/10 shadow-[0_6px_20px_-10px_rgba(0,0,0,0.6)]"
-          : "bg-transparent",
-      ].join(" ")}
-    >
-      {/* Theme accent line */}
-      <div
-        className="absolute inset-x-0 top-0 h-px"
+    <>
+      <header
+        ref={headerRef}
+        role="banner"
+        className={[
+          "fixed inset-x-0 top-0 z-50 transition-all",
+          "pt-[max(env(safe-area-inset-top),0px)]",
+          "backdrop-blur-md supports-[backdrop-filter]:backdrop-blur-md",
+          scrolled ? "" : "ring-0",
+        ].join(" ")}
         style={{
-          background:
-            "linear-gradient(90deg, var(--c1, #ff52bf), var(--c2, #ffb900), var(--c3, #38bdf8))",
+          background: scrolled ? "var(--header-bg)" : "transparent",
+          borderColor: "var(--ring)",
         }}
-      />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-5">
-        {/* Mobile compact, Desktop like before */}
+      >
+        {/* thin accent line (kept subtle) */}
         <div
-          className={[
-            "flex items-center justify-center gap-3 sm:gap-6 text-center",
-            "h-12 sm:h-20 transition-[height,padding]",
-          ].join(" ")}
-        >
-          {/* Brand (centered) */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0">
-            {/* Avatar: small on mobile, large (like before) on desktop */}
-            <div
-              aria-hidden
-              className={[
-                "relative rounded-lg p-[1px] sm:p-[2px] shrink-0",
-                scrolled
-                  ? "w-8 h-8 sm:w-12 sm:h-12"         // shrink on scroll
-                  : "w-9 h-9 sm:w-[84px] sm:h-[84px]", // desktop = previous large size
-              ].join(" ")}
-              style={{
-                background:
-                  "conic-gradient(var(--c1, #ff52bf), var(--c2, #ffb900), var(--c3, #38bdf8), var(--c1, #ff52bf))",
-              }}
-            >
-              <div className="relative h-full w-full overflow-hidden rounded-[7px] sm:rounded-[10px] bg-neutral-950">
-                <Image
-                  src="/photos/13.jpg"
-                  alt="Aarushi Daksh"
-                  fill
-                  className="object-cover select-none"
-                  sizes="(max-width: 640px) 36px, 84px"
-                  priority
-                />
-              </div>
-            </div>
+          className="absolute inset-x-0 top-0 h-px"
+          style={{
+            background: "linear-gradient(90deg, var(--c1), var(--c2), var(--c3))",
+            opacity: 0.9,
+          }}
+        />
 
-            <div className="min-w-0 leading-none">
-              <h1 className="flex items-center justify-center gap-1.5 sm:gap-2 text-sm sm:text-2xl font-semibold text-neutral-900 dark:text-white">
-                <span className="truncate">Aarushi Daksh</span>
-                <span className="leading-none" style={{ color: "var(--c1, #ff52bf)" }}>
-                  ▶
-                </span>
-              </h1>
-              {/* hide tagline on mobile, show on desktop */}
-              <p className="hidden sm:block text-sm text-neutral-600 dark:text-neutral-400">
-                Turning caffeine into code.
-              </p>
-            </div>
-          </Link>
-
-          {/* Actions: small on mobile, full size on desktop */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            <Link
-              href="https://github.com/AarushiDaksh"
-              target="_blank"
-              aria-label="GitHub"
-              className="inline-flex h-8 w-8 sm:h-11 sm:w-11 items-center justify-center rounded-lg
-                         ring-1 ring-neutral-300 dark:ring-white/10
-                         bg-neutral-100 text-neutral-900 hover:bg-neutral-200
-                         dark:bg-white/5 dark:text-white dark:hover:bg-white/10
-                         transition-colors duration-200"
-            >
-              <FaGithub className="h-[16px] w-[16px] sm:h-[20px] sm:w-[20px]" />
-            </Link>
-
-            <Link
-              href="https://leetcode.com/u/aarushidaksh05/"
-              target="_blank"
-              aria-label="LeetCode"
-              title="LeetCode"
-              className="inline-flex h-8 w-8 sm:h-11 sm:w-11 items-center justify-center rounded-lg
-                         ring-1 ring-neutral-300 dark:ring-white/10
-                         bg-neutral-100 hover:bg-neutral-200
-                         dark:bg-white/5 dark:hover:bg-white/10
-                         transition-colors duration-200"
-              style={{ color: "var(--c2, #ffb900)" }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 50 50"
-                className="h-[16px] w-[16px] sm:h-[20px] sm:w-[20px]"
+        {/* centered row, like before */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-6">
+          <div
+            className={[
+              "flex items-center justify-center text-center gap-3 sm:gap-6",
+              scrolled ? "h-16 sm:h-16" : "h-20 sm:h-20",
+            ].join(" ")}
+          >
+            {/* Brand */}
+            <Link href="/" className="flex items-center min-w-0 gap-2 sm:gap-3">
+              <div
+                aria-hidden
+                className={[
+                  "relative rounded-lg p-[1px] sm:p-[2px] shrink-0",
+                  scrolled ? "w-9 h-9 sm:w-12 sm:h-12" : "w-11 h-11 sm:w-[84px] sm:h-[84px]",
+                ].join(" ")}
+                style={{
+                  background:
+                    "conic-gradient(var(--c1), var(--c2), var(--c3), var(--c1))",
+                }}
               >
-                <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
-              </svg>
+                <div className="relative h-full w-full overflow-hidden rounded-[7px] sm:rounded-[10px] bg-black/90">
+                  <Image
+                    src="/photos/13.jpg"
+                    alt="Aarushi Daksh"
+                    fill
+                    className="object-cover select-none"
+                    sizes="(max-width: 640px) 44px, 84px"
+                    priority
+                  />
+                </div>
+              </div>
+
+              <div className="min-w-0 leading-none">
+                <h1
+                  className="flex items-center justify-center gap-1.5 sm:gap-2 text-[17px] sm:text-2xl font-semibold"
+                  style={{ color: "var(--text)" }}
+                >
+                  <span className="truncate">Aarushi Daksh</span>
+                  <span className="leading-none" style={{ color: "var(--c1)" }}>
+                    ▶
+                  </span>
+                </h1>
+                <p className="hidden sm:block text-sm" style={{ color: "var(--text-muted)" }}>
+                  Turning caffeine into code.
+                </p>
+              </div>
             </Link>
 
-            {/* Desktop-only Resume button (as before) */}
-            <Link
-              href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
-              target="_blank"
-              className="relative hidden sm:inline-flex items-center gap-2 rounded-lg p-[1.5px]"
-              style={{
-                background:
-                  "linear-gradient(120deg, var(--c1, #ff52bf), var(--c2, #ffb900), var(--c3, #38bdf8))",
-              }}
-            >
-              <span className="inline-flex items-center gap-2 rounded-[10px]
-                               bg-white text-neutral-900
-                               dark:bg-neutral-950 dark:text-white
-                               px-3.5 py-2 text-sm font-semibold
-                               ring-1 ring-neutral-300 dark:ring-white/10
-                               hover:bg-neutral-100 dark:hover:bg-neutral-900
-                               transition-colors duration-200">
+            {/* Actions — simple, no gradients */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* GitHub */}
+              <Link
+                href="https://github.com/AarushiDaksh"
+                target="_blank"
+                aria-label="GitHub"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98]"
+                style={{
+                  background: "var(--control)",
+                  color: "var(--text)",
+                  borderColor: "var(--ring)",
+                }}
+              >
+                <FaGithub className="h-[20px] w-[20px]" />
+              </Link>
+
+              {/* LeetCode */}
+              <Link
+                href="https://leetcode.com/u/aarushidaksh05/"
+                target="_blank"
+                aria-label="LeetCode"
+                title="LeetCode"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98]"
+                style={{
+                  background: "var(--control)",
+                  borderColor: "var(--ring)",
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 50 50"
+                  className="h-[20px] w-[20px]"
+                  style={{ color: "var(--c2)" }}
+                >
+                  <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
+                </svg> 
+              </Link>
+
+              {/* Mobile Resume icon */}
+              <Link
+                href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
+                target="_blank"
+                aria-label="Resume"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-all duration-200 active:scale-[0.98] sm:hidden"
+                style={{
+                  background: "var(--control)",
+                  color: "var(--text)",
+                  borderColor: "var(--ring)",
+                }}
+              >
+                <FaFile className="h-[20px] w-[20px]" />
+              </Link>
+
+              {/* Desktop Resume button (plain, no gradient) */}
+              <Link
+                href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
+                target="_blank"
+                className="hidden sm:inline-flex items-center gap-2 rounded-lg ring-1 px-3.5 py-2 text-sm font-semibold transition-colors duration-200"
+                style={{
+                  background: "var(--control)",
+                  color: "var(--text)",
+                  borderColor: "var(--ring)",
+                }}
+              >
                 <FaFile className="h-4 w-4" /> Resume
-              </span>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* theme variables */}
+      <style jsx global>{`
+        :root {
+          --c1: #ff52bf;
+          --c2: #ffb900;
+          --c3: #38bdf8;
+
+          --header-bg: rgba(255, 255, 255, 0.85);
+          --control: #f7f7f8;
+          --control-hover: #eeeeef;
+          --text: #111111;
+          --text-muted: #5e5e5e;
+          --ring: rgba(0, 0, 0, 0.12);
+        }
+
+        .dark {
+          --c1: #ff52bf;
+          --c2: #ffb900;
+          --c3: #38bdf8;
+
+          --header-bg: rgba(18, 18, 18, 0.6);
+          --control: rgba(255, 255, 255, 0.06);
+          --control-hover: rgba(255, 255, 255, 0.1);
+          --text: #ffffff;
+          --text-muted: #b3b3b3;
+          --ring: rgba(255, 255, 255, 0.12);
+        }
+
+        .dracula {
+          --c1: #ff79c6;
+          --c2: #bd93f9;
+          --c3: #8be9fd;
+
+          --header-bg: rgba(40, 42, 54, 0.75);
+          --control: rgba(68, 71, 90, 0.6);
+          --control-hover: rgba(68, 71, 90, 0.75);
+          --text: #f8f8f2;
+          --text-muted: #cfcfe6;
+          --ring: rgba(189, 147, 249, 0.45);
+        }
+
+        /* unified hover for all buttons without gradients */
+        a[aria-label="GitHub"],
+        a[aria-label="LeetCode"],
+        a[aria-label="Resume"] {
+          background: var(--control);
+        }
+        a[aria-label="GitHub"]:hover,
+        a[aria-label="LeetCode"]:hover,
+        a[aria-label="Resume"]:hover {
+          background: var(--control-hover);
+        }
+
+        /* ensure page content starts below header */
+        :root {
+          --header-h: 64px; /* fallback */
+        }
+        body {
+          padding-top: var(--header-h);
+        }
+      `}</style>
+    </>
   );
 }

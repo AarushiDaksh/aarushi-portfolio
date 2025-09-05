@@ -819,3 +819,68 @@ table {
 
 :root { --c1:#ff52bf; --c2:#ffb900; --c3:#38bdf8; --ring-focus:255 82 191; }
 /* optionally switch palettes by setting a class on <html> like .theme-mint etc. */
+:root { --header-offset: 72px; }  /* fallback */
+/* optional helper */
+.pt-header { padding-top: var(--header-offset); }
+
+/* === Theme tokens used by Page (and Header) === */
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --text-muted: #5e5e5e;
+  --control: #f7f7f8;
+  --control-strong: #e9e9ea;
+
+  /* accents */
+  --accent-pink: #ff52bf;
+  --accent-cyan: #38bdf8;
+  --accent-green: #16a34a; /* tailwind green-600-ish */
+
+  /* header vars if you’re using the themed header */
+  --c1: var(--accent-pink);
+  --c2: #ffb900;
+  --c3: var(--accent-cyan);
+  --header-bg: rgba(255,255,255,0.85);
+  --ring: rgba(0,0,0,0.12);
+}
+
+.dark {
+  --bg: #0b0b0b;
+  --text: #ffffff;
+  --text-muted: #b3b3b3;
+  --control: rgba(255,255,255,0.06);
+  --control-strong: rgba(255,255,255,0.10);
+
+  --accent-pink: #ff52bf;
+  --accent-cyan: #38bdf8;
+  --accent-green: #22c55e;
+
+  --header-bg: rgba(18,18,18,0.6);
+  --ring: rgba(255,255,255,0.12);
+}
+
+/* 🧛 Dracula */
+.dracula {
+  --bg: #282a36;
+  --text: #f8f8f2;
+  --text-muted: #cfcfe6;
+  --control: rgba(68,71,90,0.60);      /* buttons / subtle surfaces */
+  --control-strong: rgba(68,71,90,0.85);
+
+  /* Dracula accents */
+  --accent-pink: #ff79c6;
+  --accent-cyan: #8be9fd;
+  --accent-green: #50fa7b;
+
+  --c1: var(--accent-pink);
+  --c2: #bd93f9;  /* purple */
+  --c3: var(--accent-cyan);
+  --header-bg: rgba(40,42,54,0.75);
+  --ring: rgba(189,147,249,0.45);
+}
+
+/* optional: page background using theme var */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}

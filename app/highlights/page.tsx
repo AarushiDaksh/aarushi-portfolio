@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Photos() {
   return (
-    <section className="mt-24">
+    <section className="mt-5">
       <h1 className="mb-6 text-xl font-medium">Highlights</h1>
     
       <ImageGrid
