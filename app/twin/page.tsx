@@ -162,7 +162,8 @@ export default function DigitalTwinPage() {
   const [errText, setErrText] = useState<string | null>(null);
   const [showQuick, setShowQuick] = useState(true);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
-
+  const [showSkills, setShowSkills] = useState(false);
+  
   useEffect(() => {
     try {
       const raw = localStorage.getItem("twinFacts");
@@ -296,186 +297,215 @@ export default function DigitalTwinPage() {
   ];
 
   return (
-    <main className="mx-auto max-w-4xl md:max-w-5xl px-3 sm:px-4 py-8 sm:py-10">
-      {/* Header */}
-      <section className="mb-6 text-center">
-        <div
-          className="mx-auto flex h-20 w-20 sm:h-[96px] sm:w-[96px] items-center justify-center rounded-2xl border"
-          style={{ borderColor: "var(--ring)", background: "var(--card)" }}
-        >
-          <img
-            src="/photos/aa.png"
-            alt="Avatar"
-            className="h-[72px] w-[72px] sm:h-[84px] sm:w-[84px] rounded-xl object-cover"
-          />
-        </div>
+  <main
+    className="relative mx-auto max-w-4xl md:max-w-5xl px-3 sm:px-4 pt-6 sm:pt-8 pb-28 md:pb-12"
+    style={{ paddingBottom: "max(env(safe-area-inset-bottom), 6rem)" }}
+  >
+    {/* accent line (global helper if you added it) */}
+    <span className="accent-line" aria-hidden />
 
-        <h1 className="mt-4 text-xl sm:text-2xl font-semibold" style={{ color: "var(--text)" }}>
-          {TITLE}
-        </h1>
-        <p className="mt-1 text-sm opacity-80" style={{ color: "var(--text)" }}>
-          {SUBTITLE}
-        </p>
-        {/* Quick chips */}
-        <div className="mt-5">
-          <button
-            onClick={() => setShowQuick((s) => !s)}
-            className="mx-auto mb-3 flex items-center justify-center gap-1 text-xs opacity-90 hover:opacity-100"
-            style={{ color: "var(--text)" }}
-            type="button"
-          >
-            {showQuick ? <LuChevronUp className="h-3.5 w-3.5" /> : <LuChevronDown className="h-3.5 w-3.5" />}
-            {showQuick ? "Hide quick questions" : "Show quick questions"}
-          </button>
+    {/* soft hero glow behind header */}
+    <div className="pointer-events-none absolute inset-0 -z-10">
+      <div
+        className="mx-auto mt-24 h-[70vw] max-h-[540px] w-[90vw] max-w-[900px] rounded-full blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(236,72,153,.16), rgba(168,85,247,.14), rgba(56,189,248,.12), transparent 70%)",
+        }}
+      />
+    </div>
 
-          {showQuick && (
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {quickPrompts.map((qp) => (
-                <button
-                  key={qp.text}
-                  onClick={() => setInput(qp.text)}
-                  className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition hover:-translate-y-0.5"
-                  style={{
-                    borderColor: "var(--ring)",
-                    color: "var(--text)",
-                    background: "var(--card)",
-                  }}
-                  type="button"
-                >
-                  {qp.text}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Error banner */}
-      {errText && (
-        <div
-          className="mb-3 rounded-2xl border px-4 py-3 text-sm"
-          style={{
-            borderColor: "var(--ring)",
-            background: "rgba(244,63,94,0.08)",
-            color: "var(--text)",
-          }}
-        >
-          {errText}
-        </div>
-      )}
-
-      {/* ONE clear chat button */}
-      <div className="mx-auto mb-2 flex w-full max-w-2xl justify-end">
-        <button
-          onClick={handleClear}
-          title="Clear chat"
-          className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] transition hover:-translate-y-0.5"
-          style={{ borderColor: "var(--ring)", color: "var(--text)", background: "var(--card)" }}
-          type="button"
-          aria-label="Clear chat"
-        >
-          <LuTrash2 className="h-4 w-4" />
-          Clear chat
-        </button>
+    {/* Header */}
+    <section className="mb-6 text-center">
+      <div
+        className="mx-auto flex h-20 w-20 sm:h-[96px] sm:w-[96px] items-center justify-center rounded-2xl border shadow-sm"
+        style={{ borderColor: "var(--ring1)", background: "var(--card)" }}
+      >
+        <img
+          src="/photos/aa.png"
+          alt="Avatar"
+          className="h-[72px] w-[72px] sm:h-[84px] sm:w-[84px] rounded-xl object-cover"
+        />
       </div>
 
-      {/* Chat */}
-      <div
-        ref={scrollerRef}
-        className="min-h-[40vh] sm:min-h-[44vh] md:min-h-[46vh] max-h-[55vh] sm:max-h-[58vh] md:max-h-[60vh] w-full overflow-y-auto rounded-3xl border p-3 sm:p-4"
-        style={{ borderColor: "var(--ring)", background: "var(--card)" }}
-        role="log"
-        aria-live="polite"
+      {/* gradient title text for a bit of pop */}
+      <h1
+        className="mt-4 text-[20px] sm:text-2xl font-semibold"
+        style={{
+          background: "linear-gradient(90deg, var(--c1), var(--c2))",
+          WebkitBackgroundClip: "text",
+          color: "transparent",
+        }}
       >
-        <div className="mx-auto flex max-w-2xl flex-col gap-3">
-          {messages.map((m) => {
-            const isUser = m.role === "user";
-            return (
-              <div key={m.id} className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
-                <div className={`flex max-w-[90%] sm:max-w-[85%] items-end gap-2 ${isUser ? "flex-row-reverse" : ""}`}>
-                  <span
-                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs"
-                    style={{ borderColor: "var(--ring)", color: "var(--text)" }}
-                  >
-                    {isUser ? <LuUser className="h-4 w-4" /> : <LuBot className="h-4 w-4" />}
-                  </span>
-                  <div
-                    className="rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed"
-                    style={{
-                      border: "1px solid var(--ring)",
-                      background: isUser
-                        ? "linear-gradient(135deg, rgba(125,82,250,.18), rgba(56,189,248,.18))"
-                        : "var(--card)",
-                      color: "var(--text)",
-                    }}
-                  >
-                    {m.content}
-                  </div>
+        {TITLE}
+      </h1>
+
+      <p className="mt-1 text-sm opacity-80" style={{ color: "var(--text)" }}>
+        {SUBTITLE}
+      </p>
+
+      {/* Quick chips */}
+      <div className="mt-5">
+        <button
+          onClick={() => setShowQuick((s) => !s)}
+          className="mx-auto mb-3 flex items-center justify-center gap-1 text-xs opacity-90 hover:opacity-100"
+          style={{ color: "var(--text)" }}
+          type="button"
+        >
+          {showQuick ? <LuChevronUp className="h-3.5 w-3.5" /> : <LuChevronDown className="h-3.5 w-3.5" />}
+          {showQuick ? "Hide quick questions" : "Show quick questions"}
+        </button>
+
+        {showQuick && (
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {quickPrompts.map((qp) => (
+              <button
+                key={qp.text}
+                onClick={() => setInput(qp.text)}
+                className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition hover:-translate-y-0.5 hover:shadow-sm"
+                style={{
+                  borderColor: "var(--ring)",
+                  color: "var(--text)",
+                  background: "var(--card)",
+                }}
+                type="button"
+              >
+                {qp.text}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+
+    {/* Error banner */}
+    {errText && (
+      <div
+        className="mb-3 rounded-2xl border px-4 py-3 text-sm"
+        style={{
+          borderColor: "var(--ring)",
+          background: "rgba(244,63,94,0.08)",
+          color: "var(--text)",
+        }}
+      >
+        {errText}
+      </div>
+    )}
+
+    {/* ONE clear chat button */}
+    <div className="mx-auto mb-2 flex w-full max-w-2xl justify-end">
+      <button
+        onClick={handleClear}
+        title="Clear chat"
+        className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] transition hover:-translate-y-0.5 hover:shadow-sm"
+        style={{ borderColor: "var(--ring)", color: "var(--text)", background: "var(--card)" }}
+        type="button"
+        aria-label="Clear chat"
+      >
+        <LuTrash2 className="h-4 w-4" />
+        Clear chat
+      </button>
+    </div>
+
+    {/* Chat (glassy + fixed heights per breakpoint so it scrolls nicely everywhere) */}
+    <div
+      ref={scrollerRef}
+      className="h-[56svh] sm:h-[58vh] md:h-[60vh] w-full overflow-y-auto rounded-3xl border p-3 sm:p-4 backdrop-blur-md bg-white/40 dark:bg-black/25"
+      style={{ borderColor: "var(--ring)" }}
+      role="log"
+      aria-live="polite"
+    >
+      <div className="mx-auto flex max-w-2xl flex-col gap-3">
+        {messages.map((m) => {
+          const isUser = m.role === "user";
+          return (
+            <div key={m.id} className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
+              <div className={`flex max-w-[92%] sm:max-w-[85%] items-end gap-2 ${isUser ? "flex-row-reverse" : ""}`}>
+                <span
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs"
+                  style={{ borderColor: "var(--ring)", color: "var(--text)" }}
+                >
+                  {isUser ? <LuUser className="h-4 w-4" /> : <LuBot className="h-4 w-4" />}
+                </span>
+                <div
+                  className="rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed shadow-sm"
+                  style={{
+                    border: "1px solid var(--ring)",
+                    background: isUser
+                      ? "linear-gradient(135deg, rgba(125,82,250,.18), rgba(56,189,248,.18))"
+                      : "var(--card)",
+                    color: "var(--text)",
+                  }}
+                >
+                  {m.content}
                 </div>
               </div>
-            );
-          })}
-
-          {loading && (
-            <div className="flex items-center gap-2 opacity-80">
-              <span
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs"
-                style={{ borderColor: "var(--ring)", color: "var(--text)" }}
-              >
-                <LuBot className="h-4 w-4 animate-pulse" />
-              </span>
-              <div
-                className="rounded-2xl border px-3.5 py-2.5 text-sm"
-                style={{ borderColor: "var(--ring)", color: "var(--text)" }}
-              >
-                typing…
-              </div>
             </div>
-          )}
-        </div>
-      </div>
+          );
+        })}
 
-      {/* Sticky input on small screens */}
-      <div className="mx-auto mt-3 w-full max-w-2xl sticky bottom-3 sm:static">
-        <form
-          onSubmit={onSend}
-          className="flex items-center gap-2 rounded-full border px-2 sm:px-0 sm:border-0"
-          style={{ borderColor: "var(--ring)" }}
-        >
-          <div
-            className="flex-1 rounded-full border pl-4 pr-2"
-            style={{ borderColor: "var(--ring)", background: "var(--card)" }}
-          >
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask me anything… "
-              className="w-full rounded-full bg-transparent py-2.5 text-sm outline-none"
-              style={{ color: "var(--text)" }}
-            />
+        {loading && (
+          <div className="flex items-center gap-2 opacity-80" role="status" aria-live="polite">
+            <span
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs"
+              style={{ borderColor: "var(--ring)", color: "var(--text)" }}
+            >
+              <LuBot className="h-4 w-4 animate-pulse" />
+            </span>
+            <div
+              className="rounded-2xl border px-3.5 py-2.5 text-sm"
+              style={{ borderColor: "var(--ring)", color: "var(--text)" }}
+            >
+              typing…
+            </div>
           </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="inline-flex items-center justify-center rounded-full border p-2.5 transition hover:-translate-y-0.5 disabled:opacity-60"
-            style={{ borderColor: "var(--ring)", color: "var(--text)", background: "var(--card)" }}
-            aria-label="Send message"
-          >
-            <LuSend className="h-5 w-5" />
-          </button>
-        </form>
+        )}
       </div>
+    </div>
+{/* Sticky input — single inset ring, no doubles */}
+<div className="mx-auto mt-3 w-full max-w-2xl sticky bottom-4 sm:static z-40">
+  <form onSubmit={onSend} className="flex items-center gap-2">
+    <div
+      className="
+        flex-1 rounded-full border pl-4 pr-2 bg-[var(--card)] shadow-sm
+        transition
+        focus-within:border-transparent
+        focus-within:ring-2 focus-within:ring-inset
+        focus-within:ring-[rgba(130,90,231,1)] focus-within:ring-offset-0
+      "
+      style={{ borderColor: "var(--ring)" }}
+    >
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Ask me anything…"
+        className="w-full rounded-full bg-transparent py-3  text-sm outline-none focus:outline-none focus-visible:outline-none placeholder:opacity-60"
+        style={{ color: "var(--text)", borderColor: "var(--ring)" }}
+        aria-label="Chat input"
+      />
+    </div>
 
-     
+    <button
+      type="submit"
+      disabled={loading}
+      className="inline-flex items-center justify-center rounded-full border p-2.5 shadow-sm transition hover:-translate-y-0.5 disabled:opacity-60"
+      style={{ borderColor: "var(--ring)", color: "var(--text)", background: "var(--card)" }}
+      aria-label="Send message"
+    >
+      <LuSend className="h-5 w-5" />
+    </button>
+  </form>
+</div>
 
-      {/* Footer helper */}
-      <div className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-3 text-[11px] opacity-80" style={{ color: "var(--text)" }}>
-        <span>I keep answers short and simple.</span>
-        <span>•</span>
-        <span>This is dramatic just like me i love to create soo do we?</span>
-        <span>•</span>
-        <span>Working on Api i'll remove medium file till then have fun exploring digital me</span>
-             </div>
-    </main>
-  );
+    {/* Footer helper */}
+    <div
+      className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-3 text-[11px] opacity-80"
+      style={{ color: "var(--text)" }}
+    >
+      <span>I keep answers short and simple.</span>
+      <span>•</span>
+      <span>This is dramatic just like me I love to create so do we ?</span>
+    </div>
+  </main>
+);
 }

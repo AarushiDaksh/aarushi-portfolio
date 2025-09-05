@@ -1,3 +1,4 @@
+// app/layout.tsx (RootLayout)
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Press_Start_2P } from "next/font/google";
@@ -8,11 +9,7 @@ import { metaData } from "./lib/config";
 import { Navbar } from "./components/nav";
 import DraculaOverlay from "./components/Dracula";
 
-const pressStart = Press_Start_2P({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-minecraft",
-});
+const pressStart = Press_Start_2P({ subsets: ["latin"], weight: "400", variable: "--font-minecraft" });
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -31,15 +28,10 @@ export const metadata: Metadata = {
   twitter: {
     title: metaData.name,
     card: "summary_large_image",
-    images: ["/photos/d.png"], 
+    images: ["/photos/d.png"],
   },
-
   icons: {
-    icon: [
-      { url: "/photos/d.png", type: "image/png", sizes: "1000x1000" },
-      
-    ],
-   
+    icon: [{ url: "/photos/d.png", type: "image/png", sizes: "1000x1000" }],
     apple: "/photos/d.png",
   },
 };
@@ -47,9 +39,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${pressStart.variable} antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12`}>
+      <body className={`${inter.className} ${pressStart.variable} antialiased flex flex-col items-center justify-center mx-auto mt-0 lg:mt-8 mb-12`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[800px] w-full">
+          {/* Make this container positioning context for the line */}
+          <main className="relative isolate flex-auto min-w-0 mt-0 md:mt-0 flex flex-col px-6 sm:px-4 md:px-0 max-w-[800px] w-full">
+            {/* accent line (top of every page content) */}
+            <span className="accent-line" aria-hidden />
+
             <Header />
             {children}
             <DraculaOverlay />

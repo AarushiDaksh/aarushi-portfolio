@@ -666,7 +666,7 @@ table {
   background-color: #282a36;
 
   /* base text vs header glow (decoupled) */
-  --fg: #6f04fc;                        /* body text */
+  --fg: #825ae7;                        /* body text */
   --neon-color: #b10f79;                /* header name */
   --neon-shadow:
     0 0 6px rgba(248,248,242,.35),
@@ -912,3 +912,30 @@ html, body {
     --grid-alpha: 0.14;
   }
 }
+
+/* ---------- Accent gradient variables (light / dark / dracula) ---------- */
+:root {
+  --c1: #a78bfa; /* violet-400 */
+  --c2: #67e8f9; /* cyan-300  */
+  --c3: #facc15; /* yellow-400*/
+}
+
+.dark {
+  --c1: #c4b5fd; /* violet-300 */
+  --c2: #22d3ee; /* cyan-400   */
+  --c3: #fde68a; /* amber-200  */
+}
+
+/* if your Dracula theme toggles a class like `.dracula` or `[data-theme="dracula"]` */
+.dracula,
+[data-theme="dracula"] {
+  --c1: #bd93f9;
+  --c2: #8be9fd;
+  --c3: #ffb86c;
+}
+
+/* ---------- Reusable accent line helpers ---------- */
+
+
+
+

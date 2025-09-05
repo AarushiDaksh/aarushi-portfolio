@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
 import { FaBookOpen, FaFolderOpen, FaMediumM, FaStar } from "react-icons/fa";
-import { FaMedium } from "react-icons/fa6";
+import { FaA, FaMedium } from "react-icons/fa6";
 
 const navItems = {
-  "/twin": { name: "", icon: FaBookOpen },
+  "/twin": { name: "", icon: FaA },
   "/projects": { name: "", icon: FaFolderOpen },
-  "/medium": { name: "", icon: FaMediumM },
   "/highlights": { name: "", icon: FaStar },
 };
 

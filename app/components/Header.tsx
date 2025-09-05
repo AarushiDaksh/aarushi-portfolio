@@ -29,14 +29,7 @@ export default function Header() {
           borderColor: "var(--ring)",
         }}
       >
-        {/* accent line */}
-        <div
-          className="absolute inset-x-0 top-0 h-px"
-          style={{
-            background: "linear-gradient(90deg, var(--c1), var(--c2), var(--c3))",
-            opacity: 0.9,
-          }}
-        />
+        
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-6">
           {/* ===== MOBILE (3 lines) ===== */}
@@ -132,7 +125,7 @@ export default function Header() {
                 aria-hidden
                 className={["relative rounded-xl ring-2  p-[2px] shrink-0", scrolled ? "w-16 h-16" : "w-[84px] h-[84px]"].join(" ")}
                               >
-                <div className="relative h-full w-full overflow-hidden rounded-[10px] bg-black/90">
+                <div className="relative  h-full w-full overflow-hidden rounded-[10px] bg-black/90">
                   <Image
                     src="/photos/13.jpg"
                     alt="Aarushi Daksh"
@@ -207,6 +200,7 @@ export default function Header() {
           --text: #111111;
           --text-muted: #5e5e5e;
           --ring: rgba(0, 0, 0, 0.12);
+           --ring1: rgba(255, 255, 255, 0.1);
         }
         .dark {
           --c1: #ff52bf;
@@ -223,14 +217,15 @@ export default function Header() {
         .dracula {
           --c1: #ff79c6;
           --c2: #bd93f9;
-          --c3: #8538f8
+          --c3: #825ae7
 
           --header-bg: rgba(40, 42, 54, 0.75);
           --control: rgba(68, 71, 90, 0.6);
           --control-hover: rgba(68, 71, 90, 0.75);
           --text: #f8f8f2;
           --text-muted: #cfcfe6;
-          --ring: rgba(189, 147, 249, 0.45);
+         
+          --ring: rgba(255, 255, 255, 0);
         }
 
         a[aria-label] { background: var(--control); }
