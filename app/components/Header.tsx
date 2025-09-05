@@ -36,7 +36,7 @@ export default function Header() {
         className={[
           "fixed inset-x-0 top-0 z-50 transition-all",
           "pt-[max(env(safe-area-inset-top),0px)]",
-          "backdrop-blur-md supports-[backdrop-filter]:backdrop-blur-md",
+          "backdrop-blur-md supports-[backdrop-filter]:backdrop-blur-md ",
           scrolled ? "" : "ring-0",
         ].join(" ")}
         style={{
@@ -55,7 +55,7 @@ export default function Header() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-6">
           {/* ===== MOBILE (3 lines) ===== */}
-          <div className="sm:hidden flex flex-col items-center justify-center text-center gap-3">
+          <div className="sm:hidden flex flex-col items-center justify-center text-center gap-3 pb-3">
             {/* Line 1: Avatar */}
             <Link href="/" className="block">
               <div
@@ -143,7 +143,7 @@ export default function Header() {
                   borderColor: "var(--ring)",
                 }}
               >
-                <FaFile className="h-[20px] w-[20px]" />
+                <FaFile className="h-4 w-4" /> Resume
               </Link>
             </div>
           </div>
