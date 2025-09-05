@@ -47,7 +47,7 @@ export default function Header() {
                 aria-hidden
                 className={[
                   "relative rounded-xl p-[1px] mx-auto shadow-sm",
-                  scrolled ? "w-14 h-14" : "w-16 h-16",
+                  scrolled ? "w-14 h-14" : "w-20 h-20",
                 ].join(" ")}
                               >
                 <div className="relative h-full w-full overflow-hidden rounded-[10px] bg-black/90">
@@ -56,7 +56,7 @@ export default function Header() {
                     alt="Aarushi Daksh"
                     fill
                     className="object-cover select-none"
-                    sizes="56px"
+                    sizes="70px"
                     priority
                   />
                 </div>
@@ -116,7 +116,7 @@ export default function Header() {
       className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-semibold transition-all active:scale-[0.98] pb-[2px]"
       style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
     >
-      <FaFile className="h-[16px] w-[16px]" aria-hidden="true" />
+      <FaFile className="h-[18px] w-[18px]" aria-hidden="true" />
       Resume
     </Link>
   </div>
