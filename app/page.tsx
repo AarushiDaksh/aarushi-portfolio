@@ -74,7 +74,7 @@ export default function Page() {
       <RetroGrid z={0} strength="subtle" />
 
       <main className="relative z-10">
-        <section className="container mx-auto px-3 sm:px-4 pt-12">
+        <section className="container mx-auto px-1 sm:px-1 pt-12">
           <div className="grid grid-cols-1 md:grid-cols-[72px,1fr,420px] gap-6 md:gap-10 items-start">
             {/* spacer */}
             <div className="hidden md:block" />

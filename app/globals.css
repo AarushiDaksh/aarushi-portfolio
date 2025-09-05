@@ -884,3 +884,31 @@ html, body {
   background: var(--bg);
   color: var(--text);
 }
+
+/* Light */
+:root {
+  /* existing vars... */
+  --grid-rgba: 0, 0, 0;         /* black grid lines */
+  --grid-alpha: 0.06;           /* base visibility */
+}
+
+/* Dark */
+.dark {
+  /* existing vars... */
+  --grid-rgba: 255, 255, 255;   /* white grid lines */
+  --grid-alpha: 0.10;           /* slightly stronger for dark bg */
+}
+
+/* Dracula (make it a bit more visible) */
+.dracula {
+  /* existing vars... */
+  --grid-rgba: 255, 255, 255;   /* white grid lines read best */
+  --grid-alpha: 0.12;           /* boost visibility for Dracula */
+}
+
+/* Optional: users who prefer higher contrast */
+@media (prefers-contrast: more) {
+  .retro-grid {
+    --grid-alpha: 0.14;
+  }
+}

@@ -89,7 +89,7 @@ export default function Header() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 50 50"
-                    className="h-[16px] w-[16px]"
+                    className="h-[14px] w-[14px]"
                     style={{ color: "var(--c2)" }}
                     aria-hidden="true"
                   >
@@ -106,7 +106,7 @@ export default function Header() {
                   className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-medium transition-all active:scale-[0.98]"
                   style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
                 >
-                  <FaGithub className="h-[16px] w-[16px]" aria-hidden="true" />
+                  <FaGithub className="h-[14px] w-[14px]" aria-hidden="true" />
                   
                 </Link>
 
@@ -118,7 +118,7 @@ export default function Header() {
                   className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-semibold transition-all active:scale-[0.98] pb-[2px]"
                   style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
                 >
-                  <FaFile className="h-[16px] w-[16px]" aria-hidden="true" />
+                  <FaFile className="h-[14px] w-[14px]" aria-hidden="true" />
                   Resume
                 </Link>
               </div>

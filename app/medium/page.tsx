@@ -56,13 +56,8 @@ export default function ExperiencePage() {
     <section className="mx-auto max-w-4xl px-1 sm:px-1 lg:px-1 pb-16 mt-3">
       {/* Page heading */}
       <header className="mb-10 text-center">
-        <div className="mx-auto mb-4 h-px w-28 bg-gradient-to-r from-pink-500 via-amber-400 to-sky-400" />
-        <h2
-              className="mb-6 text-xl font-bold"
-              style={{ color: "var(--text)" }}
-            >
-            Experiences & Achievements
-            </h2>
+       
+        
         <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
           A quick look at my recent work, certifications, and how to reach me.
         </p>
