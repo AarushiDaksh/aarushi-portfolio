@@ -1,61 +1,55 @@
+"use client";
+
 import Image from "next/image";
 import { socialLinks } from "./lib/config";
 import "./globals.css";
-import PlasmaWave from "./components/PlasmaWave";
-import RetroGrid from "./components/RetroGrid"; 
-import Header from "./components/Header"; 
+import RetroGrid from "./components/RetroGrid";
 import { Navbar } from "./components/nav";
 import BestWorks from "./components/BestWork";
-import RockCard from "./components/RockCard";
-import ProfileViews from "./components/ProfileViews";
 
 export default function Page() {
   return (
     <>
-     
-     
-      <section> 
-        <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer">
-          {/* <div className="group w-fit mx-auto sm:float-right sm:ml-6 sm:mb-6 lg:mt-4 mb-10 transition-transform duration-300 hover:scale-105">
-            <Image
-              src="/photos/10.jpg"
-              alt="Profile photo"
-              className="rounded-full bg-gray-100 sm:grayscale sm:group-hover:grayscale-0 transition-all duration-300"
-              width={160}
-              height={160}
-              unoptimized
-              priority
-            />
-          </div> */}
-        </a>
-       <div className= "">
-        <h2 className="mb-6 text-xl font-medium">About</h2>
-        <div className="prose prose-neutral dark:prose-invert">
-                <p className="text-sm light:text-neutral-700 dark:text-neutral-300 leading-relaxed dracula:text-neutral-300">
-          I develop interactive web applications using <strong>React</strong>, <strong>Next.js</strong>, and <strong>Tailwind CSS</strong>, while creating powerful mobile apps with <strong>React Native</strong>.
-         <br></br>
-        {/* <ProfileViews />  */}
-        </p>
-
-  
-        </div>
-        <BestWorks />
-        <Navbar />
-        </div>
-      </section>
-
-<a
-  href="https://maniac-ten.vercel.app/"
-  target="_blank"
-  rel="noopener noreferrer"
-  title="Go to Maniac App"
-  className="bug-wave text-3xl mr-2 fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-black text-white p-3 rounded-full shadow-lg transition duration-300 hover:bg-pink-600 hover:scale-110"
->
-  🐞
-</a>
+      {/* Put the grid first, and not behind the body (z >= 0) */}
+     <RetroGrid z={0} strength="subtle" />
+<main className="relative z-10">…</main>
 
 
 
+      {/* Lift your content above the grid */}
+      <main className="relative z-10">
+        <section className="container mx-auto px-6 pt-12">
+          <div className="mt-12">
+            <h1 className="mb-6 text-xl font-medium">About</h1>
+            <p className="text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
+              I’m a <strong>Full-Stack Developer</strong> passionate about building
+              <strong> scalable web apps</strong> and <strong>modern UI experiences</strong>.
+              I specialize in <span className="text-pink-500">React, Next.js</span>,
+              and <span className="text-blue-500">Tailwind CSS</span>, while creating
+              powerful mobile apps with <span className="text-green-500">React Native</span>.
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <BestWorks />
+          </div>
+
+          <div className="mt-12">
+            <Navbar />
+          </div>
+        </section>
+      </main>
+
+      {/* Bug link */}
+      <a
+        href="https://maniac-ten.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Go to Maniac App"
+        className="bug-wave text-3xl mr-2 fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-black text-white p-3 rounded-full shadow-lg transition duration-300 hover:bg-pink-600 hover:scale-110"
+      >
+        🐞
+      </a>
     </>
   );
 }

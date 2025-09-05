@@ -1,4 +1,7 @@
 export interface Project {
+  tags: any;
+  repo: Url;
+  repo: any;
   title: string;
   year?: number;
   description: string;

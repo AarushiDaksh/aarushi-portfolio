@@ -816,3 +816,6 @@ table {
 }
 .animate-dracula-float { animation: dracula-float 3.5s ease-in-out infinite; }
 .animate-dracula-fade-in { animation: dracula-fade-in 220ms ease-out 1; }
+
+:root { --c1:#ff52bf; --c2:#ffb900; --c3:#38bdf8; --ring-focus:255 82 191; }
+/* optionally switch palettes by setting a class on <html> like .theme-mint etc. */
