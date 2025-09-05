@@ -7,7 +7,6 @@ import {
   LuBriefcaseBusiness as BriefcaseBusiness,
   LuExternalLink as ExternalLink,
 } from "react-icons/lu";
-import RockContactForm from "../components/RockContactForm";
 
 const experiences = [
   {
@@ -164,13 +163,6 @@ export default function ExperiencePage() {
         </ul>
       </section>
 
-      {/* Contact */}
-      <section aria-labelledby="contact-heading" className="mt-14">
-        <h2 id="contact-heading" className="mb-4 text-xl font-semibold  dark:text-neutral-100">
-          Contact
-        </h2>
-        <RockContactForm />
-      </section>
     </section>
   );
 }

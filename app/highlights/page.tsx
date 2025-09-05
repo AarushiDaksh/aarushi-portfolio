@@ -1,8 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import { ImageGrid } from "app/components/image-grid";
-import PlasmaWave from "app/components/PlasmaWave";
-import RetroGrid from "app/components/RetroGrid";
 
 export const metadata: Metadata = {
   title: "Photos",
