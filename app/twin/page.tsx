@@ -217,7 +217,7 @@ export default function DigitalTwinPage() {
 
   return (
     <main
-      className="relative mx-auto w-full mt-[25px] max-w-5xl px-3 sm:px-4 pt-12 sm:pt-[35px] min-h-[100dvh] flex flex-col"
+      className="relative mx-auto w-full mt-25 max-w-5xl px-3 sm:px-4 pt-12 sm:pt-[35px] min-h-[100dvh] flex flex-col"
       style={{ minHeight: "calc(var(--vh, 1vh) * 100)" }} // iOS fallback
     >
       {/* soft hero glow (keep as-is if you like) */}
@@ -235,7 +235,7 @@ export default function DigitalTwinPage() {
             <img
               src="/photos/aa.png"
               alt="Avatar"
-              className="h-[72px] w-[72px] sm:h-[84px] sm:w-[84px] rounded-xl object-cover"
+              className="h-[72px] w-[72px] sm:h-[84px] sm:w-[84px] rounded-xl object-cover "
             />
           </div>
 
