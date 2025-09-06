@@ -5,7 +5,10 @@
 /.pnp
 .pnp.js
 .env.local
-globals.css
+
+
+/app/globals.css
+
 # testing
 /coverage
 
