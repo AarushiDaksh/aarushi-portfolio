@@ -199,8 +199,8 @@ export default function Header() {
           --control-hover: #eeeeef;
           --text: #111111;
           --text-muted: #5e5e5e;
-          --ring: rgba(0, 0, 0, 0.12);
-           --ring1: rgba(255, 255, 255, 0.1);
+          --ring: rgba(0, 0, 0, 0);
+          --ring1: rgba(255, 255, 255, 0.1);
         }
         .dark {
           --c1: #ff52bf;
@@ -224,8 +224,7 @@ export default function Header() {
           --control-hover: rgba(68, 71, 90, 0.75);
           --text: #f8f8f2;
           --text-muted: #cfcfe6;
-         
-          --ring: rgba(255, 255, 255, 0);
+          --ring: rgba(255, 255,255,0);
         }
 
         a[aria-label] { background: var(--control); }

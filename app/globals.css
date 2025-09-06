@@ -375,7 +375,7 @@ table {
 
 .dark {
   /* dark theme */
-  --rock-base-start: #0a0a0a;
+  --rock-base-start: #282828;
   --rock-base-end:   #0b0b0b;
   --rock-spot-1:     rgba(59,130,246,0.45);
   --rock-spot-2:     rgba(236,72,153,0.45);
@@ -939,3 +939,44 @@ html, body {
 
 
 
+
+:root {
+          --c1: #ff52bf;
+          --c2: #ffb900;
+          --c3: #8538f8
+
+          --header-bg: rgba(255, 255, 255, 0.85);
+          --control: #f7f7f8;
+          --control-hover: #eeeeef;
+          --text: #111111;
+          --text-muted: #5e5e5e;
+          --ring: rgba(0, 0, 0, 0);
+          --ring1: rgba(255, 255, 255, 0.9);
+        }
+        .dark {
+          --c1: #ff52bf;
+          --c2: #ffb900;
+          --c3: #8538f8
+
+          --header-bg: rgba(18, 18, 18, 0.6);
+          --control: rgba(255, 255, 255, 0.06);
+          --control-hover: rgba(255, 255, 255, 0.1);
+          --text: #ffffff;
+          --text-muted: #b3b3b3;
+          --ring: rgba(255, 255, 255, 0.12);
+        }
+        .dracula {
+          --c1: #ff79c6;
+          --c2: #bd93f9;
+          --c3: #825ae7
+
+          --header-bg: rgba(40, 42, 54, 0.75);
+          --control: rgba(68, 71, 90, 0.6);
+          --control-hover: rgba(68, 71, 90, 0.75);
+          --text: #f8f8f2;
+          --text-muted: #cfcfe6;
+          --ring: rgba(255, 255,255,0);
+        }
+
+        a[aria-label] { background: var(--control); }
+        a[aria-label]:hover { background: var(--control-hover); }

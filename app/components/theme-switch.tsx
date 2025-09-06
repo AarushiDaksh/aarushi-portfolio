@@ -20,7 +20,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
       attribute="class"
       defaultTheme="system"
       enableSystem
-      themes={themes as unknown as string[]} // next-themes expects string[]
+      themes={themes as unknown as string[]} 
       {...props}
     >
       {children}

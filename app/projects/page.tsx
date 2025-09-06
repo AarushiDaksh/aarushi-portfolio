@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useState, useMemo, useEffect } from "react";
 import { projects } from "./project-data";
 import { FaFolder, FaExternalLinkAlt, FaTimes, FaRegImage } from "react-icons/fa";
+import Header from "app/components/Header";
+import { Navbar } from "app/components/nav";
+import Footer from "app/components/footer";
 
 const SKIP = [
   "SkillSlack – Developers Collaboration Platform",
@@ -36,8 +39,10 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="px-3 sm:px-0 mt-7">
-      <h1 className="mb-4 sm:mb-6 text-lg sm:text-xl font-medium">All Projects</h1>
+    <section className="px-3 sm:px-0 ">
+      <Header />
+      <Navbar />
+      <h1 className="mb-4 mt-12 sm:mb-6 text-lg sm:text-xl font-medium">All Projects</h1>
 
       {/* Explorer shell */}
       <div className="rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/70 backdrop-blur overflow-hidden">
@@ -171,6 +176,10 @@ export default function Projects() {
           </div>
         </div>
       )}
+      <div className="mt-20">
+       <Footer />
+       </div>
     </section>
+    
   );
 }

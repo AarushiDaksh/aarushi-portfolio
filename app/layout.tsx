@@ -46,11 +46,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* accent line (top of every page content) */}
             <span className="accent-line" aria-hidden />
 
-            <Header />
+            {/* <Header /> */}
             {children}
             <DraculaOverlay />
-            <Navbar />
-            <Footer />
+            {/* <Navbar /> */}
+            {/* <Footer /> */}
           </main>
         </ThemeProvider>
       </body>
