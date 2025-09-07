@@ -1,5 +1,6 @@
 "use client";
 
+import { Navbar } from "app/components/nav";
 import { T } from "app/components/top-nav";
 import { useEffect, useRef, useState, useMemo } from "react";
 import { LuSend, LuBot, LuUser, LuChevronDown, LuChevronUp, LuTrash2 } from "react-icons/lu";
@@ -216,6 +217,7 @@ export default function DigitalTwinPage() {
   }, [isMobile, composerH]);
 
   return (
+    <>
     <main
       className="relative mx-auto w-full mt-25 max-w-5xl px-3 sm:px-4 pt-12 sm:pt-[35px] min-h-[100dvh] flex flex-col"
       style={{ minHeight: "calc(var(--vh, 1vh) * 100)" }} // iOS fallback
@@ -453,5 +455,7 @@ export default function DigitalTwinPage() {
         </div>
       )}
     </main>
+    
+    </>
   );
 }

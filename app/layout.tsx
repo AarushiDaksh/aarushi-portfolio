@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} ${pressStart.variable} antialiased flex flex-col items-center justify-center mx-auto mt-0 lg:mt-8 mb-12`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
           {/* Make this container positioning context for the line */}
           <main className="relative isolate flex-auto min-w-0 mt-0 md:mt-0 flex flex-col px-6 sm:px-4 md:px-0 max-w-[800px] w-full">
             {/* accent line (top of every page content) */}

@@ -879,11 +879,6 @@ table {
   --ring: rgba(189,147,249,0.45);
 }
 
-/* optional: page background using theme var */
-html, body {
-  background: var(--bg);
-  color: var(--text);
-}
 
 /* Light */
 :root {
@@ -980,3 +975,16 @@ html, body {
 
         a[aria-label] { background: var(--control); }
         a[aria-label]:hover { background: var(--control-hover); }
+
+          .dark {
+          --c1: #ff52bf;
+          --c2: #ffb900;
+          --c3: #8538f8
+
+          --header-bg: rgba(18, 18, 18, 0.6);
+          --control: rgba(14, 13, 13, 0.2);
+          --control-hover: rgba(0, 0, 0, 0.1);
+          --text: #ffffff;
+          --text-muted: #b3b3b3;
+          --ring: rgba(255, 255, 255, 0.12);
+        }

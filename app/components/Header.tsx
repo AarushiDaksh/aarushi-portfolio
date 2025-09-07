@@ -20,12 +20,12 @@ export default function Header() {
       <header
         role="banner"
         className={[
-          " inset-x-0 top-0 z-50 transition-all",
-          "pt-[max(env(safe-area-inset-top),0px)]",
+          "transition-all",
+          "",
           ,
         ].join(" ")}
         style={{
-          background: scrolled ? "var(--header-bg)" : "transparent",
+          background: scrolled ? "" : "transparent",
           borderColor: "var(--ring)",
         }}
       >
@@ -202,14 +202,14 @@ export default function Header() {
           --ring: rgba(0, 0, 0, 0);
           --ring1: rgba(255, 255, 255, 0.1);
         }
-        .dark {
+      .dark {
           --c1: #ff52bf;
           --c2: #ffb900;
           --c3: #8538f8
 
-          --header-bg: rgba(18, 18, 18, 0.6);
-          --control: rgba(255, 255, 255, 0.06);
-          --control-hover: rgba(255, 255, 255, 0.1);
+          --header-bg: rgba(14, 13, 13, 0.2);
+          --control: rgba(14, 13, 13, 0.2);
+          --control-hover: rgba(0, 0, 0, 0.1);
           --text: #ffffff;
           --text-muted: #b3b3b3;
           --ring: rgba(255, 255, 255, 0.12);
