@@ -87,8 +87,8 @@ export const projects = [
   {
     title: "Album",
     year: 2025,
-    description: "",
-    url: "",
+    description: "Technology Design",
+    url: "https://album7.vercel.app/",
     image: "/photos/music.jpeg",
   },
 ] satisfies Project[];
