@@ -149,7 +149,7 @@ export default function Page() {
         </section>
       </main>
 
-      <a
+      {/* <a
         href="https://maniac-ten.vercel.app/"
         target="_blank"
         rel="noopener noreferrer"
@@ -157,7 +157,7 @@ export default function Page() {
         className="bug-wave text-3xl mr-2 fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-black text-white p-3 rounded-full shadow-lg transition duration-300 hover:bg-pink-600 hover:scale-110"
       >
         🐞
-      </a>
+      </a> */}
       <Footer />
       {/* Theme variables */}
         
