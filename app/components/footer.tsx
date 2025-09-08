@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaLinkedinIn } from "react-icons/fa6";
+import { FaLinkedinIn, FaMedium } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
 import { metaData, socialLinks } from "app/lib/config";
 
@@ -23,8 +23,10 @@ function SocialLink({ href, icon: Icon }) {
 function SocialLinks() {
   return (
     <div className="flex text-lg gap-3.5 float-right transition-opacity duration-300 hover:opacity-90">
+      <SocialLink href={socialLinks.medium} icon={FaMedium} />
       <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
       <SocialLink href={socialLinks.email} icon={TbMailFilled} />
+       
     </div>
   );
 }

@@ -13,4 +13,5 @@ export const socialLinks = {
   instagram: "https://www.instagram.com/aaxxshi",
   linkedin: "https://www.linkedin.com/in/aarushidaksh/",
   email: "https://aarushi312004@gmail.com",
+  medium:"https://medium.com/@aarushi312004",
 };
