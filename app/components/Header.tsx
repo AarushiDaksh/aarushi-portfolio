@@ -103,7 +103,7 @@ export default function Header() {
 
     {/* Resume */}
     <Link
-      href="https://drive.google.com/file/d/1pF-kAe8BXIsKgUyti3nHPXKceynd89WR/view?usp=sharing"
+      href="https://drive.google.com/file/d/1IS-C5dyKyf5kovZt4LJSLq5Ei0FhQjYG/view?usp=sharing"
       target="_blank"
       aria-label="Resume"
       className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-semibold transition-all active:scale-[0.98] pb-[2px]"
