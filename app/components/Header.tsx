@@ -103,7 +103,7 @@ export default function Header() {
 
     {/* Resume */}
     <Link
-      href="https://drive.google.com/file/d/1IS-C5dyKyf5kovZt4LJSLq5Ei0FhQjYG/view?usp=sharing"
+      href="https://drive.google.com/file/d/1rpQhCT0-4PUqnEBn-3GQdfV2ACa-TCBE/view?usp=sharing"
       target="_blank"
       aria-label="Resume"
       className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-semibold transition-all active:scale-[0.98] pb-[2px]"
@@ -174,7 +174,7 @@ export default function Header() {
               </Link>
 
               <Link
-                href="https://drive.google.com/file/d/1IS-C5dyKyf5kovZt4LJSLq5Ei0FhQjYG/view?usp=sharing"
+                href="https://drive.google.com/file/d/1rpQhCT0-4PUqnEBn-3GQdfV2ACa-TCBE/view?usp=sharing"
                 target="_blank"
                 className="inline-flex h-11 px-4 items-center justify-center gap-2 rounded-lg ring-1 text-sm font-semibold"
                 style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
