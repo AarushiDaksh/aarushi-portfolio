@@ -91,4 +91,11 @@ export const projects = [
     url: "https://album7.vercel.app/",
     image: "/photos/music.jpeg",
   },
+   {
+    title: "miniATS",
+    year: 2025,
+    description: "Application Tracking System for recruiters to manage candidates.",
+    url: "https://application-tracker-analatics-513u.vercel.app/",
+    image: "/photos/miniATS.png",
+  },
 ] satisfies Project[];

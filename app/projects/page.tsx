@@ -12,7 +12,7 @@ import Footer from "app/components/footer";
 const SKIP = [
   "SkillSlack – Developers Collaboration Platform",
   "StuGig – Marketplace for Students",
-  "Maniac – AI Productivity Agent",
+  "miniATS",
 ];
 
 type P = (typeof projects)[number];

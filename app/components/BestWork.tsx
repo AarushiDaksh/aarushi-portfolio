@@ -9,7 +9,7 @@ const featured = projects.filter((p) =>
     "SkillSlack – Developers Collaboration Platform",
     "Album",
     "StuGig – Marketplace for Students",
-    "Maniac – AI Productivity Agent",
+    "miniATS",
   ].includes(p.title)
 );
 
