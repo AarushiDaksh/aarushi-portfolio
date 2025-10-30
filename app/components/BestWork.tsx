@@ -7,7 +7,6 @@ import { projects } from "../projects/project-data";
 const featured = projects.filter((p) =>
   [
     "SkillSlack – Developers Collaboration Platform",
-    "Album",
     "StuGig – Marketplace for Students",
     "miniATS",
   ].includes(p.title)
