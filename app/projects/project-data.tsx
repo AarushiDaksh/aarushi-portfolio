@@ -37,21 +37,8 @@ export const projects = [
     image: "/photos/maniac.png",
     url: "https://maniac-ten.vercel.app",
   },
-  {
-    title: "LinkPilot",
-    year: 2025,
-    description:
-      "LinkedIn automation bot for students to connect and find job opportunities - Backend Application with Express and MongoDB.",
-    url: "https://github.com/AarushiDaksh/LinkPilot.git",
-    image: "/photos/LinkPilot.jpeg",
-  },
-  {
-    title: "Flare",
-    year: 2025,
-    description: "Dating App - Backend Application with Express and MongoDB.",
-    url: "https://github.com/AarushiDaksh/DatingApp.git",
-    image: "/photos/Flare.jpeg",
-  },
+ 
+ 
   {
     title: "Voqit-Ai",
     year: 2025,

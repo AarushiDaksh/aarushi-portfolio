@@ -10,9 +10,7 @@ import { Navbar } from "app/components/nav";
 import Footer from "app/components/footer";
 
 const SKIP = [
-  "SkillSlack – Developers Collaboration Platform",
-  "StuGig – Marketplace for Students",
-  "miniATS",
+  {},
 ];
 
 type P = (typeof projects)[number];
