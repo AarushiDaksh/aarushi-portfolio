@@ -69,7 +69,7 @@ export default function Header() {
             title="LeetCode"
             className="h-12 w-12 grid place-items-center rounded-2xl ring-1 transition-all hover:translate-y-[-1px] active:scale-95"
             style={{
-              background: "grey-100",
+              background: "grey",
               borderColor: "var(--ring)",
               color: "yellow",
               boxShadow: "var(--chip-shadow)",
@@ -93,7 +93,7 @@ export default function Header() {
             title="GitHub"
             className="h-12 w-12 grid place-items-center rounded-2xl ring-1 transition-all hover:translate-y-[-1px] active:scale-95"
             style={{
-              background: "grey-100",
+              background: "grey",
               borderColor: "var(--ring)",
               color: "var(--text)",
               boxShadow: "var(--chip-shadow)",
@@ -157,11 +157,11 @@ export default function Header() {
               href="https://leetcode.com/u/aarushidaksh05/"
               target="_blank"
               aria-label="LeetCode"
-              className="h-12 w-12 grid place-items-center rounded-2xl ring-1 active:scale-95 hover:translate-y-[-1px] transition-all"
+              className="h-10 w-10 grid place-items-center rounded-2xl ring-1 active:scale-95 hover:translate-y-[-1px] transition-all"
               style={{
-                background: "var(--chip-bg)",
+                background: "grey",
                 borderColor: "var(--ring)",
-                color: "var(--accent-2)",
+                color: "yellow",
                 boxShadow: "var(--chip-shadow)",
               }}
             >
@@ -174,9 +174,9 @@ export default function Header() {
               href="https://github.com/AarushiDaksh"
               target="_blank"
               aria-label="GitHub"
-              className="h-9 w-9 grid place-items-center rounded-2xl ring-1 active:scale-95 hover:translate-y-[-1px] transition-all"
+              className="h-10 w-10 grid place-items-center rounded-2xl ring-1 active:scale-95 hover:translate-y-[-1px] transition-all"
               style={{
-                background: "var(--chip-bg)",
+                background: "grey",
                 borderColor: "var(--ring)",
                 color: "var(--text)",
                 boxShadow: "var(--chip-shadow)",
@@ -202,7 +202,7 @@ export default function Header() {
           --ring: rgba(0, 0, 0, 0.08);
 
           --sb-shadow: 0 16px 40px rgba(0,0,0,0.12);
-          --chip-shadow: 0 8px 20px rgba(0,0,0,0.08);
+          --chip-shadow: 0 8px 20px rgba(6,0,,0.15);
         }
 
         .dark {
@@ -214,7 +214,7 @@ export default function Header() {
           --text-muted: #b4b4b7;
           --ring: rgba(255, 255, 255, 0.12);
 
-          --sb-shadow: 0 16px 50px rgba(0, 0, 0, 0.55);
+          --sb-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
           --chip-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
         }
 
