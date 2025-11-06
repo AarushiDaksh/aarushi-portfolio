@@ -7,7 +7,6 @@ import { FaGithub } from "react-icons/fa6";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -18,7 +17,6 @@ export default function Header() {
 
   return (
     <>
-      {/* ---------- Desktop Sidebar ---------- */}
       <header
         role="banner"
         className="hidden sm:flex fixed top-0 right-0 z-40 h-screen w-28 flex-col items-center justify-between py-8 ring-1 backdrop-blur-md transition-all"
@@ -40,7 +38,7 @@ export default function Header() {
             >
               <div className="relative h-full w-full overflow-hidden rounded-[10px]">
                 <Image
-                  src="/photos/13.jpg"
+                  src="/photos/10.jpg"
                   alt="Aarushi Daksh"
                   fill
                   className="object-cover select-none"
@@ -73,7 +71,13 @@ export default function Header() {
               boxShadow: "var(--shadow)",
             }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 50 50" className="h-6 w-6" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 50 50"
+              className="h-6 w-6"
+              aria-hidden="true"
+            >
               <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
             </svg>
           </Link>
@@ -102,98 +106,99 @@ export default function Header() {
         </div>
       </header>
 
-      {/* ---------- Mobile Floating Button ---------- */}
-      <button
-        type="button"
-        aria-label={open ? "Close menu" : "Open menu"}
-        aria-expanded={open}
-        aria-controls="mobile-menu"
-        onClick={() => setOpen((v) => !v)}
-        className="sm:hidden fixed bottom-5 right-5 z-50 h-12 w-12 rounded-full ring-1 shadow-lg active:scale-95 transition-all"
-        style={{
-          background: "var(--control)",
-          borderColor: "var(--ring)",
-          color: "var(--text)",
-          boxShadow: "var(--shadow)",
-          backdropFilter: "saturate(160%) blur(18px)",
-        }}
+      {/* Mobile app bar */}
+      <div
+        className={[
+          "sm:hidden fixed z-50 left-1/2 -translate-x-1/2 transition-all",
+          scrolled ? "top-2" : "top-3",
+          "w-[min(94%,480px)]",
+        ].join(" ")}
       >
-        <div className="relative mx-auto h-5 w-5">
-          <span className={["absolute left-0 right-0 h-[2px] transition-transform", open ? "top-2.5 rotate-45" : "top-1"].join(" ")} style={{ background: "var(--text)" }} />
-          <span className={["absolute left-0 right-0 h-[2px] transition-opacity", open ? "opacity-0" : "top-2.5 opacity-100"].join(" ")} style={{ background: "var(--text)" }} />
-          <span className={["absolute left-0 right-0 h-[2px] transition-transform", open ? "top-2.5 -rotate-45" : "top-4"].join(" ")} style={{ background: "var(--text)" }} />
-        </div>
-      </button>
-
-      {/* ---------- Mobile Drawer ---------- */}
-      <aside
-        id="mobile-menu"
-        className={["sm:hidden fixed top-0 right-0 z-50 h-full w-72 max-w-[85vw] border-l ring-1 transition-transform", open ? "translate-x-0" : "translate-x-full"].join(" ")}
-        style={{
-          background: "var(--header-bg)",
-          borderColor: "var(--ring)",
-          boxShadow: "var(--shadow)",
-          backdropFilter: "saturate(160%) blur(18px)",
-        }}
-      >
-        <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: "var(--ring)" }}>
-          <div className="flex items-center gap-3">
-            <div className="relative h-10 w-10 overflow-hidden rounded-lg ring-1" style={{ borderColor: "var(--ring)" }}>
-              <Image src="/photos/13.jpg" alt="Aarushi Daksh" fill className="object-cover" />
+        <div
+          className={[
+            "flex items-center justify-between gap-3 rounded-2xl ring-1 px-3 py-2 backdrop-blur-md",
+            "transition-all",
+            scrolled ? "shadow-xl" : "shadow-md",
+          ].join(" ")}
+          style={{
+            background: "var(--header-bg)",
+            borderColor: "var(--ring)",
+            boxShadow: "var(--shadow)",
+          }}
+        >
+          <Link href="/" className="flex items-center gap-2" aria-label="Home">
+            <div
+              className={[
+                "relative rounded-xl ring-1 p-[2px] transition-all",
+                scrolled ? "w-9 h-9" : "w-10 h-10",
+              ].join(" ")}
+              style={{ borderColor: "var(--ring)" }}
+            >
+              <div className="relative h-full w-full overflow-hidden rounded-[10px]">
+                <Image
+                  src="/photos/10.jpg"
+                  alt="Aarushi Daksh"
+                  fill
+                  className="object-cover select-none"
+                  sizes="40px"
+                  priority
+                />
+              </div>
             </div>
-            <div>
-              <p className="text-sm font-semibold">Aarushi Daksh</p>
-              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                Full-Stack Developer
+            <div className="leading-tight">
+              <p className="text-[13px] font-semibold" style={{ color: "var(--text)" }}>
+                Aarushi Daksh
               </p>
+              <span className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+                Full-Stack Developer
+              </span>
             </div>
-          </div>
+          </Link>
 
-          <button
-            onClick={() => setOpen(false)}
-            aria-label="Close"
-            className="h-9 w-9 rounded-md ring-1 grid place-items-center active:scale-95 transition-all"
-            style={{ background: "var(--control)", borderColor: "var(--ring)", boxShadow: "var(--shadow)" }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </button>
-        </div>
-
-        <nav className="px-3 py-4 space-y-2">
-          {[
-            { name: "Home", href: "/" },
-            { name: "LeetCode", href: "https://leetcode.com/u/aarushidaksh05/" },
-            { name: "GitHub", href: "https://github.com/AarushiDaksh" },
-          ].map((link) => (
+          <div className="flex items-center gap-2">
             <Link
-              key={link.name}
-              href={link.href}
-              target={link.name !== "Home" ? "_blank" : "_self"}
-              className="flex items-center justify-between rounded-lg px-3 py-3 ring-1 transition-colors"
+              href="https://leetcode.com/u/aarushidaksh05/"
+              target="_blank"
+              aria-label="LeetCode"
+              title="LeetCode"
+              className="p-2 rounded-full ring-1 active:scale-95 hover:scale-105 transition-all"
+              style={{
+                background: "var(--control)",
+                borderColor: "var(--ring)",
+                color: "var(--c2)",
+                boxShadow: "var(--shadow)",
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 50 50"
+                className="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
+              </svg>
+            </Link>
+
+            <Link
+              href="https://github.com/AarushiDaksh"
+              target="_blank"
+              aria-label="GitHub"
+              title="GitHub"
+              className="p-2 rounded-full ring-1 active:scale-95 hover:scale-105 transition-all"
               style={{
                 background: "var(--control)",
                 borderColor: "var(--ring)",
                 color: "var(--text)",
                 boxShadow: "var(--shadow)",
               }}
-              onClick={() => setOpen(false)}
             >
-              <span>{link.name}</span>
-              <span className="text-xs" style={{ color: "var(--text-muted)" }}>▶</span>
+              <FaGithub className="h-5 w-5" aria-hidden="true" />
             </Link>
-          ))}
-        </nav>
-
-        <div className="mt-auto px-4 py-4 border-t" style={{ borderColor: "var(--ring)" }}>
-          <p className="text-xs text-center" style={{ color: "var(--text-muted)" }}>
-            © AD’25
-          </p>
+          </div>
         </div>
-      </aside>
+      </div>
 
-      {/* ---------- Theme Tokens ---------- */}
       <style jsx global>{`
         :root {
           --c1: #ff52bf;
@@ -206,7 +211,7 @@ export default function Header() {
           --text: #111111;
           --text-muted: #5e5e5e;
           --ring: rgba(0, 0, 0, 0.08);
-          --shadow: 0 8px 24px rgba(0, 0, 0, 0.0.09);
+          --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .dark {
@@ -214,7 +219,7 @@ export default function Header() {
           --c2: #ffb900;
           --c3: #8538f8;
 
-          --header-bg: rgba(255, 255, 255, 0.08);
+          --header-bg: rgba(255, 255, 255, 0.06);
           --control: rgba(255, 255, 255, 0.08);
           --control-hover: rgba(255, 255, 255, 0.12);
           --text: #ffffff;
@@ -228,7 +233,14 @@ export default function Header() {
           transition: background-color 0.3s ease, color 0.3s ease;
         }
         @media (min-width: 640px) {
-          body { margin-right: 7rem; }
+          body {
+            margin-right: 7rem;
+          }
+        }
+        @media (max-width: 639px) {
+          body {
+            padding-top: 72px;
+          }
         }
       `}</style>
     </>

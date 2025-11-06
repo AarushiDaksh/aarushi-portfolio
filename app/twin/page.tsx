@@ -211,7 +211,7 @@ export default function DigitalTwinPage() {
         </div>
       </form>
 
-      <Footer />
+      
 
       <style jsx global>{`
         :root {
@@ -249,5 +249,7 @@ export default function DigitalTwinPage() {
         }
       `}</style>
     </main>
+    
+    
   );
 }

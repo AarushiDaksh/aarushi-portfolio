@@ -76,66 +76,66 @@ function Sparkles({ className = "" }: { className?: string }) {
 
  function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#f7f4ef] dark:bg-neutral-950">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-12">
-        {/* Text Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="order-2 md:order-1 md:col-span-7"
-        >
-          <p className="mb-3 text-xs uppercase tracking-[.3em] text-neutral-500 dark:text-neutral-400">
-            Hello, I’m Aarushi Daksh
-          </p>
+    <section className="relative overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 28 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mx-auto max-w-5xl px-6 py-24 text-center"
+      >
+        <p className="mb-3 text-[11px] uppercase tracking-[.35em] text-neutral-500 dark:text-neutral-400">
+          Hello, I’m Aarushi Daksh
+        </p>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
-            Full-Stack <br />
-            <span className="bg-[#c5d725] dark:bg-pink-600 text-neutral-800 dark:text-neutral-200">Developer</span>
-          </h1>
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
+          Full-Stack{" "}
+          <span className="inline-block align-baseline rounded-md px-2">
+            <span className="bg-gradient-to-r from-[#c5d725] to-[#e5f05a] dark:from-pink-600 dark:to-rose-500 text-neutral-900 dark:text-neutral-100 px-2 rounded-md">
+              Developer
+            </span>
+          </span>
+        </h1>
 
-  <p className="mt-6 max-w-xl text-sm md:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
-  As a fresher, I’m focused on learning the fundamentals of{" "}
-  <span className="font-medium">Full-Stack Development</span> and{" "}
-  <span className="font-medium">DSA</span>.  
-  I enjoy working in teams, learning from mentors, and building simple, working projects that strengthen my technical foundation.
-</p>
+        <div className="mx-auto mt-4 h-px w-24 bg-neutral-200 dark:bg-neutral-800" />
 
+        <p className="mt-6 mx-auto max-w-2xl text-sm md:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
+          As a fresher, I’m focused on learning the fundamentals of{" "}
+          <span className="font-medium">Full-Stack Development</span> and{" "}
+          <span className="font-medium">DSA</span>. I enjoy working in teams, learning from mentors,
+          and building simple, working projects that strengthen my technical foundation.
+        </p>
 
+     <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+  {/* Rectangular Resume Button */}
+  <a
+    href="https://drive.google.com/file/d/1mQ8fJgmyw4VqTS0xgz8KeSe6I9Z_rQu7/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-800 hover:bg-neutral-100 
+               dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800 transition-all hover:scale-[1.02]"
+  >
+    View Resume
+  </a>
 
-          <div className="mt-8 flex gap-4">
-            
-            <a
-              href="https://drive.google.com/file/d/1mQ8fJgmyw4VqTS0xgz8KeSe6I9Z_rQu7/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-800 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800 transition"
-            >
-              View Resume
-            </a>
-          </div>
-        </motion.div>
+  {/* Rounded Twin Button */}
+  <a
+    href="/twin"
+    className="group inline-flex items-center gap-2 sm:gap-3 rounded-full ring-1 ring-neutral-300 dark:ring-neutral-700 
+               px-4 py-2 text-sm font-medium text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-900 
+               transition-all hover:scale-[1.03]"
+  >
+    <span className="relative flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full ring-1 
+                     ring-neutral-300 dark:ring-neutral-700 bg-neutral-50 dark:bg-neutral-800">
+      <FaMousePointer className="h-3 w-3 sm:h-4 sm:w-4 animate-pulse" />
+    </span>
+    <span>Meet My Twin</span>
+  </a>
+</div>
 
-        {/* Image Section */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="order-1 md:order-2 md:col-span-5 flex justify-center"
-        >
-          <div className="relative aspect-[3/4] w-64 sm:w-72 md:w-80 rounded-xl overflow-hidden shadow-lg ring-1 ring-black/10 dark:ring-white/10">
-            <Image
-              src="/photos/4.jpg"
-              alt="Aarushi Daksh portrait"
-              fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
-              priority
-            />
-          </div>
-        </motion.div>
-      </div>
+        <div className="mt-6 text-sm text-neutral-500 dark:text-neutral-400">
+        </div>
+      </motion.div>
 
-      {/* Scroll Indicator */}
       <a
         href="#works"
         className="group absolute left-1/2 bottom-6 -translate-x-1/2 flex flex-col items-center text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition"
@@ -146,6 +146,7 @@ function Sparkles({ className = "" }: { className?: string }) {
     </section>
   );
 }
+
 
 export default function Page() {
   return (
@@ -177,25 +178,7 @@ export default function Page() {
                 <span style={{ color: "var(--accent-green)" }}> React Native</span>.
               </p> */}
 
-              <div className="mt-8">
-                <a
-                  href="/twin"
-                  className="group inline-flex items-center gap-2 sm:gap-3 rounded-full ring-1 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium transition-all hover:scale-[1.02]"
-                  style={{
-                    borderColor: "var(--ring)",
-                    color: "var(--text)",
-                    background: "var(--control, transparent)",
-                  }}
-                >
-                  <span
-                    className="relative flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full ring-1"
-                    style={{ borderColor: "var(--ring)", background: "var(--control)" }}
-                  >
-                    <FaMousePointer className="h-3 w-3 sm:h-4 sm:w-4 animate-pulse" />
-                  </span>
-                  <span>Meet my twin</span>
-                </a>
-              </div>
+              
             </div>
 
             {/* Decorative spiral card */}
