@@ -5,13 +5,13 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ThemeProviderProps } from "next-themes";
 import { FaCircleHalfStroke } from "react-icons/fa6";
 
-const themes = ["light", "dark", "dracula"] as const;
+const themes = ["light", "dark"] as const;
 type ThemeName = (typeof themes)[number];
 
 const LABELS: Record<ThemeName, string> = {
   light: "Light",
-  dark: "Dark",
-  dracula: "Dracula",
+  dark: "Dark"
+  // dracula: "Dracula",
 }
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
-import { FaBookOpen, FaFolderOpen, FaMediumM, FaStar } from "react-icons/fa";
+import { FaBookOpen, FaFolderOpen, FaHome, FaMediumM, FaStar } from "react-icons/fa";
 import { FaA, FaD, FaH, FaMedium } from "react-icons/fa6";
+import { Home, HomeIcon } from "lucide-react";
+import { homedir } from "node:os";
 
 const navItems = {
   "/twin": { name: "", icon: FaA },
-  "/":{name: "" , icon: FaD},
+  "/":{name: "" , icon: HomeIcon},
   "/projects": { name: "", icon: FaFolderOpen },
   "/highlights": { name: "", icon: FaStar }
 };

@@ -15,47 +15,26 @@ const featured = projects.filter((p) =>
 export default function BestWorks() {
   return (
     <section>
-      <h2
-        className="mb-6 text-xl font-medium"
-        style={{ color: "var(--text)" }}
-      >
-        Best Works
-      </h2>
+      <h2 className="mb-6 text-xl font-medium">Best Works</h2>
 
       <div className="space-y-10 sm:space-y-16">
         {featured.map((project, index) => (
           <article
             key={index}
-            className="group relative rounded-2xl p-px sm:p-[1.5px] transition-transform duration-300 hover:scale-[1.005]"
-            style={{
-              background:
-                "linear-gradient(120deg, var(--c1b), var(--c2b), var(--c3b))",
-            }}
+            className="bwCard group relative rounded-2xl p-[2.5px] transition-transform duration-300 hover:scale-[1.005]"
           >
             {/* Card surface */}
             <div className="rounded-[12px] sm:rounded-[14px] overflow-hidden bg-[#0b0b0b] ring-1 ring-white/5 shadow-lg">
               {/* Browser bar */}
               <div className="flex items-center justify-between px-3 py-1.5 sm:px-4 sm:py-2 border-b border-white/10 bg-[#121212]">
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span
-                    className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full"
-                    style={{ background: "var(--c1)" }}
-                  />
-                  <span
-                    className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full"
-                    style={{ background: "var(--c2)" }}
-                  />
-                  <span
-                    className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full"
-                    style={{ background: "var(--c3)" }}
-                  />
+                  <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full" style={{ background: "var(--c1)" }} />
+                  <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full" style={{ background: "var(--c2)" }} />
+                  <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full" style={{ background: "var(--c3)" }} />
                 </div>
 
                 <div className="max-w-[40%] truncate rounded px-2 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs tracking-tight text-neutral-400 bg-black/30 ring-1 ring-white/10">
-                  {project.url
-                    .replace(/^https?:\/\//, "")
-                    .replace("www.", "")
-                    .split("/")[0]}
+                  {project.url.replace(/^https?:\/\//, "").replace("www.", "").split("/")[0]}
                 </div>
 
                 <Link
@@ -89,9 +68,7 @@ export default function BestWorks() {
 
               {/* Footer */}
               <div className="flex items-center justify-between px-3 sm:px-4 py-2 border-t border-white/10 text-xs sm:text-sm">
-                <span className="truncate text-neutral-400">
-                  {project.title}
-                </span>
+                <span className="truncate text-neutral-400">{project.title}</span>
                 <span className="text-white/80">↗ {project.year}</span>
               </div>
             </div>
@@ -110,7 +87,7 @@ export default function BestWorks() {
         ))}
       </div>
 
-      {/* theme variables */}
+      {/* theme + card border rules */}
       <style jsx global>{`
         :root {
           --c1: #ff52bf;
@@ -125,17 +102,16 @@ export default function BestWorks() {
 
           --text: #111111;
         }
-        .dark {
-          --c1b: #ff52bf66;
-          --c2b: #ffb90066;
-          --c3b: #38bdf866;
-          --glow-op: 0.35;
+       
+       
+
+        /* Border gradient by default... */
+        .bwCard {
+          background: linear-gradient(120deg, var(--c1b), var(--c2b), var(--c3b));
         }
-        .dracula {
-          --c1b: #ff79c655;
-          --c2b: #bd93f955;
-          --c3b: #8be9fd55;
-          --glow-op: 0.32;
+        /* ...solid dark border on hover */
+        .bwCard:hover {
+          background: #1a1a1a !important;
         }
       `}</style>
     </section>

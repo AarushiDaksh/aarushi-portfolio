@@ -7,6 +7,9 @@ import BestWorks from "./components/BestWork";
 import { FaMousePointer } from "react-icons/fa";
 import Header from "./components/Header";
 import Footer from "./components/footer";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 
 /* Spiral Aura */
 function SpiralAura({ className = "" }: { className?: string }) {
@@ -70,72 +73,138 @@ function Sparkles({ className = "" }: { className?: string }) {
   return <div className={`twinkles ${className}`} aria-hidden />;
 }
 
+
+ function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-[#f7f4ef] dark:bg-neutral-950">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-12">
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="order-2 md:order-1 md:col-span-7"
+        >
+          <p className="mb-3 text-xs uppercase tracking-[.3em] text-neutral-500 dark:text-neutral-400">
+            Hello, I’m Aarushi Daksh
+          </p>
+
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
+            Full-Stack <br />
+            <span className="bg-[#c5d725] dark:bg-pink-600 text-neutral-800 dark:text-neutral-200">Developer</span>
+          </h1>
+
+  <p className="mt-6 max-w-xl text-sm md:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
+  As a fresher, I’m focused on learning the fundamentals of{" "}
+  <span className="font-medium">Full-Stack Development</span> and{" "}
+  <span className="font-medium">DSA</span>.  
+  I enjoy working in teams, learning from mentors, and building simple, working projects that strengthen my technical foundation.
+</p>
+
+
+
+          <div className="mt-8 flex gap-4">
+            
+            <a
+              href="https://drive.google.com/file/d/1mQ8fJgmyw4VqTS0xgz8KeSe6I9Z_rQu7/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-800 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800 transition"
+            >
+              View Resume
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Image Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="order-1 md:order-2 md:col-span-5 flex justify-center"
+        >
+          <div className="relative aspect-[3/4] w-64 sm:w-72 md:w-80 rounded-xl overflow-hidden shadow-lg ring-1 ring-black/10 dark:ring-white/10">
+            <Image
+              src="/photos/4.jpg"
+              alt="Aarushi Daksh portrait"
+              fill
+              className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              priority
+            />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <a
+        href="#works"
+        className="group absolute left-1/2 bottom-6 -translate-x-1/2 flex flex-col items-center text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition"
+      >
+        <ArrowDown className="h-5 w-5 animate-bounce" />
+        <span className="text-xs tracking-widest mt-1">Scroll</span>
+      </a>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <>
       <RetroGrid z={0} strength="subtle" />
+      {/* ✅ Hero Section goes on top */}
+      <Hero />
 
       <main className="relative z-10">
         <section className="container mx-auto px-1 sm:px-1 ">
           <div className="grid grid-cols-1 md:grid-cols-[72px,1fr,420px] gap-6 md:gap-10 items-start">
             {/* spacer */}
             <div className="hidden md:block" />
-<Header />
+            <Header />
 
-            {/* About copy */}
+            {/* About */}
             <div>
-                <h2
-              className=" text-xl font-bold"
-              style={{ color: "var(--text)" }}
-            >
-            About
-            </h2>
+              {/* <h2 className="text-xl font-bold" style={{ color: "var(--text)" }}>
+                About
+              </h2>
 
-              <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              <p
+                className="text-base leading-relaxed"
+                style={{ color: "var(--text-muted)" }}
+              >
                 From prototype to production: I build fast, elegant apps with
                 <span style={{ color: "var(--accent-pink)" }}> React/Next.js</span>,
                 <span style={{ color: "var(--accent-cyan)" }}> Tailwind</span> and
                 <span style={{ color: "var(--accent-green)" }}> React Native</span>.
-              </p>
+              </p> */}
 
-              {/* Scroll button */}
-<div className="mt-8">
-  <a
-    href="#works"
-    className="group inline-flex items-center gap-2 sm:gap-3 rounded-full ring-1 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium transition-all hover:scale-[1.02]"
-    style={{
-      borderColor: "var(--ring)",
-      color: "var(--text)",
-      background: "var(--control, transparent)",
-    }}
-  >
-    <span
-      className="relative flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full ring-1"
-      style={{ borderColor: "var(--ring)", background: "var(--control)" }}
-    >
-      <FaMousePointer className="h-3 w-3 sm:h-4 sm:w-4 animate-pulse" />
-    </span>
-    <span>Scroll to Best Works</span>
-  </a>
-</div>
-
-
-
+              <div className="mt-8">
+                <a
+                  href="/twin"
+                  className="group inline-flex items-center gap-2 sm:gap-3 rounded-full ring-1 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium transition-all hover:scale-[1.02]"
+                  style={{
+                    borderColor: "var(--ring)",
+                    color: "var(--text)",
+                    background: "var(--control, transparent)",
+                  }}
+                >
+                  <span
+                    className="relative flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full ring-1"
+                    style={{ borderColor: "var(--ring)", background: "var(--control)" }}
+                  >
+                    <FaMousePointer className="h-3 w-3 sm:h-4 sm:w-4 animate-pulse" />
+                  </span>
+                  <span>Meet my twin</span>
+                </a>
+              </div>
             </div>
 
-            {/* Decorative spiral card (no image) */}
-<div className="flex justify-center items-center w-full">
-  <div className="group relative w-[min(92vw,420px)] h-[300px] [perspective:1200px]">
-    <SpiralAura className="pointer-events-none absolute inset-0 -z-10" />
-    <Sparkles className="pointer-events-none absolute inset-0 -z-10" />
-
-    {/* CLI message */}
-    <div>
-     
-    </div>
-  </div>
-</div>
-
+            {/* Decorative spiral card */}
+            <div className="flex justify-center items-center w-full">
+              <div className="group relative w-[min(92vw,420px)] h-[300px] [perspective:1200px]">
+                <SpiralAura className="pointer-events-none absolute inset-0 -z-10" />
+                <Sparkles className="pointer-events-none absolute inset-0 -z-10" />
+              </div>
+            </div>
           </div>
 
           {/* Works */}
@@ -149,18 +218,7 @@ export default function Page() {
         </section>
       </main>
 
-      {/* <a
-        href="https://maniac-ten.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Go to Maniac App"
-        className="bug-wave text-3xl mr-2 fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-black text-white p-3 rounded-full shadow-lg transition duration-300 hover:bg-pink-600 hover:scale-110"
-      >
-        🐞
-      </a> */}
       <Footer />
-      {/* Theme variables */}
-        
       <style jsx global>{`
         html {
           scroll-behavior: smooth;
@@ -193,19 +251,7 @@ export default function Page() {
           --rail: rgba(255, 255, 255, 0.06);
         }
 
-        /* Dracula theme */
-        .dracula {
-          --text: #f8f8f2;
-          --text-muted: #cfcfe6;
-
-          --accent-pink: #ff79c6;
-          --accent-cyan: #8be9fd;
-          --accent-green: #50fa7b;
-
-          --ring: rgba(189, 147, 249, 0.45);
-          --control: rgba(68, 71, 90, 0.6);
-          --rail: rgba(68, 71, 90, 0.6);
-        }
+       
 
         /* Animations */
         @keyframes spin-slower {

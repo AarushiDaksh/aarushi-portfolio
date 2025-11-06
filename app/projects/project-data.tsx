@@ -5,10 +5,10 @@ export type Url = string;
 export interface Project {
   title: string;
   image: string;     // path or remote URL to screenshot
-  url: Url;          // live site or repo link
+  url: Url;          
   year?: number;
-  repo?: Url;        // optional GitHub/VCS link
-  tags?: string[];   // optional tags
+  repo?: Url;        
+  tags?: string[]; 
   description?: string;
 }
 

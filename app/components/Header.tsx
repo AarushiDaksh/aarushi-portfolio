@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaFile } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -17,218 +18,218 @@ export default function Header() {
 
   return (
     <>
+      {/* ---------- Desktop Sidebar ---------- */}
       <header
         role="banner"
-        className={[
-          "transition-all",
-          "",
-          ,
-        ].join(" ")}
+        className="hidden sm:flex fixed top-0 right-0 z-40 h-screen w-28 flex-col items-center justify-between py-8 ring-1 backdrop-blur-md transition-all"
         style={{
-          background: scrolled ? "" : "transparent",
+          background: "var(--header-bg)",
           borderColor: "var(--ring)",
+          boxShadow: "var(--shadow)",
+          backdropFilter: "saturate(160%) blur(18px)",
         }}
       >
-        
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-6">
-          {/* ===== MOBILE (3 lines) ===== */}
-          <div className="sm:hidden flex flex-col items-center text-center gap-3 pb-3">
-            {/* Line 1: Avatar */}
-            <Link href="/" className="block">
-              <div
-                aria-hidden
-                className={[
-                  "relative rounded-xl p-[1px] mx-auto shadow-sm",
-                  scrolled ? "w-14 h-14" : "w-20 h-20",
-                ].join(" ")}
-                              >
-                <div className="relative h-full w-full overflow-hidden rounded-[10px] bg-black/90">
-                  <Image
-                    src="/photos/13.jpg"
-                    alt="Aarushi Daksh"
-                    fill
-                    className="object-cover select-none"
-                    sizes="70px"
-                    priority
-                  />
-                </div>
+        <div className="flex flex-col items-center gap-3">
+          <Link href="/" aria-label="Home">
+            <div
+              className={[
+                "relative rounded-xl p-[3px] ring-2 shadow-sm transition-all",
+                scrolled ? "w-14 h-14" : "w-20 h-20",
+              ].join(" ")}
+              style={{ borderColor: "var(--ring)" }}
+            >
+              <div className="relative h-full w-full overflow-hidden rounded-[10px]">
+                <Image
+                  src="/photos/13.jpg"
+                  alt="Aarushi Daksh"
+                  fill
+                  className="object-cover select-none"
+                  sizes="80px"
+                  priority
+                />
               </div>
-            </Link>
-
-            {/* Line 2: Name */}
-            <Link href="/" className="block">
-              <h1
-                className="flex items-center justify-center gap-1.5 text-[22px] font-semibold leading-none"
-                style={{ color: "var(--text)" }}
-              >
-                <span className="truncate">Aarushi Daksh</span>
-                <span className="leading-none" style={{ color: "var(--c1)" }}>▶</span>
-              </h1>
-            </Link>
-
-          {/* Line 3: Buttons — equal width, icons + labels */}
-<div className="w-full flex justify-center">
-  <div className="grid grid-cols-3 gap-2 w-full max-w-xs">
-    {/* LeetCode */}
-    <Link
-      href="https://leetcode.com/u/aarushidaksh05/"
-      target="_blank"
-      aria-label="LeetCode"
-      className="flex h-10 items-center justify-center rounded-lg ring-1 transition-all active:scale-[0.98]"
-      style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        viewBox="0 0 50 50"
-        className="h-[18px] w-[18px]"
-        style={{ color: "var(--c2)" }}
-        aria-hidden="true"
-      >
-        <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
-      </svg>
-    </Link>
-
-    {/* GitHub */}
-    <Link
-      href="https://github.com/AarushiDaksh"
-      target="_blank"
-      aria-label="GitHub"
-      className="flex h-10 items-center justify-center rounded-lg ring-1 transition-all active:scale-[0.98]"
-      style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
-    >
-      <FaGithub className="h-[18px] w-[18px]" aria-hidden="true" />
-    </Link>
-
-    {/* Resume */}
-    <Link
-      href="https://drive.google.com/file/d/1mQ8fJgmyw4VqTS0xgz8KeSe6I9Z_rQu7/view?usp=sharing"
-      target="_blank"
-      aria-label="Resume"
-      className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg ring-1 text-[13px] font-semibold transition-all active:scale-[0.98] pb-[2px]"
-      style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
-    >
-      <FaFile className="h-[18px] w-[18px]" aria-hidden="true" />
-      Resume
-    </Link>
-  </div>
-</div>
-
-          </div>
-
-          {/* ===== DESKTOP (centered row) ===== */}
-          <div className={["hidden sm:flex items-center justify-center text-center gap-6", scrolled ? "h-16" : "h-20"].join(" ")}>
-            {/* Brand */}
-            <Link href="/" className="flex items-center min-w-0 gap-3">
-              <div
-                aria-hidden
-                className={["relative rounded-xl ring-2  p-[2px] shrink-0", scrolled ? "w-16 h-16" : "w-[84px] h-[84px]"].join(" ")}
-                              >
-                <div className="relative  h-full w-full overflow-hidden rounded-[10px] bg-black/90">
-                  <Image
-                    src="/photos/13.jpg"
-                    alt="Aarushi Daksh"
-                    fill
-                    className="object-cover select-none"
-                    sizes="84px"
-                    priority
-                  />
-                </div>
-              </div>
-
-              <div className="min-w-0 leading-none">
-                <h1 className="flex items-center justify-center gap-2 text-2xl font-semibold" style={{ color: "var(--text)" }}>
-                  <span className="truncate">Aarushi Daksh</span>
-                  <span className="leading-none" style={{ color: "var(--c1)" }}>▶</span>
-                </h1>
-                <p className="hidden sm:block text-sm" style={{ color: "var(--text-muted)" }}>
-                  Turning caffeine into code.
-                </p>
-              </div>
-            </Link>
-
-            {/* Actions */}
-            <div className="flex items-center gap-3">
-              <Link
-                href="https://leetcode.com/u/aarushidaksh05/"
-                target="_blank"
-                className="inline-flex h-11 px-4 items-center justify-center gap-2 rounded-lg ring-1 text-sm font-medium hover:bg-amber-200"
-                style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
-              >
-                {/* LeetCode icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 50 50" className="h-[18px] w-[18px]" style={{ color: "var(--c2)" }} aria-hidden="true">
-                  <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
-                </svg>
-                
-              </Link>
-
-              <Link
-                href="https://github.com/AarushiDaksh"
-                target="_blank"
-                className="inline-flex h-11 px-4 items-center justify-center gap-2 rounded-lg ring-1 text-sm font-medium"
-                style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
-              >
-                <FaGithub className="h-[18px] w-[18px]" aria-hidden="true" />
-                
-              </Link>
-
-              <Link
-                href="https://drive.google.com/file/d/1mQ8fJgmyw4VqTS0xgz8KeSe6I9Z_rQu7/view?usp=sharing"
-                target="_blank"
-                className="inline-flex h-11 px-4 items-center justify-center gap-2 rounded-lg ring-1 text-sm font-semibold"
-                style={{ background: "var(--control)", borderColor: "var(--ring)", color: "var(--text)" }}
-              >
-                <FaFile className="h-[18px] w-[18px]" aria-hidden="true" />
-                Resume
-              </Link>
             </div>
+          </Link>
+
+          <div className="text-center leading-tight">
+            <h1 className="text-[14px] font-semibold">Aarushi</h1>
+            <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+              Daksh
+            </p>
           </div>
+        </div>
+
+        <nav className="flex flex-col items-center gap-5">
+          <Link
+            href="https://leetcode.com/u/aarushidaksh05/"
+            target="_blank"
+            aria-label="LeetCode"
+            title="LeetCode"
+            className="p-2 rounded-lg ring-1 hover:scale-105 active:scale-95 transition-all"
+            style={{
+              background: "var(--control)",
+              borderColor: "var(--ring)",
+              color: "var(--c2)",
+              boxShadow: "var(--shadow)",
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 50 50" className="h-6 w-6" aria-hidden="true">
+              <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
+            </svg>
+          </Link>
+
+          <Link
+            href="https://github.com/AarushiDaksh"
+            target="_blank"
+            aria-label="GitHub"
+            title="GitHub"
+            className="p-2 rounded-lg ring-1 hover:scale-105 active:scale-95 transition-all"
+            style={{
+              background: "var(--control)",
+              borderColor: "var(--ring)",
+              color: "var(--text)",
+              boxShadow: "var(--shadow)",
+            }}
+          >
+            <FaGithub className="h-6 w-6" aria-hidden="true" />
+          </Link>
+        </nav>
+
+        <div className="px-2 text-center">
+          <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+            © AD’25
+          </p>
         </div>
       </header>
 
-      {/* theme variables */}
+      {/* ---------- Mobile Floating Button ---------- */}
+      <button
+        type="button"
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+        aria-controls="mobile-menu"
+        onClick={() => setOpen((v) => !v)}
+        className="sm:hidden fixed bottom-5 right-5 z-50 h-12 w-12 rounded-full ring-1 shadow-lg active:scale-95 transition-all"
+        style={{
+          background: "var(--control)",
+          borderColor: "var(--ring)",
+          color: "var(--text)",
+          boxShadow: "var(--shadow)",
+          backdropFilter: "saturate(160%) blur(18px)",
+        }}
+      >
+        <div className="relative mx-auto h-5 w-5">
+          <span className={["absolute left-0 right-0 h-[2px] transition-transform", open ? "top-2.5 rotate-45" : "top-1"].join(" ")} style={{ background: "var(--text)" }} />
+          <span className={["absolute left-0 right-0 h-[2px] transition-opacity", open ? "opacity-0" : "top-2.5 opacity-100"].join(" ")} style={{ background: "var(--text)" }} />
+          <span className={["absolute left-0 right-0 h-[2px] transition-transform", open ? "top-2.5 -rotate-45" : "top-4"].join(" ")} style={{ background: "var(--text)" }} />
+        </div>
+      </button>
+
+      {/* ---------- Mobile Drawer ---------- */}
+      <aside
+        id="mobile-menu"
+        className={["sm:hidden fixed top-0 right-0 z-50 h-full w-72 max-w-[85vw] border-l ring-1 transition-transform", open ? "translate-x-0" : "translate-x-full"].join(" ")}
+        style={{
+          background: "var(--header-bg)",
+          borderColor: "var(--ring)",
+          boxShadow: "var(--shadow)",
+          backdropFilter: "saturate(160%) blur(18px)",
+        }}
+      >
+        <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: "var(--ring)" }}>
+          <div className="flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-lg ring-1" style={{ borderColor: "var(--ring)" }}>
+              <Image src="/photos/13.jpg" alt="Aarushi Daksh" fill className="object-cover" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold">Aarushi Daksh</p>
+              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                Full-Stack Developer
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={() => setOpen(false)}
+            aria-label="Close"
+            className="h-9 w-9 rounded-md ring-1 grid place-items-center active:scale-95 transition-all"
+            style={{ background: "var(--control)", borderColor: "var(--ring)", boxShadow: "var(--shadow)" }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+
+        <nav className="px-3 py-4 space-y-2">
+          {[
+            { name: "Home", href: "/" },
+            { name: "LeetCode", href: "https://leetcode.com/u/aarushidaksh05/" },
+            { name: "GitHub", href: "https://github.com/AarushiDaksh" },
+          ].map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              target={link.name !== "Home" ? "_blank" : "_self"}
+              className="flex items-center justify-between rounded-lg px-3 py-3 ring-1 transition-colors"
+              style={{
+                background: "var(--control)",
+                borderColor: "var(--ring)",
+                color: "var(--text)",
+                boxShadow: "var(--shadow)",
+              }}
+              onClick={() => setOpen(false)}
+            >
+              <span>{link.name}</span>
+              <span className="text-xs" style={{ color: "var(--text-muted)" }}>▶</span>
+            </Link>
+          ))}
+        </nav>
+
+        <div className="mt-auto px-4 py-4 border-t" style={{ borderColor: "var(--ring)" }}>
+          <p className="text-xs text-center" style={{ color: "var(--text-muted)" }}>
+            © AD’25
+          </p>
+        </div>
+      </aside>
+
+      {/* ---------- Theme Tokens ---------- */}
       <style jsx global>{`
         :root {
           --c1: #ff52bf;
           --c2: #ffb900;
-          --c3: #8538f8
+          --c3: #8538f8;
 
-          --header-bg: rgba(255, 255, 255, 0.85);
-          --control: #f7f7f8;
-          --control-hover: #eeeeef;
+          --header-bg: rgba(255, 255, 255, 0.75);
+          --control: rgba(245, 245, 246, 0.85);
+          --control-hover: rgba(238, 238, 239, 0.9);
           --text: #111111;
           --text-muted: #5e5e5e;
-          --ring: rgba(0, 0, 0, 0);
-          --ring1: rgba(255, 255, 255, 0.1);
+          --ring: rgba(0, 0, 0, 0.08);
+          --shadow: 0 8px 24px rgba(0, 0, 0, 0.0.09);
         }
-      .dark {
+
+        .dark {
           --c1: #ff52bf;
           --c2: #ffb900;
-          --c3: #8538f8
+          --c3: #8538f8;
 
-          --header-bg: rgba(14, 13, 13, 0.2);
-          --control: rgba(14, 13, 13, 0.2);
-          --control-hover: rgba(0, 0, 0, 0.1);
+          --header-bg: rgba(255, 255, 255, 0.08);
+          --control: rgba(255, 255, 255, 0.08);
+          --control-hover: rgba(255, 255, 255, 0.12);
           --text: #ffffff;
-          --text-muted: #b3b3b3;
-          --ring: rgba(255, 255, 255, 0.12);
-        }
-        .dracula {
-          --c1: #ff79c6;
-          --c2: #bd93f9;
-          --c3: #825ae7
-
-          --header-bg: rgba(40, 42, 54, 0.75);
-          --control: rgba(68, 71, 90, 0.6);
-          --control-hover: rgba(68, 71, 90, 0.75);
-          --text: #f8f8f2;
-          --text-muted: #cfcfe6;
-          --ring: rgba(255, 255,255,0);
+          --text-muted: #c9c9c9;
+          --ring: rgba(255, 255, 255, 0.16);
+          --shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
         }
 
-        a[aria-label] { background: var(--control); }
-        a[aria-label]:hover { background: var(--control-hover); }
+        body {
+          margin-right: 0;
+          transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        @media (min-width: 640px) {
+          body { margin-right: 7rem; }
+        }
       `}</style>
     </>
   );
