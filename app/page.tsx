@@ -84,13 +84,13 @@ function Sparkles({ className = "" }: { className?: string }) {
         className="mx-auto max-w-5xl px-6 py-24 text-center"
       >
         <p className="mb-3 text-[11px] uppercase tracking-[.35em] text-neutral-500 dark:text-neutral-400">
-          Hello, I’m Aarushi Daksh
+          Hello, I’m <span className="bg-pink-600 dark:bg-[#c5d725] text-white dark:text-black ">Aarushi Daksh</span>
         </p>
 
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
           Full-Stack{" "}
           <span className="inline-block align-baseline rounded-md px-2">
-            <span className="bg-gradient-to-r from-[#c5d725] to-[#e5f05a] dark:from-pink-600 dark:to-rose-500 text-neutral-900 dark:text-neutral-100 px-2 rounded-md">
+            <span className="bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black px-2 rounded-md">
               Developer
             </span>
           </span>

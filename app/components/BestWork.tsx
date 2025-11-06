@@ -68,7 +68,7 @@ export default function BestWorks() {
 
               {/* Footer */}
               <div className="flex items-center justify-between px-3 sm:px-4 py-2 border-t border-white/10 text-xs sm:text-sm">
-                <span className="truncate text-neutral-400">{project.title}</span>
+                <span className=" text-pink-600 dark:text-[#c5d725]">{project.title}</span>
                 <span className="text-white/80">↗ {project.year}</span>
               </div>
             </div>
