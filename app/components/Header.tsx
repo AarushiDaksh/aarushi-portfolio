@@ -19,63 +19,67 @@ export default function Header() {
     <>
       <header
         role="banner"
-        className="hidden sm:flex fixed top-0 right-0 z-40 h-screen w-28 flex-col items-center justify-between py-8 ring-1 backdrop-blur-md transition-all"
+        className="hidden sm:flex fixed top-3 bottom-3 right-3 z-40 w-[92px] flex-col items-center justify-between rounded-3xl ring-1 backdrop-blur-xl transition-all"
         style={{
-          background: "var(--header-bg)",
+          background: "var(--sb-bg)",
           borderColor: "var(--ring)",
-          boxShadow: "var(--shadow)",
+          boxShadow: "var(--sb-shadow)",
           backdropFilter: "saturate(160%) blur(18px)",
         }}
       >
-        <div className="flex flex-col items-center gap-3">
-          <Link href="/" aria-label="Home">
+        <div className="flex flex-col items-center gap-3 pt-4">
+          <Link href="/" aria-label="Home" className="relative">
+            <span
+              className="absolute inset-0 -z-10 rounded-2xl glow"
+              aria-hidden="true"
+            />
             <div
               className={[
-                "relative rounded-xl p-[3px] ring-2 shadow-sm transition-all",
-                scrolled ? "w-14 h-14" : "w-20 h-20",
+                "relative rounded-2xl p-[4px] ring-1 transition-all",
+                scrolled ? "h-14 w-14" : "h-16 w-16",
               ].join(" ")}
-              style={{ borderColor: "var(--ring)" }}
+              style={{ borderColor: "var(--ring)", background: "var(--avatar-bg)" }}
             >
-              <div className="relative h-full w-full overflow-hidden rounded-[10px]">
+              <div className="relative h-full w-full overflow-hidden rounded-xl">
                 <Image
                   src="/photos/10.jpg"
                   alt="Aarushi Daksh"
                   fill
                   className="object-cover select-none"
-                  sizes="80px"
+                  sizes="64px"
                   priority
                 />
               </div>
             </div>
           </Link>
 
-          <div className="text-center leading-tight">
-            <h1 className="text-[14px] font-semibold">Aarushi</h1>
+          <div className="text-center leading-tight px-2">
+            <h1 className="text-[13px] font-semibold tracking-tight">Aarushi</h1>
             <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
               Daksh
             </p>
           </div>
         </div>
 
-        <nav className="flex flex-col items-center gap-5">
+        <nav className="flex flex-col items-center gap-3">
           <Link
             href="https://leetcode.com/u/aarushidaksh05/"
             target="_blank"
             aria-label="LeetCode"
             title="LeetCode"
-            className="p-2 rounded-lg ring-1 hover:scale-105 active:scale-95 transition-all"
+            className="h-12 w-12 grid place-items-center rounded-2xl ring-1 transition-all hover:translate-y-[-1px] active:scale-95"
             style={{
-              background: "var(--control)",
+              background: "grey-100",
               borderColor: "var(--ring)",
-              color: "var(--c2)",
-              boxShadow: "var(--shadow)",
+              color: "yellow",
+              boxShadow: "var(--chip-shadow)",
             }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
               viewBox="0 0 50 50"
-              className="h-6 w-6"
+              className="h-[22px] w-[22px]"
               aria-hidden="true"
             >
               <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
@@ -87,26 +91,25 @@ export default function Header() {
             target="_blank"
             aria-label="GitHub"
             title="GitHub"
-            className="p-2 rounded-lg ring-1 hover:scale-105 active:scale-95 transition-all"
+            className="h-12 w-12 grid place-items-center rounded-2xl ring-1 transition-all hover:translate-y-[-1px] active:scale-95"
             style={{
-              background: "var(--control)",
+              background: "grey-100",
               borderColor: "var(--ring)",
               color: "var(--text)",
-              boxShadow: "var(--shadow)",
+              boxShadow: "var(--chip-shadow)",
             }}
           >
-            <FaGithub className="h-6 w-6" aria-hidden="true" />
+            <FaGithub className="h-[20px] w-[20px]" aria-hidden="true" />
           </Link>
         </nav>
 
-        <div className="px-2 text-center">
+        <div className="pb-3 px-2 text-center">
           <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
             © AD’25
           </p>
         </div>
       </header>
 
-      {/* Mobile app bar */}
       <div
         className={[
           "sm:hidden fixed z-50 left-1/2 -translate-x-1/2 transition-all",
@@ -116,25 +119,21 @@ export default function Header() {
       >
         <div
           className={[
-            "flex items-center justify-between gap-3 rounded-2xl ring-1 px-3 py-2 backdrop-blur-md",
-            "transition-all",
+            "flex items-center justify-between gap-3 rounded-2xl ring-1 px-3 py-2 backdrop-blur-xl",
             scrolled ? "shadow-xl" : "shadow-md",
           ].join(" ")}
           style={{
-            background: "var(--header-bg)",
+            background: "var(--sb-bg)",
             borderColor: "var(--ring)",
-            boxShadow: "var(--shadow)",
+            boxShadow: "var(--sb-shadow)",
           }}
         >
           <Link href="/" className="flex items-center gap-2" aria-label="Home">
             <div
-              className={[
-                "relative rounded-xl ring-1 p-[2px] transition-all",
-                scrolled ? "w-9 h-9" : "w-10 h-10",
-              ].join(" ")}
-              style={{ borderColor: "var(--ring)" }}
+              className="relative rounded-2xl ring-1 p-[3px] w-10 h-10"
+              style={{ borderColor: "var(--ring)", background: "var(--avatar-bg)" }}
             >
-              <div className="relative h-full w-full overflow-hidden rounded-[10px]">
+              <div className="relative h-full w-full overflow-hidden rounded-xl">
                 <Image
                   src="/photos/10.jpg"
                   alt="Aarushi Daksh"
@@ -146,9 +145,7 @@ export default function Header() {
               </div>
             </div>
             <div className="leading-tight">
-              <p className="text-[13px] font-semibold" style={{ color: "var(--text)" }}>
-                Aarushi Daksh
-              </p>
+              <p className="text-[13px] font-semibold">Aarushi Daksh</p>
               <span className="text-[11px]" style={{ color: "var(--text-muted)" }}>
                 Full-Stack Developer
               </span>
@@ -160,22 +157,15 @@ export default function Header() {
               href="https://leetcode.com/u/aarushidaksh05/"
               target="_blank"
               aria-label="LeetCode"
-              title="LeetCode"
-              className="p-2 rounded-full ring-1 active:scale-95 hover:scale-105 transition-all"
+              className="h-12 w-12 grid place-items-center rounded-2xl ring-1 active:scale-95 hover:translate-y-[-1px] transition-all"
               style={{
-                background: "var(--control)",
+                background: "var(--chip-bg)",
                 borderColor: "var(--ring)",
-                color: "var(--c2)",
-                boxShadow: "var(--shadow)",
+                color: "var(--accent-2)",
+                boxShadow: "var(--chip-shadow)",
               }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 50 50"
-                className="h-5 w-5"
-                aria-hidden="true"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 50 50" className="h-[16px] w-[16px]">
                 <path d="M38.12 18.45c-2.47-2.47-6.3-2.6-8.9-.42l-3.25 3.22 2.4 2.42 3.25-3.23c1.2-1.08 3.01-1.03 4.2.16 1.17 1.17 1.22 2.98.15 4.2L22.6 38.7c-1.16 1.15-3.03 1.15-4.18 0l-9.11-9.12c-1.15-1.16-1.15-3.03 0-4.18l7.96-7.95a2.91 2.91 0 014.13.02l1.8 1.8 2.4-2.42-1.8-1.8c-2.5-2.49-6.56-2.52-9.05-.02L7.3 25.4a6 6 0 000 8.47l9.12 9.11a6 6 0 008.47 0l13.23-13.23a6.3 6.3 0 000-8.89z" />
               </svg>
             </Link>
@@ -184,16 +174,15 @@ export default function Header() {
               href="https://github.com/AarushiDaksh"
               target="_blank"
               aria-label="GitHub"
-              title="GitHub"
-              className="p-2 rounded-full ring-1 active:scale-95 hover:scale-105 transition-all"
+              className="h-9 w-9 grid place-items-center rounded-2xl ring-1 active:scale-95 hover:translate-y-[-1px] transition-all"
               style={{
-                background: "var(--control)",
+                background: "var(--chip-bg)",
                 borderColor: "var(--ring)",
                 color: "var(--text)",
-                boxShadow: "var(--shadow)",
+                boxShadow: "var(--chip-shadow)",
               }}
             >
-              <FaGithub className="h-5 w-5" aria-hidden="true" />
+              <FaGithub className="h-[16px] w-[16px]" />
             </Link>
           </div>
         </div>
@@ -201,31 +190,37 @@ export default function Header() {
 
       <style jsx global>{`
         :root {
-          --c1: #ff52bf;
-          --c2: #ffb900;
-          --c3: #8538f8;
+          --accent-1: #7c3aed;
+          --accent-2: #8f8ff8;
 
-          --header-bg: rgba(255, 255, 255, 0.75);
-          --control: rgba(245, 245, 246, 0.85);
-          --control-hover: rgba(238, 238, 239, 0.9);
+          --sb-bg: rgba(255, 255, 255, 0.82);
+          --avatar-bg: linear-gradient(180deg, rgba(124,58,237,0.10), rgba(124,58,237,0.05));
+          --chip-bg: rgba(245, 245, 246, 0.9);
+
           --text: #111111;
           --text-muted: #5e5e5e;
           --ring: rgba(0, 0, 0, 0.08);
-          --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+          --sb-shadow: 0 16px 40px rgba(0,0,0,0.12);
+          --chip-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
         .dark {
-          --c1: #ff52bf;
-          --c2: #ffb900;
-          --c3: #8538f8;
+          --sb-bg: rgba(16, 16, 18, 0.6);
+          --avatar-bg: linear-gradient(180deg, rgba(124,58,237,0.20), rgba(124,58,237,0.10));
+          --chip-bg: rgba(255, 255, 255, 0.06);
 
-          --header-bg: rgba(255, 255, 255, 0.06);
-          --control: rgba(255, 255, 255, 0.08);
-          --control-hover: rgba(255, 255, 255, 0.12);
-          --text: #ffffff;
-          --text-muted: #c9c9c9;
-          --ring: rgba(255, 255, 255, 0.16);
-          --shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+          --text: #fafafa;
+          --text-muted: #b4b4b7;
+          --ring: rgba(255, 255, 255, 0.12);
+
+          --sb-shadow: 0 16px 50px rgba(0, 0, 0, 0.55);
+          --chip-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+        }
+
+        .glow {
+          background: radial-gradient(40% 40% at 50% 10%, rgba(124,58,237,0.18), transparent 60%);
+          filter: blur(16px);
         }
 
         body {
@@ -234,7 +229,7 @@ export default function Header() {
         }
         @media (min-width: 640px) {
           body {
-            margin-right: 7rem;
+            margin-right: 7.5rem;
           }
         }
         @media (max-width: 639px) {
@@ -246,3 +241,4 @@ export default function Header() {
     </>
   );
 }
+``

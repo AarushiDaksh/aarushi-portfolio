@@ -97,15 +97,15 @@ export default function DigitalTwinPage() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center gap-3"
         >
-          <div className="relative">
+          {/* <div className="relative">
             <img
               src="/photos/aa.png"
               alt="Aarushi Daksh"
               className="h-20 w-20 rounded-xl object-cover grayscale"
             />
             <div className="absolute inset-0 rounded-xl bg-[var(--border)] blur-md" />
-          </div>
-          <h1 className="text-2xl font-semibold">{TITLE}</h1>
+          </div> */}
+          <h1 className="text-2xl font-semibold mt-12 ">AD — <span className="bg-[#c5d725] to-[#e5f05a] dark:bg-pink-600 text-neutral-900 dark:text-neutral-100">Aarushi’s Digital Twin</span></h1>
           <p className="text-sm text-[var(--text-muted)]">{SUBTITLE}</p>
 
           {/* Quick Prompts */}
@@ -185,7 +185,7 @@ export default function DigitalTwinPage() {
       {/* ====== INPUT ====== */}
       <form
         onSubmit={onSend}
-        className="sticky bottom-0 w-full border-t border-[var(--border)] bg-[var(--nav-bg)]/80 backdrop-blur-sm"
+        className="sticky bottom-0 w-full border-t border-[var(--border)] bg-[var(--nav-bg)]/80 backdrop-blur-sm mb-15"
       >
         <div className="mx-auto max-w-2xl flex items-center gap-2 px-4 py-3">
           <input
