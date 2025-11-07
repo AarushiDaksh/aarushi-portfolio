@@ -10,6 +10,7 @@ import Footer from "./components/footer";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import {ReactTyped} from "react-typed";
 
 /* Spiral Aura */
 function SpiralAura({ className = "" }: { className?: string }) {
@@ -73,6 +74,26 @@ function Sparkles({ className = "" }: { className?: string }) {
   return <div className={`twinkles ${className}`} aria-hidden />;
 }
 
+// export default function HeroTitle() {
+//   return (
+//     <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
+//       <span>Full-Stack </span>
+//       <span className="inline-block align-baseline rounded-md px-2 bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black">
+//         <Typed
+//           strings={[
+//             "Developer",
+//             "Engineer",
+//             "Creator",
+//             "Innovator",
+//           ]}
+//           typeSpeed={70}
+//           backSpeed={40}
+//           loop
+//         />
+//       </span>
+//     </h1>
+//   );
+// }
 
  function Hero() {
   return (
@@ -86,18 +107,29 @@ function Sparkles({ className = "" }: { className?: string }) {
         <p className="mb-3 text-[11px] uppercase tracking-[.35em] text-neutral-500 dark:text-neutral-400">
           Hello, I’m <span className="bg-pink-600 dark:bg-[#c5d725] text-white dark:text-black ">Aarushi Daksh</span>
         </p>
-
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
-          Full-Stack{" "}
-          <span className="inline-block align-baseline rounded-md px-2">
-            <span className="bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black ">
-              Developer
-            </span>
+        <h1 className="mt-10">
+          <span className="text-5xl  sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black"> 
+           Developer
           </span>
+        </h1>
+            
+    <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
+          <ReactTyped
+            strings={["Full-Stack", "Software"]}
+            typeSpeed={150}
+            backSpeed={60}
+            backDelay={1200}
+            startDelay={300}
+            smartBackspace
+            loop
+            showCursor
+            cursorChar="🖊"
+          />{" "}
+          
         </h1>
 
         <div className="mx-auto mt-4 h-px w-24 bg-neutral-200 dark:bg-neutral-800" />
-
+       
         <p className="mt-6 mx-auto max-w-2xl text-sm md:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
           As a fresher, I’m focused on learning the fundamentals of{" "}
           <span className="font-medium">Full-Stack Development</span> and{" "}
