@@ -107,27 +107,27 @@ function Sparkles({ className = "" }: { className?: string }) {
         <p className="mb-3 text-[11px] uppercase tracking-[.35em] text-neutral-500 dark:text-neutral-400">
           Hello, I’m <span className="bg-pink-600 dark:bg-[#c5d725] text-white dark:text-black ">Aarushi Daksh</span>
         </p>
-        <h1 className="mt-10">
-          <span className="text-5xl  sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black"> 
-           Developer
-          </span>
-        </h1>
+       
             
     <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
           <ReactTyped
             strings={["Full-Stack", "Software"]}
-            typeSpeed={150}
-            backSpeed={60}
+            typeSpeed={200}
+            backSpeed={90}
             backDelay={1200}
             startDelay={300}
             smartBackspace
             loop
             showCursor
-            cursorChar="🖊"
+            cursorChar="|"
           />{" "}
           
         </h1>
-
+           <h1 className="">
+          <span className="text-5xl  sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black"> 
+           Developer
+          </span>
+        </h1>
         <div className="mx-auto mt-4 h-px w-24 bg-neutral-200 dark:bg-neutral-800" />
        
         <p className="mt-6 mx-auto max-w-2xl text-sm md:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
