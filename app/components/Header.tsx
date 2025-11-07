@@ -202,7 +202,7 @@ export default function Header() {
           --ring: rgba(0, 0, 0, 0.08);
 
           --sb-shadow: 0 16px 40px rgba(0,0,0,0.04);
-          --chip-shadow: 0 8px 20px rgba(0,0,,0.08);
+          --chip-shadow: 0 8px 20px rgba(0,0,0, 0.08);
         }
 
         .dark {
@@ -223,19 +223,9 @@ export default function Header() {
           filter: blur(16px);
         }
 
-        body {
-          margin-right: 0;
-          transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        @media (min-width: 640px) {
-          body {
-            margin-right: 7.5rem;
-          }
-        }
-        @media (max-width: 639px) {
-          body {
-            padding-top: 72px;
-          }
+        
+
+       
         }
       `}</style>
     </>

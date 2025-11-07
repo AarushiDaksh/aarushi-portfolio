@@ -191,3 +191,23 @@ input[type="text"], input[type="email"] {
   --grid-rgba: 255, 255, 255; /* white reads better */
   --grid-alpha: 0.12;         /* slightly bolder for theme */
 }
+
+/* hard kill any legacy pushes on body (class applied in layout) */
+body.no-body-push {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* if your mobile top bar needs space, keep this (adjust height if different) */
+@media (max-width: 639px) {
+  body.no-body-push {
+    padding-top: 72px; /* for your mobile fixed header */
+  }
+}
+
+/* fix your earlier typo so shadow works */
+:root {
+  --chip-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
