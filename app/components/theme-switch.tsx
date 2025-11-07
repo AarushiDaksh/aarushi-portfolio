@@ -9,8 +9,8 @@ const themes = ["light", "dark"] as const;
 type ThemeName = (typeof themes)[number];
 
 const LABELS: Record<ThemeName, string> = {
-  light: "Light",
-  dark: "Dark"
+  light: "Dark",
+  dark: "Light"
   // dracula: "Dracula",
 }
 
