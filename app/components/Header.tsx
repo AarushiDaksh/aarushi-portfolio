@@ -201,8 +201,8 @@ export default function Header() {
           --text-muted: #5e5e5e;
           --ring: rgba(0, 0, 0, 0.08);
 
-          --sb-shadow: 0 16px 40px rgba(0,0,0,0.12);
-          --chip-shadow: 0 8px 20px rgba(6,0,,0.15);
+          --sb-shadow: 0 16px 40px rgba(0,0,0,0.04);
+          --chip-shadow: 0 8px 20px rgba(0,0,,0.08);
         }
 
         .dark {

@@ -90,7 +90,7 @@ function Sparkles({ className = "" }: { className?: string }) {
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
           Full-Stack{" "}
           <span className="inline-block align-baseline rounded-md px-2">
-            <span className="bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black px-2 rounded-md">
+            <span className="bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black ">
               Developer
             </span>
           </span>
