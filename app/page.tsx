@@ -233,7 +233,9 @@ export default function Page() {
         </section>
       </main>
 
-      <Footer />
+      <div className="mb-15">
+             <Footer />
+             </div>
       <style jsx global>{`
         html {
           scroll-behavior: smooth;
