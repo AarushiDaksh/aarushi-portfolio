@@ -4,4 +4,4 @@ This site is a collection of my work, experiments, and ideas. You may notice the
 
 If you’d like to connect, collaborate, or just ask me about something in this repo, feel free to drop a message. I’ll make sure to respond. 
 ✉️aarushi312004@gmail.com<br>
-https://www.aarushi.cloud/ 🐞.
+https://www.aarushi.cloud/ 🐞
