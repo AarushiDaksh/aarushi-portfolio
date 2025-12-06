@@ -151,7 +151,7 @@ function Sparkles({ className = "" }: { className?: string }) {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           {/* Rectangular Resume Button */}
           <a
-            href="https://drive.google.com/file/d/1mQ8fJgmyw4VqTS0xgz8KeSe6I9Z_rQu7/view?usp=sharing"
+            href="https://drive.google.com/file/d/1lzTdyZWCzQ2K5TEghLFpn8M-uIQbPH33/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-800 hover:bg-neutral-100 
@@ -187,7 +187,7 @@ function Sparkles({ className = "" }: { className?: string }) {
         <Image
           src="/photos/12.png"
           alt="Hero floating graphic"
-          width={330}
+          width={350}
           height={220}
           className="drop-shadow-xl animate-bounce-slow"
         />
@@ -211,7 +211,7 @@ export default function Page() {
     <>
       <RetroGrid z={0} strength="subtle" />
    
-      <div className="pt-10">
+      <div className="">
       <Hero />
       </div>
 
