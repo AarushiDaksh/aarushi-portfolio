@@ -54,7 +54,7 @@ export const ThemeSwitch: React.FC = () => {
       type="button"
     >
       <FaCircleHalfStroke className="h-[14px] w-[14px]" />
-      <span className="ml-2">{LABELS[currentTheme]}</span>
+
     </button>
   );
 };

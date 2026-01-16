@@ -41,11 +41,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.className} ${pressStart.variable} antialiased no-body-push`}>
         <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
           {/* Fixed right sidebar (client) */}
-          <Header />
+         
 
           {/* Page wrapper — no grid, just a centered container so fixed header never affects centering */}
           <div className="min-h-screen">
-            <main className="relative isolate w-full max-w-[800px] mx-auto px-6 sm:px-4 md:px-0">
+            <main className="relative isolate w-full max-w-[1000px] mx-auto px-6 sm:px-4 md:px-0">
               <span className="accent-line" aria-hidden />
               {children}
               <DraculaOverlay />

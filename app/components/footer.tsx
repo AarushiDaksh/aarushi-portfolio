@@ -1,59 +1,62 @@
 "use client";
 
 import React from "react";
-import { FaLinkedinIn, FaMedium } from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn, FaMedium } from "react-icons/fa6";
+import { SiLeetcode } from "react-icons/si";
 import { TbMailFilled } from "react-icons/tb";
 import { metaData, socialLinks } from "app/lib/config";
 
 const YEAR = new Date().getFullYear();
 
-function SocialLink({ href, icon: Icon }) {
+function SocialIcon({ href, icon: Icon, label }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="transition-colors duration-200 hover:text-primary"
+      aria-label={label}
+      className="
+        text-neutral-500 dark:text-neutral-400
+        hover:text-neutral-900 dark:hover:text-white
+        transition
+      "
     >
-      <Icon />
+      <Icon size={18} />
     </a>
-  );
-}
-
-function SocialLinks() {
-  return (
-    <div className="flex text-lg gap-3.5 float-right transition-opacity duration-300 hover:opacity-90">
-      <SocialLink href={socialLinks.medium} icon={FaMedium} />
-      <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
-      <SocialLink href={socialLinks.email} icon={TbMailFilled} />
-       
-    </div>
   );
 }
 
 export default function Footer() {
   return (
-    <small
-      className={"block lg:mt-24 mt-16 light:text-neutral-800 dark:text-neutral-200 dracula:text-neutral-200"}
-    >
-      <time>© {YEAR}</time>{" "}
-      <a
-        className="no-underline hover:underline"
-        href={socialLinks.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {metaData.title}
-      </a>
-      <style jsx>{`
-        @media screen and (max-width: 480px) {
-          article {
-            padding-top: 2rem;
-            padding-bottom: 4rem;
-          }
-        }
-      `}</style>
-      <SocialLinks />
-    </small>
+    <footer className="mt-16 sm:mt-24 pb-8">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center">
+        {/* Title */}
+        <p className="text-sm font-semibold text-neutral-900 dark:text-white">
+          Contact
+        </p>
+
+        {/* Sub */}
+        <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
+          Open to opportunities, collaboration, and conversations.
+        </p>
+
+        {/* Icons */}
+        <div className="mt-4 flex items-center justify-center gap-5">
+          <SocialIcon href={socialLinks.github} icon={FaGithub} label="GitHub" />
+          <SocialIcon href={socialLinks.leetcode} icon={SiLeetcode} label="LeetCode" />
+          <SocialIcon href={socialLinks.linkedin} icon={FaLinkedinIn} label="LinkedIn" />
+          <SocialIcon href={socialLinks.medium} icon={FaMedium} label="Medium" />
+          <SocialIcon href={socialLinks.email} icon={TbMailFilled} label="Email" />
+        </div>
+
+        {/* Divider */}
+        <div className="mx-auto mt-6 h-px w-20 bg-black/10 dark:bg-white/10" />
+
+        {/* Copyright */}
+        <p className="mt-4 text-xs text-neutral-500 dark:text-neutral-400">
+          © {YEAR} {metaData.title}
+        </p>
+      </div>
+    </footer>
   );
 }

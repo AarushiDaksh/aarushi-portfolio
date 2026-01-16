@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import Link from "next/link";
 import RetroGrid from "./components/RetroGrid";
 import { Navbar } from "./components/nav";
@@ -13,6 +11,13 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion"; // ⬅️ update
 import { ArrowDown } from "lucide-react";
 import { ReactTyped } from "react-typed";
+import Hero from "./components/Hero";
+
+import BotLauncher from "./components/bot";
+
+import About from "./components/about";
+import Highlights from "./components/highlights";
+
 
 /* Spiral Aura */
 function SpiralAura({ className = "" }: { className?: string }) {
@@ -76,134 +81,9 @@ function Sparkles({ className = "" }: { className?: string }) {
   return <div className={`twinkles ${className}`} aria-hidden />;
 }
 
-// export default function HeroTitle() {
-//   return (
-//     <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
-//       <span>Full-Stack </span>
-//       <span className="inline-block align-baseline rounded-md px-2 bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black">
-//         <Typed
-//           strings={[
-//             "Developer",
-//             "Engineer",
-//             "Creator",
-//             "Innovator",
-//           ]}
-//           typeSpeed={70}
-//           backSpeed={40}
-//           loop
-//         />
-//       </span>
-//     </h1>
-//   );
-// }
 
- function Hero() {
-  // 🔁 scroll → opacity/y for the sticker
-  const { scrollY } = useScroll();
-  const stickerOpacity = useTransform(scrollY, [0, 200], [1, 0]);
-  const stickerY = useTransform(scrollY, [0, 200], [0, 60]);
 
-  return (
-    <section className="relative overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, y: 28 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mx-auto max-w-5xl px-6 py-24 text-center"
-      >
-        <p className="mb-3 text-[11px] uppercase tracking-[.35em] text-neutral-500 dark:text-neutral-400">
-          Hello, I’m{" "}
-          <span className="bg-pink-600 dark:bg-[#c5d725] text-white dark:text-black ">
-            Aarushi Daksh
-          </span>
-        </p>
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white">
-          <ReactTyped
-            strings={["Full-Stack", "Software"]}
-            typeSpeed={200}
-            backSpeed={90}
-            backDelay={1200}
-            startDelay={300}
-            smartBackspace
-            loop
-            showCursor
-            cursorChar="|"
-          />{" "}
-        </h1>
-
-        <h1>
-          <span className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-neutral-900 dark:text-white bg-[#c5d725] dark:bg-pink-600 text-white dark:text-black">
-            Developer
-          </span>
-        </h1>
-
-        <div className="mx-auto mt-4 h-px w-24 bg-neutral-200 dark:bg-neutral-800" />
-
-        <p className="mt-6 mx-auto max-w-2xl text-sm md:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
-          As a fresher, I’m focused on learning the fundamentals of{" "}
-          <span className="font-medium">Full-Stack Development</span> and{" "}
-          <span className="font-medium">DSA</span>. I enjoy working in teams,
-          learning from mentors, and building simple, working projects that
-          strengthen my technical foundation.
-        </p>
-
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {/* Rectangular Resume Button */}
-          <a
-            href="https://drive.google.com/file/d/1lzTdyZWCzQ2K5TEghLFpn8M-uIQbPH33/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-800 hover:bg-neutral-100 
-               dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800 transition-all hover:scale-[1.02]"
-          >
-            View Resume
-          </a>
-
-          {/* Rounded Twin Button */}
-          <a
-            href="/twin"
-            className="group inline-flex items-center gap-2 sm:gap-3 rounded-full ring-1 ring-neutral-300 dark:ring-neutral-700 
-               px-4 py-2 text-sm font-medium text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-900 
-               transition-all hover:scale-[1.03]"
-          >
-            <span className="relative flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full ring-1 
-                     ring-neutral-300 dark:ring-neutral-700 bg-neutral-50 dark:bg-neutral-800">
-              <FaMousePointer className="h-3 w-3 sm:h-4 sm:w-4 animate-pulse" />
-            </span>
-            <span>Meet My Twin</span>
-          </a>
-        </div>
-      </motion.div>
-
-  
- {/* <motion.div
-        initial={{ opacity: 0, y: 40 }}          // entry animation
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        style={{ opacity: stickerOpacity, y: stickerY }}
-        className="pointer-events-none fixed bottom-2 left-1/2 z-30 -translate-x-1/2"
-      >
-        <Image
-          src="/photos/12.png"
-          alt="Hero floating graphic"
-          width={350}
-          height={220}
-          className="drop-shadow-xl animate-bounce-slow"
-        />
-      </motion.div> */}
-
-      {/* Existing scroll arrow */}
-      <a
-        href="#works"
-        className="group absolute left-1/2 bottom-6 -translate-x-1/2 flex flex-col items-center text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition "
-      >
-        <ArrowDown className="h-5 w-5 animate-bounce" />
-        <span className="text-xs tracking-widest mt-1">Scroll</span>
-      </a>
-    </section>
-  );
-}
 
 
 export default function Page() {
@@ -222,22 +102,9 @@ export default function Page() {
             <div className="hidden md:block" />
            
 
-            {/* About */}
+          
             <div>
-              {/* <h2 className="text-xl font-bold" style={{ color: "var(--text)" }}>
-                About
-              </h2>
-
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "var(--text-muted)" }}
-              >
-                From prototype to production: I build fast, elegant apps with
-                <span style={{ color: "var(--accent-pink)" }}> React/Next.js</span>,
-                <span style={{ color: "var(--accent-cyan)" }}> Tailwind</span> and
-                <span style={{ color: "var(--accent-green)" }}> React Native</span>.
-              </p> */}
-
+             
               
             </div>
 
@@ -249,20 +116,27 @@ export default function Page() {
               </div>
             </div>
           </div>
-
+          <div className="about" id="about">
+          <About />
+          </div>
           {/* Works */}
           <div id="works" className="scroll-mt-28 mt-16 sm:mt-20">
             <BestWorks />
           </div>
+          <Highlights />
+          {/* Navbar */}
+          <section className="mb-20 mt-16 sm:mt-20">
 
           <div className="mt-12">
             <Navbar />
           </div>
         </section>
+      </section>
       </main>
 
       <div className="mb-15">
              <Footer />
+             <BotLauncher />
              </div>
       <style jsx global>{`
         html {

@@ -1,16 +1,12 @@
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
-import { FaBookOpen, FaFolderOpen, FaHome, FaMediumM, FaStar } from "react-icons/fa";
-import { FaA, FaD, FaH, FaMedium } from "react-icons/fa6";
-import { Home, HomeIcon } from "lucide-react";
-import { homedir } from "node:os";
 
 const navItems = {
-  "/twin": { name: "", icon: FaA },
-  "/":{name: "" , icon: HomeIcon},
-  "/projects": { name: "", icon: FaFolderOpen },
-  "/highlights": { name: "", icon: FaStar }
+  "/": { name: "Home" },
+  "/#works": { name: "Projects" },
+  "/#highlights": { name: "Highlights" },
 };
+
 
 export function T() {
   return (
@@ -20,17 +16,19 @@ export function T() {
                  border border-black/5 dark:border-white/10
                  rounded-full shadow-lg px-6 py-3"
     >
-      <div className="flex items-center gap-6">
-        {Object.entries(navItems).map(([path, { name, icon: Icon }]) => (
+      <div className="flex items-center gap-7">
+        {Object.entries(navItems).map(([path, { name }]) => (
           <Link
             key={path}
             href={path}
-            className="flex flex-col items-center gap-1 text-xs font-medium
-                       transition-all duration-300 text-[#c5d725] hover:text-pink-600 
-                       dark:text-neutral-300 dark:hover:text-lime-400"
+            className="
+              text-sm sm:text-base font-semibold
+              transition-all duration-300
+              text-lime-500 hover:text-pink-600
+              dark:text-neutral-200 dark:hover:text-lime-400
+            "
           >
-            <Icon size={20} />
-            <span>{name}</span>
+            {name}
           </Link>
         ))}
 
