@@ -48,7 +48,7 @@ export default function Hero() {
 
         {/* NAME (fixed for mobile) */}
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
-          Aarushi
+          𝘈𝘢𝘳𝘶𝘴𝘩𝘪
         </h1>
 
         {/* TAGLINE (cleaner mobile layout) */}
