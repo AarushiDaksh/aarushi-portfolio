@@ -24,7 +24,7 @@ export function T() {
             className="
               text-sm sm:text-base font-semibold
               transition-all duration-300
-              text-lime-500 hover:text-pink-600
+               hover:text-pink-600
               dark:text-neutral-200 dark:hover:text-lime-400
             "
           >
