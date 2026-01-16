@@ -47,37 +47,37 @@ export const projects = [
     url: "https://voqit-ai.vercel.app/",
     image: "/photos/Voqit-Ai.png",
   },
-  {
-    title: "CURD-App",
-    year: 2025,
-    description:
-      "Express CRUD Application using MVC structure with Docker support.",
-    url: "https://github.com/AarushiDaksh/express-curd-app.git",
-    image: "/photos/Docker.jpeg",
-  },
-  {
-    title: "Voqit-ecom",
-    year: 2025,
-    description:
-      "A responsive and modern e-commerce web app built with Next.js 14, TailwindCSS, and Clerk authentication. Includes product listing, cart, and protected routes.",
-    url: "https://superb-squirrel-63.accounts.dev/sign-in?redirect_url=https%3A%2F%2Fe-com-nextjs-voqit.vercel.app%2F",
-    image: "/photos/ecom.png",
-  },
-  {
-    title: "3Js-Portfolio",
-    year: 2025,
-    description:
-      "Excited to learn more in Three.js, so I started by building my own personal 3D portfolio room.",
-    url: "https://3-js-portfolio-aarushi-dakshs-projects.vercel.app/",
-    image: "/photos/3Js.png",
-  },
-  {
-    title: "Album",
-    year: 2025,
-    description: "Technology Design",
-    url: "https://album7.vercel.app/",
-    image: "/photos/music.jpeg",
-  },
+  // {
+  //   title: "CURD-App",
+  //   year: 2025,
+  //   description:
+  //     "Express CRUD Application using MVC structure with Docker support.",
+  //   url: "https://github.com/AarushiDaksh/express-curd-app.git",
+  //   image: "/photos/Docker.jpeg",
+  // },
+  // {
+  //   title: "Voqit-ecom",
+  //   year: 2025,
+  //   description:
+  //     "A responsive and modern e-commerce web app built with Next.js 14, TailwindCSS, and Clerk authentication. Includes product listing, cart, and protected routes.",
+  //   url: "https://superb-squirrel-63.accounts.dev/sign-in?redirect_url=https%3A%2F%2Fe-com-nextjs-voqit.vercel.app%2F",
+  //   image: "/photos/ecom.png",
+  // },
+  // {
+  //   title: "3Js-Portfolio",
+  //   year: 2025,
+  //   description:
+  //     "Excited to learn more in Three.js, so I started by building my own personal 3D portfolio room.",
+  //   url: "https://3-js-portfolio-aarushi-dakshs-projects.vercel.app/",
+  //   image: "/photos/3Js.png",
+  // },
+  // {
+  //   title: "Album",
+  //   year: 2025,
+  //   description: "Technology Design",
+  //   url: "https://album7.vercel.app/",
+  //   image: "/photos/music.jpeg",
+  // },
    {
     title: "miniATS",
     year: 2025,

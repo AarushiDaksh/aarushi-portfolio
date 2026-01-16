@@ -17,6 +17,7 @@ import BotLauncher from "./components/bot";
 
 import About from "./components/about";
 import Highlights from "./components/highlights";
+import ScrollToTop from "./components/scrolltotop";
 
 
 /* Spiral Aura */
@@ -137,7 +138,8 @@ export default function Page() {
       <div className="mb-15">
              <Footer />
              <BotLauncher />
-             </div>
+             <ScrollToTop />
+      </div>
       <style jsx global>{`
         html {
           scroll-behavior: smooth;

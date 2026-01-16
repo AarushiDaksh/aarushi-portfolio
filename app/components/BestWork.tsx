@@ -47,10 +47,7 @@ export default function BestWorks() {
           Selected Work
         </h2>
 
-        <p className="mt-2 max-w-2xl text-sm sm:text-base text-neutral-600 dark:text-neutral-300">
-          A collection of projects focused on real-world products, clean UI, and
-          scalable engineering.
-        </p>
+        
       </motion.div>
 
       {/* GRID */}
