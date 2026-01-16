@@ -39,14 +39,14 @@ export const projects = [
   },
  
  
-  {
-    title: "Voqit-Ai",
-    year: 2025,
-    description:
-      "AI-ChatBot designed to interact with real-time users using Clerk Authentication.",
-    url: "https://voqit-ai.vercel.app/",
-    image: "/photos/Voqit-Ai.png",
-  },
+  // {
+  //   title: "Voqit-Ai",
+  //   year: 2025,
+  //   description:
+  //     "AI-ChatBot designed to interact with real-time users using Clerk Authentication.",
+  //   url: "https://voqit-ai.vercel.app/",
+  //   image: "/photos/Voqit-Ai.png",
+  // },
   // {
   //   title: "CURD-App",
   //   year: 2025,

@@ -109,22 +109,23 @@ export default function Page() {
               
             </div>
 
-            {/* Decorative spiral card */}
+            {/* Decorative spiral card
             <div className="flex justify-center items-center w-full">
               <div className="group relative w-[min(92vw,420px)] h-[300px] [perspective:1200px]">
                 <SpiralAura className="pointer-events-none absolute inset-0 -z-10" />
                 <Sparkles className="pointer-events-none absolute inset-0 -z-10" />
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="about" id="about">
           <About />
           </div>
+           <Highlights />
           {/* Works */}
           <div id="works" className="scroll-mt-28 mt-16 sm:mt-20">
             <BestWorks />
           </div>
-          <Highlights />
+         
           {/* Navbar */}
           <section className="mb-20 mt-16 sm:mt-20">
 

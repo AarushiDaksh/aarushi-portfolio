@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   twitter: {
     title: metaData.name,
     card: "summary_large_image",
-    images: ["/photos/d.png"],
+    images: ["/photos/avatar.jpeg"],
   },
   icons: {
-    icon: [{ url: "/photos/d.png", type: "image/png", sizes: "1000x1000" }],
-    apple: "/photos/d.png",
+    icon: [{ url: "/photos/avatar.jpeg", type: "image/jpeg", sizes: "1000x1000" }],
+    apple: "/photos/avatar.jpeg",
   },
 };
 
