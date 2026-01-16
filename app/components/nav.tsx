@@ -14,7 +14,7 @@ export function Navbar() {
  className="
     fixed left-1/2 z-50 -translate-x-1/2
     top-[calc(env(safe-area-inset-top)+10px)]
-    w-[min(55vw,420px)]
+    w-[min(95vw,420px)]
     bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md
     border border-black/5 dark:border-white/10
     rounded-full shadow-lg

@@ -16,12 +16,7 @@ export default function Hero() {
         md:min-h-[95vh] md:flex md:items-center
       "
     >
-      {/* soft glow blobs */}
-      <div className="pointer-events-none absolute inset-0 ">
-        <div className="absolute left-1/2 top-[-140px] h-[420px] w-[420px] -translate-x-1/2 rounded-full blur-3xl opacity-25 bg-[#c5d725]" />
-        <div className="absolute left-[18%] top-[35%] h-[360px] w-[360px] rounded-full blur-3xl opacity-15 bg-pink-500" />
-        <div className="absolute right-[12%] top-[30%] h-[360px] w-[360px] rounded-full blur-3xl opacity-10 bg-sky-400" />
-      </div>
+   
 
       {/* subtle grid/lines */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.16]">
