@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: { default: metaData.title, template: `%s | ${metaData.title}` },
   description: metaData.description,
   openGraph: {
-    images: metaData.ogImage ?? "/photos/aa.png",
+    images: metaData.ogImage ?? "/photos/avatar-crop.png",
     title: metaData.title,
     description: metaData.description,
     url: metaData.baseUrl,
@@ -27,11 +27,11 @@ export const metadata: Metadata = {
   twitter: {
     title: metaData.name,
     card: "summary_large_image",
-    images: ["/photos/avatar.jpeg"],
+    images: ["/photos/avatar-crop.jpeg"],
   },
   icons: {
-    icon: [{ url: "/photos/avatar.jpeg", type: "image/jpeg", sizes: "1000x1000" }],
-    apple: "/photos/avatar.jpeg",
+    icon: [{ url: "/photos/avatar-crop.png", type: "image/png", sizes: "1000x1000" }],
+    apple: "/photos/avatar-crop.png",
   },
 };
 
