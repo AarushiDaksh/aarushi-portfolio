@@ -128,14 +128,14 @@ export default function DigitalTwinChat() {
             </div>
           </div>
 
-          <button
+          {/* <button
             onClick={handleClear}
             type="button"
             className="shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2.5 py-2 text-xs text-white/70 hover:text-white hover:bg-white/10 transition"
             title="Clear"
           >
             <LuTrash2 size={14} />
-          </button>
+          </button> */}
         </div>
 
         {/* Quick prompts */}

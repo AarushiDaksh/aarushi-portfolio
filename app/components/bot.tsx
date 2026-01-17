@@ -74,14 +74,14 @@ export default function BotLauncher() {
               }
             >
              
-              {/* <button
+              <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-3 right-20 z-10 h-9 w-9 rounded-2xl border border-white/10 bg-white/5 text-white/80 hover:text-white hover:bg-white/10 transition grid place-items-center"
+                className="absolute top-3 right-3 z-10 h-9 w-9 rounded-2xl border border-white/10 bg-white/5 text-white/80 hover:text-white hover:bg-white/10 transition grid place-items-center"
                 aria-label="Close chat"
                 title="Close"
               >
                 <X className="h-5 w-5" />
-              </button> */}
+              </button>
 
               <DigitalTwinChat />
             </motion.div>
