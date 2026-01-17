@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     title: metaData.name,
     card: "summary_large_image",
-    images: ["/photos/avatar-crop.jpeg"],
+    images: ["/photos/avatar-crop.png"],
   },
   icons: {
     icon: [{ url: "/photos/avatar-crop.png", type: "image/png", sizes: "1000x1000" }],
