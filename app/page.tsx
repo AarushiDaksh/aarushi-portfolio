@@ -18,6 +18,7 @@ import BotLauncher from "./components/bot";
 import About from "./components/about";
 import Highlights from "./components/highlights";
 import ScrollToTop from "./components/scrolltotop";
+import MoreProjects from "./components/morework";
 
 
 /* Spiral Aura */
@@ -125,6 +126,7 @@ export default function Page() {
           <div id="works" className="scroll-mt-28 mt-16 sm:mt-20">
             <BestWorks />
           </div>
+          <MoreProjects />
          
           {/* Navbar */}
           <section className="mb-20 mt-16 sm:mt-20">

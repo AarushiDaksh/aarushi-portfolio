@@ -6,6 +6,7 @@ import { ThemeProvider } from "./components/theme-switch";
 import Header from "./components/Header";
 import DraculaOverlay from "./components/Dracula";
 import { metaData } from "./lib/config";
+import CustomCursor from "./components/cursor";
 
 const pressStart = Press_Start_2P({ subsets: ["latin"], weight: "400", variable: "--font-minecraft" });
 const inter = Inter({ subsets: ["latin"] });
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <DraculaOverlay />
             </main>
           </div>
+          <CustomCursor />
         </ThemeProvider>
       </body>
     </html>

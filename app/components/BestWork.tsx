@@ -76,7 +76,9 @@ export default function BestWorks() {
                   View Project →
                 </span>
               </div>
+              
             </div>
+            
           </motion.article>
         ))}
       </div>
