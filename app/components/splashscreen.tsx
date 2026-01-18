@@ -17,7 +17,7 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
         onFinish();
       });
 
-    const timer = setTimeout(onFinish, 3000); // splash duration
+    const timer = setTimeout(onFinish, 5500); 
     return () => clearTimeout(timer);
   }, [onFinish]);
 
@@ -38,7 +38,7 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
         </div>
 
         <p className="mt-4 text-xs font-semibold tracking-[0.28em] text-neutral-500 dark:text-neutral-400">
-          Hey there! Aarushi ...
+          Aarushi Daksh
         </p>
       </div>
     </motion.div>
