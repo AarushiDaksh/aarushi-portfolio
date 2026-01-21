@@ -67,7 +67,7 @@ export default function Hero() {
         {/* CTAs (stack on mobile) */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
-            href="https://drive.google.com/file/d/1lzTdyZWCzQ2K5TEghLFpn8M-uIQbPH33/view?usp=sharing"
+            href="https://drive.google.com/file/d/1Ppmzdb2k5x4j4I_BVCjjEArHjvR3juCf/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="
